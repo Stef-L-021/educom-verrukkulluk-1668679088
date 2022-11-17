@@ -1,0 +1,53 @@
+<html lang="nl">
+<head>
+
+    <title>het is verrukkuluk! :: {{ TITEL }} </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/fontawesome.css" />
+
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css" />
+
+    <script type="text/javascript" language="javascript" src="assets/jquery/jquery-3.5.1.js"></script>
+    <script type="text/javascript" language="javascript" src="assets/bootstrap/js/bootstrap.js"></script>
+
+</html>
+<body>
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-12">
+        {% block header %}
+            
+        {% endblock %}   
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <h2>Agenda</h2>
+            <i class="fa fa-calendar"></i> FontAwesome <a href="https://fontawesome.com/icons?d=gallery&m=free">Documentation</a><br>
+            <i class="fa fa-file-pdf"></i><a href="https://www.layoutit.com/build">Layout-it</a>
+
+
+        </div>
+        <div class="col-md-9">
+            <h2>Content</h2>
+            {%  block content %}
+            {%  endblock %}
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Footer</h1>
+        </div>
+    </div>
+
+
+</div>
+
+</body>

@@ -1,0 +1,8 @@
+# Dependencies
+/vendor
+
+# Build
+/cache
+
+# Misc
+.DS_Store

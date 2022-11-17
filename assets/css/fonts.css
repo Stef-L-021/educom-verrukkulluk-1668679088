@@ -1,0 +1,7 @@
+@font-face {
+    font-family: 'pretty_lilyregular';
+    src: url('../fonts/pretty_lily-webfont.woff2') format('woff2'),
+    url('../fonts/pretty_lily-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
