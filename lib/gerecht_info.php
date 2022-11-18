@@ -46,7 +46,7 @@ class gerecht_info {
     public function addFavorite($gerecht_id, $user_id) { 
 
         $sql = "insert into gerecht_info (id, record_type, gerecht_id, user_id, datum)
-        select MAX(id)+1, 'F', $gerecht_id, $user_id, CURDATE() from gerecht_info";
+        select MAX(id)+1, 'F', $gerecht_id, $user_id, CURDATE() from gerecht_info";         // id weglaten is niet 100% consistent en slaat soms IDs over, vandaar dat ik werk met max+1. CURDATE() geeft current date.
         
         // test of het werkt
         if ($this->connection->query($sql) === TRUE) {
