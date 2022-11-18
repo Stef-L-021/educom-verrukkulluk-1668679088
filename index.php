@@ -33,5 +33,6 @@ var_dump($datakeuken);
 var_dump($data_gerecht_info_user);
 
 // var_dump(om te checken of een bepaald ID van gerecht_info er wel of niet is);
+echo "data gerecht 10: <br>";
 $data_gerecht_info = $gerecht_info->selecteerGerecht_info(10);
 var_dump($data_gerecht_info);
