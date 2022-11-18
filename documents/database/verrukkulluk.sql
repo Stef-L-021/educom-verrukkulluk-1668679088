@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 17 nov 2022 om 16:12
+-- Gegenereerd op: 18 nov 2022 om 13:09
 -- Serverversie: 10.4.25-MariaDB
 -- PHP-versie: 8.1.10
 
@@ -42,7 +42,17 @@ CREATE TABLE `artikel` (
 
 INSERT INTO `artikel` (`id`, `naam`, `omschrijving`, `prijs`, `eenheid`, `verpakking`) VALUES
 (1, 'Vegan Burger Bun', 'bun', '2.00', 'broodjes', 6),
-(2, 'Vegan Burger', 'blije koe', '3.00', 'gram', 500);
+(2, 'Vegan Burger', 'blije koe', '3.00', 'gram', 500),
+(3, 'Vegan Burger sauce', 'beste sauce', '2.50', 'ml', 500),
+(4, 'snoep tomaatjes', 'Vers uit de tuin', '1.99', 'gram', 250),
+(5, 'Eieren', 'Vers uit de kip', '2.25', 'stuk(s)', 6),
+(6, 'broccoli ', 'groene bloemkool', '1.59', 'gram', 500),
+(7, 'bloemkool', '', '1.89', 'stuk', 1),
+(8, 'Komkommer', '', '1.59', 'stuk', 1),
+(9, 'Geschrapte worteltjes', '', '1.00', 'gram', 300),
+(10, 'sushi rice', '', '3.39', 'gram', 500),
+(11, 'sushi nori', 'Om om de sushi heen te doen', '2.45', 'gram', 14),
+(12, 'Avocado', 'Voor o.a. in de sushi', '1.39', 'stuk', 1);
 
 -- --------------------------------------------------------
 
@@ -121,7 +131,14 @@ CREATE TABLE `ingredient` (
 
 INSERT INTO `ingredient` (`id`, `gerecht_id`, `artikel_id`, `aantal`) VALUES
 (1, 2, 1, '1'),
-(2, 2, 2, '200');
+(2, 2, 2, '200'),
+(3, 2, 3, '30'),
+(4, 1, 4, '50'),
+(5, 1, 5, '1'),
+(6, 1, 6, '100'),
+(7, 1, 7, '100'),
+(8, 1, 8, '50'),
+(9, 1, 9, '50');
 
 -- --------------------------------------------------------
 
@@ -161,7 +178,7 @@ CREATE TABLE `user` (
   `user_name` varchar(30) NOT NULL,
   `password` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `afbeelding` text NOT NULL
+  `afbeelding` blob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -229,7 +246,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT voor een tabel `artikel`
 --
 ALTER TABLE `artikel`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT voor een tabel `gerecht`
@@ -241,13 +258,13 @@ ALTER TABLE `gerecht`
 -- AUTO_INCREMENT voor een tabel `gerecht_info`
 --
 ALTER TABLE `gerecht_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT voor een tabel `ingredient`
 --
 ALTER TABLE `ingredient`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT voor een tabel `keuken_type`
