@@ -50,9 +50,10 @@ class gerecht_info {
         
         // test of het werkt
         if ($this->connection->query($sql) === TRUE) {
-            echo "New record created successfully";
+            $last_id= $this->connection ->insert_id;                                        // zoekt wat de laatst toevoegde ID is
+            echo "New record created successfully. Last inserted ID is: " . $last_id;       // geeft een success message samen met het laatst toegevoegde ID van de line erboven
           } else {
-            echo "Error: " . $sql . "<br>" . $this->connection->error;
+            echo "Error: " . $sql . "<br>" . $this->connection->error;                      // Geeft een error als er een fout plaatsvind tijdens het toevoegen van een favoriet
           }
 
     }
