@@ -18,7 +18,7 @@ class ingredient {
     }
 
     // selectie ingredient
-    public function selecteerIngredient($gerecht_id) {                      // nieuwe functie opstellen:
+    public function selecteerIngredient($gerecht_id) {                      // nieuwe functie opstellen: Noem dit voortaan meervouw omdat we hier een array krijgen
         $sql = "SELECT * FROM ingredient WHERE gerecht_id= $gerecht_id";    // Dit moet gerecht_id zijn omdat we dit ook in willen vullen!!
         $return = [];                                                       // We returnen een array
 
