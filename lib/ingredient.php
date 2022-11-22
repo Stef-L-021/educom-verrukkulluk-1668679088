@@ -26,16 +26,16 @@ class ingredient {
 
             while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {      // als er een array is is er een loop
 
-                $art_id = $row["artikel_id"];                               // kan dit niet in hieronder?
+                $art_id = $row["artikel_id"];                            
                 $artikel = $this->selectArtikel($art_id);                   // variable artikel is de selectArtikel functie de we hebben gemaakt met art_id als invoer
 
                 $return[] = [
 
-                    "id" => $row["id"],                         // ingredient_id
-                    "gerecht_id" => $row["gerecht_id"],
-                    "artikel_id" => $row["artikel_id"],
+                    "id" => $row["id"],                                 // ingredient_id
+                    "gerecht_id" => $row["gerecht_id"],                 // pakt de artikel_id van de row
+                    "artikel_id" => $art_id,                            // kan ook via $row["artikel_id"],  
                     "aantal" => $row["aantal"],
-                    "naam" => $artikel["naam"],
+                    "naam" => $artikel["naam"],                         // vanaf hier pakken we ze uit de artkel tabel
                     "omschrijving" => $artikel["omschrijving"],
                     "prijs" => $artikel["prijs"],
                     "eenheid" => $artikel["eenheid"],
