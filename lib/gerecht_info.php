@@ -2,75 +2,118 @@
 
 class gerecht_info {
     private $connection;
+    private $usr;
 
     public function __construct($connection) {
         $this->connection = $connection;
+        $this->usr = new user ($connection);
     }
 
-    public function selecteerGerecht_info($gerecht_info_id) {
-        $sql = "select * from gerecht_info where id = $gerecht_info_id";
-
-        $result = mysqli_query($this->connection, $sql);
-        $gerecht_info = mysqli_fetch_array($result, MYSQLI_ASSOC);
-
-        return($gerecht_info);
+    // functie voor user_name
+    private function selectUser($usr_id) {
+        $data = $this->usr->selecteerUser($usr_id);       // Pak de functie selecteerUser uit user.php
+        return($data);
     }
 
-    // functie voor het ophalen van de user bij O en F
-    public function selecteerUserGerecht_info($gerecht_info_id) {
-        // De main query zoekt de user_name in de user tabel met het user_id uit gerecht_info gevonden in de subquery
-        $sql = "select user_name                                        
-                from user
-                where id =
-                    (select user_id 
-                    from gerecht_info 
-                    where 
-                        id = $gerecht_info_id
-                        AND (record_type = 'O'
-                        OR record_type = 'F')
-                    )";
 
-        $result = mysqli_query($this->connection, $sql);
-        $gerecht_user_info = mysqli_fetch_array($result, MYSQLI_ASSOC);
-
-        return($gerecht_user_info);
-
-    }
-
-    public function maxid() {
+    // select 
+    public function selecteerInfo($gerecht_id, $record_type) {
+        $sql = "SELECT * FROM gerecht_info WHERE gerecht_id = $gerecht_id AND record_type = '$record_type'";
+        $return = [];                                                      // returnt een array
         
+        $result = mysqli_query($this->connection, $sql);
+
+            while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                
+                if ($record_type == 'O' || $record_type == 'F') {
+                    $usr_id = $row["user_id"]; 
+                    $user = $this->selectUser($usr_id);
+
+                    $return[] = [
+                        "id" => $row["id"],              // Gerecht_info id
+                        "gerecht_id" => $row["gerecht_id"],
+                        "record_type" => $row["record_type"],
+                        "user_name" => $user,
+                        "datum" => $row["datum"],
+                        "nummeriekveld" => $row["nummeriekveld"],
+                        "tekstveld" => $row["tekstveld"]
+                    ];
+
+                } else {
+                    $return[] = [
+                        "id" => $row["id"],              // Gerecht_info id
+                        "gerecht_id" => $row["gerecht_id"],
+                        "record_type" => $row["record_type"],
+                        "datum" => $row["datum"],
+                        "nummeriekveld" => $row["nummeriekveld"],
+                        "tekstveld" => $row["tekstveld"]
+                    ];
+                }
+               
+            } // einde Fetch array
+    return($return);
     }
+
+    /*
+
+    // selectie user id met in gerecht_info tabel met invoer gerecht_id
+    public function selecteerUsersId($gerecht_id, $record_type){
+        $sql ="SELECT * FROM gerecht_info WHERE gerecht_id = $gerecht_id";
+        $return = [];                                                      // returnt een array
+        
+        $result = mysqli_query($this->connection, $sql);
+
+            while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+
+                $usr_id = $row["user_id"];
+                
+                echo "<pre>";
+                // var_dump($row);     // in row zitten alle arrays van dat gerecht
+                // tussen hier en return zit dus de fout
+                
+                $user = $this->selectUser($usr_id);
+
+                $return[] = [
+
+                    "id" => $row["id"],              // Gerecht_info id
+                    "gerecht_id" => $row["gerecht_id"],
+                    "record_type" => $row["record_type"],
+                    "user_name" => $user["user_name"]
+                ];
+            } // einde Fetch array
+    return($return);
+
+
+
+    } // einde selecteerUsersId
+
+    */
+
+
+
 
     // methode addFavorite
     // Hier geven we de user op waarvoor het een favoriet wordt en het gerecht waarvoor
-    public function addFavorite($gerecht_id, $user_id) { 
+    public function addFavorite($gerecht_id) { 
 
-        $sql = "insert into gerecht_info (id, record_type, gerecht_id, user_id, datum)
-        select MAX(id)+1, 'F', $gerecht_id, $user_id, CURDATE() from gerecht_info";         // id weglaten is niet 100% consistent en slaat soms IDs over, vandaar dat ik werk met max+1. CURDATE() geeft current date.
+        if(!isset($gerecht_id)) return false;                               // Deze stopt de functie meteen als er geen correcte input is voordat het door de sql zou moeten.
+
+        $sql = "insert into gerecht_info (record_type, gerecht_id)
+        VALUES ('F', $gerecht_id)";    
         
         // test of het werkt
-        if ($this->connection->query($sql) === TRUE) {
-            $last_id= $this->connection ->insert_id;                                        // zoekt wat de laatst toevoegde ID is
-            echo "New record created successfully. Last inserted ID is: " . $last_id;       // geeft een success message samen met het laatst toegevoegde ID van de line erboven
-          } else {
-            echo "Error: " . $sql . "<br>" . $this->connection->error;                      // Geeft een error als er een fout plaatsvind tijdens het toevoegen van een favoriet
-          }
+        return ($this->connection->query($sql));
 
     }
 
     // methode deleteFavorite 
-    public function deleteFavorite($gerecht_id, $user_id) {
-        $sql = "delete from gerecht_info 
-        where gerecht_id= $gerecht_id AND user_id = $user_id";
+    public function deleteFavorite($gerecht_id) {
+        $sql = "delete from gerecht_info where gerecht_id= $gerecht_id";
 
         // test of het werkt
-        if ($this->connection->query($sql) === TRUE) {
-            echo "Record deleted successfully";
-        } else {
-            echo "Error: " . $sql . "<br>" . $this->connection->error;
-        }
-    }
+        return ($this->connection->query($sql));
 
-} // Einde gerecht_info class
+    } // Einde gerecht_info class
+}
 
 ?>
