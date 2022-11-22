@@ -17,15 +17,17 @@ $gerecht_info = new gerecht_info($db->getConnection());
 $ingr = new ingredient($db->getConnection());
 
 /// VERWERK     de variable + select functie in een nieuwe variable
-$data = $art->selecteerArtikel(2);
-$dataUser = $usr->selecteerUser(3);
-$datakeuken = $keuken->selecteerKeuken_type(4);
-$data_gerecht_info_user = $gerecht_info->selecteerUserGerecht_info(8);
-$dataIngredient = $ingr->selecteerIngredient(2);                      // test bij gerecht 2
+// $data = $art->selecteerArtikel(2);
+//$dataUser = $usr->selecteerUser(3);
+// $datakeuken = $keuken->selecteerKeuken_type(4);
+// $data_gerecht_info_user = $gerecht_info->selecteerUserGerecht_info(8);
+// $dataIngredient = $ingr->selecteerIngredient(1);                      // test bij gerecht 2
+// $dataUser_gerecht_info_new = $gerecht_info->selecteerUsersId(1);                     // Als t goed is wordt hier user_id ingevuld in de gerecht_info tabel
+$selectBereidingswijze = $gerecht_info->selecteerInfo(1, 'O');
 
 // Add en delete favoriten:
-//$addFavorite = $gerecht_info->addFavorite(2,3);               // Voeg tussen haakjes in het GERECHT_ID,USER_ID voor deze TOE TE VOEGEN
-//$deleteFavorite = $gerecht_info->deleteFavorite(2,3);         // Voeg tussen haakjes in het GERECHT_ID,USER_ID voor te VERWIJDEREN
+//$addFavorite = $gerecht_info->addFavorite(3);               // Voeg tussen haakjes in het GERECHT_ID voor deze TOE TE VOEGEN
+//$deleteFavorite = $gerecht_info->deleteFavorite(3);         // Voeg tussen haakjes in het GERECHT_ID voor te VERWIJDEREN
 
 /// RETURN      de nieuwe var
 echo "<pre>";
@@ -34,7 +36,8 @@ echo "<pre>";
 //var_dump($datakeuken);
 //var_dump($data_gerecht_info_user);
 
-var_dump($dataIngredient);
+// var_dump($dataIngredient);
+var_dump($selectBereidingswijze);
 
 // var_dump(om te checken of een bepaald ID van gerecht_info er wel of niet is);
 //echo "data gerecht 10: <br>";
