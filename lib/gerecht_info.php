@@ -33,10 +33,10 @@ class gerecht_info {
                         "id" => $row["id"],              // Gerecht_info id
                         "gerecht_id" => $row["gerecht_id"],
                         "record_type" => $row["record_type"],
-                        "user_name" => $user,
                         "datum" => $row["datum"],
                         "nummeriekveld" => $row["nummeriekveld"],
-                        "tekstveld" => $row["tekstveld"]
+                        "tekstveld" => $row["tekstveld"],
+                        "user" => $user
                     ];
 
                 } else {
