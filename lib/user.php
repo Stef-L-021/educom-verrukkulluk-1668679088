@@ -11,6 +11,7 @@ class user {
     // Selectie methode met SQL:
     public function selecteerUser($user_id) {
         $sql = "select * from user where id = $user_id";
+        // echo $sql;
 
         $result = mysqli_query($this->connection, $sql);
         $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
