@@ -56,7 +56,7 @@ var_dump($dataIngredient);
 
 // Vraag 10 Gerecht:
 echo "Select array van gerecht <br>";
-$selectGerechtArray = $gerecht-> selecteerGerecht(1);     // voer hier het gerecht_id in
+$selectGerechtArray = $gerecht-> selecteerGerecht(2);     // voer hier het gerecht_id in
 var_dump($selectGerechtArray);
 
 
