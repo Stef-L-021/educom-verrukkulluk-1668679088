@@ -24,37 +24,33 @@ class gerecht_info {
         $result = mysqli_query($this->connection, $sql);
 
             while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+
+                $general_array = [];
+                $user_array = [];
+
+                $general_array = [
+                    "id" => $row["id"],              // Gerecht_info id
+                    "gerecht_id" => $row["gerecht_id"],
+                    "record_type" => $row["record_type"],
+                    "datum" => $row["datum"],
+                    "nummeriekveld" => $row["nummeriekveld"],
+                    "tekstveld" => $row["tekstveld"],
+                ];
                 
-                if ($record_type == 'O' || $record_type == 'F') {
-                    $usr_id = $row["user_id"]; 
-                    $user = $this->selectUser($usr_id);
+                if ($record_type == 'O' || $record_type == 'F') {                   // If statement voor opmerkingen en favorieten
+                    $usr_id = $row["user_id"];                                      // 
+                    $user_array = $this->selectUser($usr_id);                       
+                    // Hier zetten we de functie die we eerder hebben gemaakt en waarvan de data in user.php staat in de $user_array variable.
+                    // Omdat in user.php SELECT * SQL wordt gebruikt krijgen we hier ook alles te zien uit de user tabel.
 
-                    $return[] = [
-                        "id" => $row["id"],              // Gerecht_info id
-                        "gerecht_id" => $row["gerecht_id"],
-                        "record_type" => $row["record_type"],
-                        "datum" => $row["datum"],
-                        "nummeriekveld" => $row["nummeriekveld"],
-                        "tekstveld" => $row["tekstveld"],
-                        "user" => $user
-                    ];
+                } // Einde if statement 
 
-                } else {
-                    $return[] = [
-                        "id" => $row["id"],              // Gerecht_info id
-                        "gerecht_id" => $row["gerecht_id"],
-                        "record_type" => $row["record_type"],
-                        "datum" => $row["datum"],
-                        "nummeriekveld" => $row["nummeriekveld"],
-                        "tekstveld" => $row["tekstveld"]
-                    ];
-                }
-               
+                $return[] = $general_array + $user_array;
+
             } // einde Fetch array
     return($return);
     }
 
-    
     // methode addFavorite
     // Hier geven we de user op waarvoor het een favoriet wordt en het gerecht waarvoor
     public function addFavorite($gerecht_id) { 
