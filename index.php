@@ -20,7 +20,7 @@ $gerecht = new gerecht($db ->getConnection());
 
 /// VERWERK     de variable + select functie in een nieuwe variable
 // $data = $art->selecteerArtikel(2);
-//$dataUser = $usr->selecteerUser(3);
+// $dataUser = $usr->selecteerUser(3);
 // $datakeuken = $keuken->selecteerKeuken_type(4);
 // $data_gerecht_info_user = $gerecht_info->selecteerUserGerecht_info(8);
 // $dataIngredient = $ingr->selecteerIngredient(1);                      // test bij gerecht 2
@@ -41,16 +41,21 @@ echo "<pre>";
 // var_dump($dataIngredient);
 
 // Selectie gerecht_info vraag 8
-$selectBereidingswijze = $gerecht_info->selecteerInfo(1, 'O');
+echo "bereidingswijze <br>";
+$selectBereidingswijze = $gerecht_info->selecteerInfo(1, 'F');
 var_dump($selectBereidingswijze);
 
 // gerecht
 // $selecteerGerecht = $gerecht->selecteerGerecht(3);
 // var_dump($selecteerGerecht);
 
+
+// Vraag 10 Gerecht:
+echo "selectUser uit gerecht <br>";
 $selectUser = $gerecht->selectUser(1);
 var_dump($selectUser);
 
+echo "Select Ingredient uit gerecht <br>";
 $selectIngredient = $gerecht-> selectIngredient(2);     // voer hier het gerecht_id in
 var_dump($selectIngredient);
 
