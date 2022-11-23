@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 18 nov 2022 om 16:51
--- Serverversie: 10.4.25-MariaDB
--- PHP-versie: 8.1.10
+-- Generation Time: Nov 23, 2022 at 09:15 AM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `artikel`
+-- Table structure for table `artikel`
 --
 
 CREATE TABLE `artikel` (
@@ -37,7 +37,7 @@ CREATE TABLE `artikel` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Gegevens worden geëxporteerd voor tabel `artikel`
+-- Dumping data for table `artikel`
 --
 
 INSERT INTO `artikel` (`id`, `naam`, `omschrijving`, `prijs`, `eenheid`, `verpakking`) VALUES
@@ -57,7 +57,7 @@ INSERT INTO `artikel` (`id`, `naam`, `omschrijving`, `prijs`, `eenheid`, `verpak
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `gerecht`
+-- Table structure for table `gerecht`
 --
 
 CREATE TABLE `gerecht` (
@@ -69,15 +69,15 @@ CREATE TABLE `gerecht` (
   `titel` varchar(50) NOT NULL,
   `korte_omschrijving` text NOT NULL,
   `lange_omschrijving` text NOT NULL,
-  `afbeelding` text NOT NULL
+  `afbeelding` blob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Gegevens worden geëxporteerd voor tabel `gerecht`
+-- Dumping data for table `gerecht`
 --
 
 INSERT INTO `gerecht` (`id`, `keuken_id`, `type_id`, `user_id`, `datum_toegevoegd`, `titel`, `korte_omschrijving`, `lange_omschrijving`, `afbeelding`) VALUES
-(1, 6, 9, 2, '2022-11-17', 'Eggs & Veggies', '', '', ''),
+(1, 6, 9, 2, '2022-11-17', 'Eggs & Veggies', 'Eggs & veggies korte beschrijving', 'Eggggss en veggggieessss lange beschrijving', ''),
 (2, 1, 8, 3, '2022-11-17', 'Vegan Burger', '', '', ''),
 (3, 5, 7, 3, '2022-11-17', 'Sushi Rolls', '', '', ''),
 (4, 2, 9, 4, '2022-11-17', 'Pizza Green', '', '', '');
@@ -85,7 +85,7 @@ INSERT INTO `gerecht` (`id`, `keuken_id`, `type_id`, `user_id`, `datum_toegevoeg
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `gerecht_info`
+-- Table structure for table `gerecht_info`
 --
 
 CREATE TABLE `gerecht_info` (
@@ -99,7 +99,7 @@ CREATE TABLE `gerecht_info` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Gegevens worden geëxporteerd voor tabel `gerecht_info`
+-- Dumping data for table `gerecht_info`
 --
 
 INSERT INTO `gerecht_info` (`id`, `record_type`, `gerecht_id`, `user_id`, `datum`, `nummeriekveld`, `tekstveld`) VALUES
@@ -109,13 +109,15 @@ INSERT INTO `gerecht_info` (`id`, `record_type`, `gerecht_id`, `user_id`, `datum
 (4, 'B', 1, NULL, '2022-11-17', 4, 'Biem'),
 (5, 'B', 1, NULL, '2022-11-17', 5, 'Biem'),
 (6, 'O', 1, 1, '2022-11-17', NULL, 'Geweldig Joh'),
-(7, 'W', 1, 1, '2022-11-17', 5, NULL),
-(8, 'F', 1, 1, '2022-11-17', NULL, NULL);
+(7, 'W', 1, NULL, '2022-11-17', 5, NULL),
+(8, 'F', 1, 1, '2022-11-17', NULL, NULL),
+(15, 'F', 2, NULL, '2022-11-22', NULL, NULL),
+(24, 'F', 1, 2, '2022-11-17', NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `ingredient`
+-- Table structure for table `ingredient`
 --
 
 CREATE TABLE `ingredient` (
@@ -126,7 +128,7 @@ CREATE TABLE `ingredient` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Gegevens worden geëxporteerd voor tabel `ingredient`
+-- Dumping data for table `ingredient`
 --
 
 INSERT INTO `ingredient` (`id`, `gerecht_id`, `artikel_id`, `aantal`) VALUES
@@ -143,7 +145,7 @@ INSERT INTO `ingredient` (`id`, `gerecht_id`, `artikel_id`, `aantal`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `keuken_type`
+-- Table structure for table `keuken_type`
 --
 
 CREATE TABLE `keuken_type` (
@@ -153,7 +155,7 @@ CREATE TABLE `keuken_type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Gegevens worden geëxporteerd voor tabel `keuken_type`
+-- Dumping data for table `keuken_type`
 --
 
 INSERT INTO `keuken_type` (`id`, `record_type`, `omschrijving`) VALUES
@@ -170,7 +172,7 @@ INSERT INTO `keuken_type` (`id`, `record_type`, `omschrijving`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -182,7 +184,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Gegevens worden geëxporteerd voor tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `user_name`, `password`, `email`, `afbeelding`) VALUES
@@ -192,17 +194,17 @@ INSERT INTO `user` (`id`, `user_name`, `password`, `email`, `afbeelding`) VALUES
 (4, 'Katinka Cool', 'etensite@553', 'Katinka@email.com', '');
 
 --
--- Indexen voor geëxporteerde tabellen
+-- Indexes for dumped tables
 --
 
 --
--- Indexen voor tabel `artikel`
+-- Indexes for table `artikel`
 --
 ALTER TABLE `artikel`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexen voor tabel `gerecht`
+-- Indexes for table `gerecht`
 --
 ALTER TABLE `gerecht`
   ADD PRIMARY KEY (`id`),
@@ -211,14 +213,14 @@ ALTER TABLE `gerecht`
   ADD KEY `user` (`user_id`);
 
 --
--- Indexen voor tabel `gerecht_info`
+-- Indexes for table `gerecht_info`
 --
 ALTER TABLE `gerecht_info`
   ADD PRIMARY KEY (`id`),
   ADD KEY `gerecht_id` (`gerecht_id`);
 
 --
--- Indexen voor tabel `ingredient`
+-- Indexes for table `ingredient`
 --
 ALTER TABLE `ingredient`
   ADD PRIMARY KEY (`id`),
@@ -226,81 +228,81 @@ ALTER TABLE `ingredient`
   ADD KEY `gerecht` (`gerecht_id`);
 
 --
--- Indexen voor tabel `keuken_type`
+-- Indexes for table `keuken_type`
 --
 ALTER TABLE `keuken_type`
   ADD PRIMARY KEY (`id`),
   ADD KEY `record_type` (`record_type`,`omschrijving`);
 
 --
--- Indexen voor tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT voor geëxporteerde tabellen
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT voor een tabel `artikel`
+-- AUTO_INCREMENT for table `artikel`
 --
 ALTER TABLE `artikel`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT voor een tabel `gerecht`
+-- AUTO_INCREMENT for table `gerecht`
 --
 ALTER TABLE `gerecht`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT voor een tabel `gerecht_info`
+-- AUTO_INCREMENT for table `gerecht_info`
 --
 ALTER TABLE `gerecht_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT voor een tabel `ingredient`
+-- AUTO_INCREMENT for table `ingredient`
 --
 ALTER TABLE `ingredient`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT voor een tabel `keuken_type`
+-- AUTO_INCREMENT for table `keuken_type`
 --
 ALTER TABLE `keuken_type`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT voor een tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- Beperkingen voor geëxporteerde tabellen
+-- Constraints for dumped tables
 --
 
 --
--- Beperkingen voor tabel `gerecht`
+-- Constraints for table `gerecht`
 --
 ALTER TABLE `gerecht`
-  ADD CONSTRAINT `keuken_id` FOREIGN KEY (`keuken_id`) REFERENCES `keuken_type` (`ID`),
-  ADD CONSTRAINT `keuken_type type` FOREIGN KEY (`type_id`) REFERENCES `keuken_type` (`ID`),
-  ADD CONSTRAINT `user` FOREIGN KEY (`user_id`) REFERENCES `user` (`ID`);
+  ADD CONSTRAINT `keuken_id` FOREIGN KEY (`keuken_id`) REFERENCES `keuken_type` (`id`),
+  ADD CONSTRAINT `keuken_type type` FOREIGN KEY (`type_id`) REFERENCES `keuken_type` (`id`),
+  ADD CONSTRAINT `user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 
 --
--- Beperkingen voor tabel `gerecht_info`
+-- Constraints for table `gerecht_info`
 --
 ALTER TABLE `gerecht_info`
   ADD CONSTRAINT `gerecht_id` FOREIGN KEY (`gerecht_id`) REFERENCES `gerecht` (`id`);
 
 --
--- Beperkingen voor tabel `ingredient`
+-- Constraints for table `ingredient`
 --
 ALTER TABLE `ingredient`
-  ADD CONSTRAINT `artikel_id` FOREIGN KEY (`artikel_id`) REFERENCES `artikel` (`ID`),
+  ADD CONSTRAINT `artikel_id` FOREIGN KEY (`artikel_id`) REFERENCES `artikel` (`id`),
   ADD CONSTRAINT `gerecht` FOREIGN KEY (`gerecht_id`) REFERENCES `gerecht` (`id`);
 COMMIT;
 
