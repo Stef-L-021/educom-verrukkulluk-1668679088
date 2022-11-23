@@ -23,7 +23,15 @@ class gerecht {
         return($dataingr);
     }
 
-    // Selecteer etc...
+    // Calc calories 
+
+    // Calc prijs
+
+    // Selecteer waardering
+    
+    // Selecteer bereidingswijze
+
+    // Selecteer opmerkingen
 
 
     // Select gerecht
