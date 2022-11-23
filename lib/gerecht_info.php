@@ -54,44 +54,7 @@ class gerecht_info {
     return($return);
     }
 
-    /*
-
-    // selectie user id met in gerecht_info tabel met invoer gerecht_id
-    public function selecteerUsersId($gerecht_id, $record_type){
-        $sql ="SELECT * FROM gerecht_info WHERE gerecht_id = $gerecht_id";
-        $return = [];                                                      // returnt een array
-        
-        $result = mysqli_query($this->connection, $sql);
-
-            while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-
-                $usr_id = $row["user_id"];
-                
-                echo "<pre>";
-                // var_dump($row);     // in row zitten alle arrays van dat gerecht
-                // tussen hier en return zit dus de fout
-                
-                $user = $this->selectUser($usr_id);
-
-                $return[] = [
-
-                    "id" => $row["id"],              // Gerecht_info id
-                    "gerecht_id" => $row["gerecht_id"],
-                    "record_type" => $row["record_type"],
-                    "user_name" => $user["user_name"]
-                ];
-            } // einde Fetch array
-    return($return);
-
-
-
-    } // einde selecteerUsersId
-
-    */
-
-
-
-
+    
     // methode addFavorite
     // Hier geven we de user op waarvoor het een favoriet wordt en het gerecht waarvoor
     public function addFavorite($gerecht_id) { 
