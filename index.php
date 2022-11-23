@@ -23,7 +23,7 @@ $gerecht = new gerecht($db ->getConnection());
 // $dataUser = $usr->selecteerUser(3);
 // $datakeuken = $keuken->selecteerKeuken_type(4);
 // $data_gerecht_info_user = $gerecht_info->selecteerUserGerecht_info(8);
-// $dataIngredient = $ingr->selecteerIngredient(1);                      // test bij gerecht 2
+
 // $dataUser_gerecht_info_new = $gerecht_info->selecteerUsersId(1);                     // Als t goed is wordt hier user_id ingevuld in de gerecht_info tabel
 
 
@@ -38,12 +38,16 @@ echo "<pre>";
 //var_dump($datakeuken);
 //var_dump($data_gerecht_info_user);
 
-// var_dump($dataIngredient);
-
-// Selectie gerecht_info vraag 8
-echo "bereidingswijze <br>";
+/* Selectie gerecht_info vraag 8 
+echo "selecteer info uit gerecht_info <br>";
 $selectBereidingswijze = $gerecht_info->selecteerInfo(1, 'F');
 var_dump($selectBereidingswijze);
+*/
+
+/* Selectie ingredient Vraag 9 
+$dataIngredient = $ingr->selecteerIngredient(2);                                       // test bij gerecht 2
+var_dump($dataIngredient);
+*/
 
 // gerecht
 // $selecteerGerecht = $gerecht->selecteerGerecht(3);
@@ -51,13 +55,9 @@ var_dump($selectBereidingswijze);
 
 
 // Vraag 10 Gerecht:
-echo "selectUser uit gerecht <br>";
-$selectUser = $gerecht->selectUser(1);
-var_dump($selectUser);
-
-echo "Select Ingredient uit gerecht <br>";
-$selectIngredient = $gerecht-> selectIngredient(2);     // voer hier het gerecht_id in
-var_dump($selectIngredient);
+echo "Select array van gerecht <br>";
+$selectGerechtArray = $gerecht-> selecteerGerecht(1);     // voer hier het gerecht_id in
+var_dump($selectGerechtArray);
 
 
 // var_dump(om te checken of een bepaald ID van gerecht_info er wel of niet is);
