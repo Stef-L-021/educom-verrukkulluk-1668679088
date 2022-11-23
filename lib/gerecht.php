@@ -27,31 +27,60 @@ class gerecht {
         return($data);
     }
 
+    // Bereken prijs
+    private function berekenPrijs($gerecht_id) {
+        $dataPrijs = $this->ingredienten->selecteerIngredient($gerecht_id);
+        //gebruikt precies dezelfde data als calorieen hieronder
+        $totaal = 0;
+
+        foreach($dataPrijs as $ingredient) {
+            $prijs = $ingredient["prijs"];
+            $aantal = $ingredient["aantal"];
+            $verpakking = $ingredient["verpakking"];
+
+            $berekening = $prijs*($aantal/$verpakking);
+            $totaal += $berekening;
+        }
+
+        return($totaal/100);                    // Prijs is euro's
+    }
+
+
     // Bereken calorieen: 
     private function berekenCalorieen($gerecht_id) {
-        $ingredienten= $this->ingredienten->selecteerIngredient($gerecht_id);   // Dit moet vanuit gerecht wordt opgeroepen      // Deze functie moeten we gaan ophalen uit gerecht
+        $dataIngredienten= $this->ingredienten->selecteerIngredient($gerecht_id);   // Dit moet vanuit gerecht wordt opgeroepen      // Deze functie moeten we gaan ophalen uit gerecht
         $calorieen = 0;                                                         // Het wordt aan het begin voor de berekening standaard op 0 gezet
         $aantal = 0;
         $verpakking = 0;
         $totaal = 0;
 
-        foreach($ingredienten as $ingredient) {
-            $calorieen = $ingredient["calorieen"];             // Is hetzelfde als $calorieen = $calorieen + $ingredient["calorieen"];
+        foreach($dataIngredienten as $ingredient) {
+            $calorieen = $ingredient["calorieen"];             
             $aantal = $ingredient["aantal"];
             $verpakking = $ingredient["verpakking"];
 
             $berekening = $calorieen*($aantal/$verpakking);
-            $totaal += $berekening;
+            $totaal += $berekening;                             // Is hetzelfde als $totaal = $totaal + $berekening;
         }
 
         return($totaal);
     }
 
-       // Selecteer User
-       private function selectUser($user_id) {
+    // Selecteer User (Dit geeft 1 output. Is dit de user_id in gerecht? De maker van het gerecht?)
+    private function selectUser($user_id) {
         $data = $this->user->selecteerUser($user_id);
         return($data);
     }
+
+    // Selecteer bereidingswijze
+    private function selectBereidingswijze($gerecht_id, $record_type) {
+        $data = $this->gerechtInfo->selecteerInfo($gerecht_id, $record_type);
+        return($data);
+    }
+
+    // Selecteer opmerkingen
+
+
 
     // Select gerecht -----------------------------------------------------------
     public function selecteerGerecht($gerecht_id) {     // uit gerecht_info
@@ -71,16 +100,27 @@ class gerecht {
             $ingredienten_id= $gerecht["id"];
             $ingredienten = $this->selectIngredient("$ingredienten_id");
 
+            $berekenPrijs_id = $gerecht["id"];
+            $berekenPrijs= $this->berekenPrijs($berekenPrijs_id);
+
             $berekenCalorieen_id = $gerecht["id"];
             $berekenColorieen = $this->berekenCalorieen($berekenCalorieen_id);
 
+            $user_id = $gerecht["user_id"];
+            $user= $this->selectUser($user_id);
 
+            $bereidingswijze_id = $gerecht["id"];
+            $record_type_id = 'B';
+            $bereidingswijze = $this->selectBereidingswijze($bereidingswijze_id, $record_type_id);
 
             $return[] = [
                 "keuken" => $keuken,
                 "type" => $type,
                 "ingredienten" => $ingredienten,
-                "calorieen" => $berekenColorieen
+                "prijs" => $berekenPrijs,
+                "calorieen" => $berekenColorieen,
+                "user" => $user,
+                "bereidingswijze" => $bereidingswijze
             ];
         }
 
