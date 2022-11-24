@@ -29,7 +29,7 @@ class gerecht {
 
     // Bereken prijs
     private function berekenPrijs($gerecht_id) {
-        $dataPrijs = $this->ingredienten->selecteerIngredient($gerecht_id);
+        $dataPrijs = $this->ingredienten->selecteerIngredient($gerecht_id);         // Dit moet vanuit gerecht wordt opgeroepen
         //gebruikt precies dezelfde data als calorieen hieronder
         $totaal = 0;
 
@@ -48,7 +48,7 @@ class gerecht {
 
     // Bereken calorieen: 
     private function berekenCalorieen($gerecht_id) {
-        $dataIngredienten= $this->ingredienten->selecteerIngredient($gerecht_id);   // Dit moet vanuit gerecht wordt opgeroepen      // Deze functie moeten we gaan ophalen uit gerecht
+        $dataIngredienten= $this->ingredienten->selecteerIngredient($gerecht_id);   // Dit moet vanuit gerecht wordt opgeroepen      
         $calorieen = 0;                                                         // Het wordt aan het begin voor de berekening standaard op 0 gezet
         $aantal = 0;
         $verpakking = 0;
