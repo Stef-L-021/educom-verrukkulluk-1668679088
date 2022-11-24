@@ -73,7 +73,7 @@ class gerecht {
     }
 
     // Selecteer bereidingswijze
-    private function selectBereidingswijze($gerecht_id, $record_type) {
+    private function selectInfo($gerecht_id, $record_type) {
         $data = $this->gerechtInfo->selecteerInfo($gerecht_id, $record_type);
         return($data);
     }
@@ -83,7 +83,7 @@ class gerecht {
 
 
     // Select gerecht -----------------------------------------------------------
-    public function selecteerGerecht($gerecht_id) {     // uit gerecht_info
+    public function selecteerGerecht($gerecht_id) {    
 
         $sql = "SELECT * FROM gerecht WHERE id = $gerecht_id";
         $return = [];  
@@ -110,8 +110,13 @@ class gerecht {
             $user= $this->selectUser($user_id);
 
             $bereidingswijze_id = $gerecht["id"];
-            $record_type_id = 'B';
-            $bereidingswijze = $this->selectBereidingswijze($bereidingswijze_id, $record_type_id);
+            $bereidingswijze = $this->selectInfo($bereidingswijze_id, 'B');
+
+            $opmerkingen = $this->selectInfo($bereidingswijze_id, 'O');
+
+            $waarderingen = $this->selectInfo($bereidingswijze_id, 'W');
+
+            $favorieten = $this->selectInfo($bereidingswijze_id, 'F');
 
             $return[] = [
                 "keuken" => $keuken,
@@ -120,14 +125,17 @@ class gerecht {
                 "prijs" => $berekenPrijs,
                 "calorieen" => $berekenColorieen,
                 "user" => $user,
-                "bereidingswijze" => $bereidingswijze
+                "bereidingswijze" => $bereidingswijze,
+                "opmerkingen" => $opmerkingen,
+                "waarderingen" => $waarderingen,
+                "favorieten" => $favorieten
+
             ];
         }
-
 
         return($return);
     }
 
-
+    // Issue 11: 2de functie voor ALLE gerechten ophalen:
 
 }               
