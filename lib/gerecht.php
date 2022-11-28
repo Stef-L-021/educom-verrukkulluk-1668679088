@@ -71,13 +71,17 @@ class gerecht {
     }
 
     // Select gerecht -----------------------------------------------------------
-    public function selecteerGerecht($gerecht_id) {    
+    public function selecteerGerecht($gerecht_id=NULL) {    // het mag of gerecht_id zijn of NULL
 
-        $sql = "SELECT * FROM gerecht WHERE id = $gerecht_id";
+        $sql = "SELECT * FROM gerecht";
+        if(!is_null($gerecht_id)) {
+            $sql.=" WHERE id = $gerecht_id";
+        }
         $return = [];  
 
         $result = mysqli_query($this->connection, $sql);
         while ($gerecht = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+            $gerecht_id = $gerecht["id"];       // Deze worden 
 
             $keuken_id = $gerecht["keuken_id"];                 // ..._id = $gerecht[Naam van de kolom in de gerecht tabel]
             $keuken = $this->selectKeukenType($keuken_id);
@@ -85,8 +89,7 @@ class gerecht {
             $type_id = $gerecht["type_id"];
             $type= $this->selectKeukenType($type_id);
 
-            $ingredienten_id= $gerecht["id"];
-            $ingredienten = $this->selectIngredient("$ingredienten_id");
+            $ingredienten = $this->selectIngredient("$gerecht_id");
 
             $berekenPrijs= $this->berekenPrijs($ingredienten);
 
@@ -95,14 +98,13 @@ class gerecht {
             $user_id = $gerecht["user_id"];
             $user= $this->selectUser($user_id);
 
-            $bereidingswijze_id = $gerecht["id"];
-            $bereidingswijze = $this->selectInfo($bereidingswijze_id, 'B');
+            $bereidingswijze = $this->selectInfo($gerecht_id, 'B');
 
-            $opmerkingen = $this->selectInfo($bereidingswijze_id, 'O');
+            $opmerkingen = $this->selectInfo($gerecht_id, 'O');
 
-            $waarderingen = $this->selectInfo($bereidingswijze_id, 'W');
+            $waarderingen = $this->selectInfo($gerecht_id, 'W');
 
-            $favorieten = $this->selectInfo($bereidingswijze_id, 'F');
+            $favorieten = $this->selectInfo($gerecht_id, 'F');
 
             $return[] = [                   // noem dit gerechten
                 "keuken" => $keuken,
@@ -120,7 +122,5 @@ class gerecht {
 
         return($return);
     }
-
-    // Issue 11: 2de functie voor ALLE gerechten ophalen:
-
-}               
+ 
+}           
