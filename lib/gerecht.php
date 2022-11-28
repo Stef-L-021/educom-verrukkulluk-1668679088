@@ -78,10 +78,6 @@ class gerecht {
         return($data);
     }
 
-    // Selecteer opmerkingen
-
-
-
     // Select gerecht -----------------------------------------------------------
     public function selecteerGerecht($gerecht_id) {    
 
