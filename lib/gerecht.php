@@ -37,21 +37,16 @@ class gerecht {
 
             $berekening = $prijs*($aantal/$verpakking);
             $totaal += $berekening;
+            // kan je ook berekenen als $totaal = $ingredient["prijs"]*($ingredient["aantal"]/$ingredient["verpakking")
         }
 
         return($totaal/100);                    // Prijs in euro's
     }
-    
-/*
-    // Bereken calorieen: 
-    private function berekenCalorieen($gerecht_id) {
-        $dataIngredienten= $this->ingredienten->selecteerIngredient($gerecht_id);   // Dit moet vanuit gerecht wordt opgeroepen      
-        $calorieen = 0;                                                         // Het wordt aan het begin voor de berekening standaard op 0 gezet
-        $aantal = 0;
-        $verpakking = 0;
-        $totaal = 0;
 
-        foreach($dataIngredienten as $ingredient) {
+    // Bereken calorieen: 
+    private function berekenCalorieen($ingredienten) {      // deze ingredienten halen we uit gerechten
+        $totaal = 0;
+        foreach($ingredienten as $ingredient) {
             $calorieen = $ingredient["calorieen"];             
             $aantal = $ingredient["aantal"];
             $verpakking = $ingredient["verpakking"];
@@ -61,7 +56,7 @@ class gerecht {
         }
 
         return($totaal);
-    } */
+    } 
 
     // Selecteer User (Dit geeft 1 output. Is dit de user_id in gerecht? De maker van het gerecht?)
     private function selectUser($user_id) {
@@ -95,8 +90,7 @@ class gerecht {
 
             $berekenPrijs= $this->berekenPrijs($ingredienten);
 
-            //$berekenCalorieen_id = $gerecht["id"];
-            //$berekenColorieen = $this->berekenCalorieen($berekenCalorieen_id);
+            $berekenColorieen = $this->berekenCalorieen($ingredienten);
 
             $user_id = $gerecht["user_id"];
             $user= $this->selectUser($user_id);
@@ -115,13 +109,12 @@ class gerecht {
                 "type" => $type,
                 "ingredienten" => $ingredienten,
                 "prijs" => $berekenPrijs,
-                //"calorieen" => $berekenColorieen,
+                "calorieen" => $berekenColorieen,
                 "user" => $user,
                 "bereidingswijze" => $bereidingswijze,
                 "opmerkingen" => $opmerkingen,
                 "waarderingen" => $waarderingen,
                 "favorieten" => $favorieten
-
             ];
         }
 
@@ -129,5 +122,5 @@ class gerecht {
     }
 
     // Issue 11: 2de functie voor ALLE gerechten ophalen:
-    //public function selecteerAlle
+
 }               
