@@ -8,7 +8,7 @@ class gerecht {
     public function __construct($connection) {
         $this->connection = $connection;
         $this->keuken = new keuken_type($connection);
-        $this->ingredienten = new ingredient($connection);
+        $this->ingre = new ingredient($connection);
         $this->user = new user($connection);
         $this->gerechtInfo = new gerecht_info($connection);
     }
@@ -23,17 +23,14 @@ class gerecht {
 
     // selecteer ingredient
     private function selectIngredient($gerecht_id) {        
-        $data = $this->ingredienten->selecteerIngredient($gerecht_id);        // Deze functie kunnen we ophalen uit ingredienten
-        return($data);
+        $ingredienten = $this->ingre->selecteerIngredient($gerecht_id);        // Deze functie kunnen we ophalen uit ingredienten
+        return($ingredienten);
     }
 
-    // Bereken prijs
-    private function berekenPrijs($gerecht_id) {
-        $dataPrijs = $this->ingredienten->selecteerIngredient($gerecht_id);         // Dit moet vanuit gerecht wordt opgeroepen
-        //gebruikt precies dezelfde data als calorieen hieronder
+    // bereken prijs
+    private function berekenPrijs($ingredienten) {
         $totaal = 0;
-
-        foreach($dataPrijs as $ingredient) {
+        foreach($ingredienten as $ingredient) {        // meervoud en dan enkelvoud is beter.
             $prijs = $ingredient["prijs"];
             $aantal = $ingredient["aantal"];
             $verpakking = $ingredient["verpakking"];
@@ -42,10 +39,10 @@ class gerecht {
             $totaal += $berekening;
         }
 
-        return($totaal/100);                    // Prijs is euro's
+        return($totaal/100);                    // Prijs in euro's
     }
-
-
+    
+/*
     // Bereken calorieen: 
     private function berekenCalorieen($gerecht_id) {
         $dataIngredienten= $this->ingredienten->selecteerIngredient($gerecht_id);   // Dit moet vanuit gerecht wordt opgeroepen      
@@ -64,7 +61,7 @@ class gerecht {
         }
 
         return($totaal);
-    }
+    } */
 
     // Selecteer User (Dit geeft 1 output. Is dit de user_id in gerecht? De maker van het gerecht?)
     private function selectUser($user_id) {
@@ -96,11 +93,10 @@ class gerecht {
             $ingredienten_id= $gerecht["id"];
             $ingredienten = $this->selectIngredient("$ingredienten_id");
 
-            $berekenPrijs_id = $gerecht["id"];
-            $berekenPrijs= $this->berekenPrijs($berekenPrijs_id);
+            $berekenPrijs= $this->berekenPrijs($ingredienten);
 
-            $berekenCalorieen_id = $gerecht["id"];
-            $berekenColorieen = $this->berekenCalorieen($berekenCalorieen_id);
+            //$berekenCalorieen_id = $gerecht["id"];
+            //$berekenColorieen = $this->berekenCalorieen($berekenCalorieen_id);
 
             $user_id = $gerecht["user_id"];
             $user= $this->selectUser($user_id);
@@ -114,12 +110,12 @@ class gerecht {
 
             $favorieten = $this->selectInfo($bereidingswijze_id, 'F');
 
-            $return[] = [
+            $return[] = [                   // noem dit gerechten
                 "keuken" => $keuken,
                 "type" => $type,
                 "ingredienten" => $ingredienten,
                 "prijs" => $berekenPrijs,
-                "calorieen" => $berekenColorieen,
+                //"calorieen" => $berekenColorieen,
                 "user" => $user,
                 "bereidingswijze" => $bereidingswijze,
                 "opmerkingen" => $opmerkingen,
@@ -133,5 +129,5 @@ class gerecht {
     }
 
     // Issue 11: 2de functie voor ALLE gerechten ophalen:
-
+    //public function selecteerAlle
 }               
