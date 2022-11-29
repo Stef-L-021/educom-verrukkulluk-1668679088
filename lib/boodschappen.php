@@ -14,18 +14,32 @@ class boodschappen {
         return($data);
         }
 
-    public function boodschappenToevoegen($gerecht_id, $user_id) {
+    public function boodschappenToevoegen($gerecht_id = NULL, $user_id) {
         $ingredienten = $this->ingredient->selecteerIngredient($gerecht_id);       
         //ArtikelOpLijst($ingredient->artikel_id, $user_id);
         // array maken  met alle ingredienten die niet is opgesplits in verschillende arrays
 
+        $sql = "SELECT * FROM ingredient";
+        if(!is_null($gerecht_id)) {
+            $sql .=" WHERE gerecht_id= $gerecht_id";  
+        }
+        $ArtikelOpLijst = [];                                                     
 
+        $result = mysqli_query($this->connection, $sql);                   
+
+            while ($gerecht_id = mysqli_fetch_array($result, MYSQLI_ASSOC)) {     
+
+                $ArtikelOpLijst = [
+                    "aantal" => $ingredienten
+                ];
+            }
         //if($ingredienten == $ingredient->artikel_id, $user_id) {}
-        return($ingredienten);
+        return($ArtikelOpLijst);
     }
 
 
 } // EInde class
+
 
 
 
