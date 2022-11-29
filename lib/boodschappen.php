@@ -15,7 +15,7 @@ class boodschappen {
         }
 
     public function boodschappenToevoegen($gerecht_id = NULL, $user_id) {
-        $ingredienten = $this->ingredient->selecteerIngredient($gerecht_id);       
+        $ingredienten = $this->selectIngredienten($gerecht_id);       
         //ArtikelOpLijst($ingredient->artikel_id, $user_id);
         // array maken  met alle ingredienten die niet is opgesplits in verschillende arrays
 
@@ -23,14 +23,14 @@ class boodschappen {
         if(!is_null($gerecht_id)) {
             $sql .=" WHERE gerecht_id= $gerecht_id";  
         }
-        $ArtikelOpLijst = [];                                                     
+        $ArtikelOpLijst = [];                                                    
 
         $result = mysqli_query($this->connection, $sql);                   
 
             while ($gerecht_id = mysqli_fetch_array($result, MYSQLI_ASSOC)) {     
 
                 $ArtikelOpLijst = [
-                    "aantal" => $ingredienten
+                    "ingredienten" => $ingredienten
                 ];
             }
         //if($ingredienten == $ingredient->artikel_id, $user_id) {}
