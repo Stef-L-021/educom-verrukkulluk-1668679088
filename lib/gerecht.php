@@ -107,6 +107,7 @@ class gerecht {
             $favorieten = $this->selectInfo($gerecht_id, 'F');
 
             $return[] = [                   // noem dit gerechten
+                "gerecht" => $gerecht,
                 "keuken" => $keuken,
                 "type" => $type,
                 "ingredienten" => $ingredienten,
