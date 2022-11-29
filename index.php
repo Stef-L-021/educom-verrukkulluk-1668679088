@@ -62,8 +62,11 @@ var_dump($dataIngredient);
 //var_dump($selectGerechtArray);
 
 // vraag 12 boodschappenlijst
-$selectBoodschappen = $boodschappen->boodschappenToevoegen(2, 2);
-var_dump($selectBoodschappen);
+//$selectBoodschappenToev = $boodschappen->boodschappenToevoegen(2, 2);
+//var_dump($selectBoodschappenToev);
+
+$selecteerBoodschapppen = $boodschappen->selectBoodschappen(3);
+var_dump($selecteerBoodschapppen);
 
 // var_dump(om te checken of een bepaald ID van gerecht_info er wel of niet is);
 //echo "data gerecht 10: <br>";
