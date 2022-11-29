@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 28, 2022 at 04:41 PM
+-- Generation Time: Nov 29, 2022 at 04:50 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -61,6 +61,26 @@ INSERT INTO `artikel` (`id`, `naam`, `omschrijving`, `prijs`, `eenheid`, `verpak
 (16, 'tomaten puree', '', 49, 'gram', 70, 79, ''),
 (17, 'ijsbergsla', '', 99, 'krop', 1, 38, ''),
 (18, 'tomaten', '', 179, 'gram', 500, 105, '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `boodschappen`
+--
+
+CREATE TABLE `boodschappen` (
+  `id` int(11) NOT NULL,
+  `gerecht_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `boodschappen`
+--
+
+INSERT INTO `boodschappen` (`id`, `gerecht_id`, `user_id`) VALUES
+(1, 3, 2),
+(2, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -268,6 +288,12 @@ ALTER TABLE `artikel`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `boodschappen`
+--
+ALTER TABLE `boodschappen`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `gerecht`
 --
 ALTER TABLE `gerecht`
@@ -313,6 +339,12 @@ ALTER TABLE `user`
 --
 ALTER TABLE `artikel`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `boodschappen`
+--
+ALTER TABLE `boodschappen`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `gerecht`
