@@ -33,6 +33,12 @@ class boodschappen {
         // dit willen we loopen om alles te zien 
     }
 
+    public function selecteerartikel() {}
+
+    // we moeten zoeken of de unieke combinatie van user en gerecht al in de boodschappenlijst staat. als dit niet het geval is voegen we die toe.
+    // user id 
+    //check if value is not in array
+
     // we moeten ook kijken wat we nodig hebben op de pagina zelf en deze info ophalen. Is hier de gerecht tabel voor nodig?
 }
 
