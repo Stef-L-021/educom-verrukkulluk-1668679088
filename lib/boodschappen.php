@@ -2,44 +2,39 @@
 
 class boodschappen {
     private $connection;
+    private $ingredient;
+    private $user;
+    //private $gerecht;
+    private $boodschappen;
 
     public function __construct($connection) {
         $this->connection = $connection;
-        $this->ingredient = new ingredient($connection);
+        $this->ingredient = new ingredient ($connection);
+        $this->user = new user($connection);
     }
 
-    // ophalen ingredienten
-    private function selectIngredienten($gerecht_id) {
+    //ophalen ingredienten voor het artikel_id te krijgen
+    private function selectIngredienten($gerecht_id){
         $data = $this->ingredient->selecteerIngredient($gerecht_id);
         return($data);
-        }
-
-    public function boodschappenToevoegen($gerecht_id = NULL, $user_id) {
-        $ingredienten = $this->selectIngredienten($gerecht_id);       
-        //ArtikelOpLijst($ingredient->artikel_id, $user_id);
-        // array maken  met alle ingredienten die niet is opgesplits in verschillende arrays
-
-        $sql = "SELECT * FROM ingredient";
-        if(!is_null($gerecht_id)) {
-            $sql .=" WHERE gerecht_id= $gerecht_id";  
-        }
-        $ArtikelOpLijst = [];                                                    
-
-        $result = mysqli_query($this->connection, $sql);                   
-
-            while ($gerecht_id = mysqli_fetch_array($result, MYSQLI_ASSOC)) {     
-
-                $ArtikelOpLijst = [
-                    "ingredienten" => $ingredienten
-                ];
-            }
-        //if($ingredienten == $ingredient->artikel_id, $user_id) {}
-        return($ArtikelOpLijst);
     }
 
+    private function selectUser($user_id) {
+        $data = $this->user->selecteerUser($user_id);
+        return($data);
+    }
 
-} // EInde class
+    // ophalen boodschappen
+    public function selectBoodschappen($gerecht_id) {
+        $sql = "SELECT * FROM boodschappen WHERE gerecht_id = $gerecht_id";
+        $result = mysqli_query($this->connection, $sql);
+        $boodschappen = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        return($boodschappen);
+        // dit willen we loopen om alles te zien 
+    }
 
+    // we moeten ook kijken wat we nodig hebben op de pagina zelf en deze info ophalen. Is hier de gerecht tabel voor nodig?
+}
 
 
 
