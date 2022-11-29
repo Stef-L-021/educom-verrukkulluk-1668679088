@@ -8,6 +8,7 @@ require_once("lib/keuken_type.php");
 require_once("lib/ingredient.php");
 require_once("lib/gerecht_info.php");
 require_once("lib/gerecht.php");
+require_once("lib/boodschappen.php");
 
 /// INIT    link de classes aan variables
 $db = new database();
@@ -17,6 +18,7 @@ $keuken = new keuken_type($db->getConnection());
 $gerecht_info = new gerecht_info($db->getConnection());
 $ingr = new ingredient($db->getConnection());
 $gerecht = new gerecht($db ->getConnection());
+$boodschappen = new boodschappen($db->getConnection());
 
 /// VERWERK     de variable + select functie in een nieuwe variable
 // $data = $art->selecteerArtikel(2);
@@ -56,11 +58,12 @@ var_dump($dataIngredient);
 
 // Vraag 10 Gerecht:
 //echo "Select array van gerecht <br>";
-$selectGerechtArray = $gerecht-> selecteerGerecht(2);     // voer hier het gerecht_id in
+$selectGerechtArray = $gerecht-> selecteerGerecht(3);     // voer hier het gerecht_id in
 var_dump($selectGerechtArray);
 
-//$selectAlleGerechten = $gerecht->selecteerAlleGerechten();
-//var_dump($selectAlleGerechten)
+// vraag 12 boodschappenlijst
+$selectBoodschappen = $boodschappen->boodschappenToevoegen(3,2);
+var_dump($selectBoodschappen);
 
 // var_dump(om te checken of een bepaald ID van gerecht_info er wel of niet is);
 //echo "data gerecht 10: <br>";
