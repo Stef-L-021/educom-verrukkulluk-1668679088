@@ -1,6 +1,8 @@
-<?
+<?php
 
 class boodschappen {
+    private $connection;
+
     public function __construct($connection) {
         $this->connection = $connection;
         $this->ingredient = new ingredient($connection);
