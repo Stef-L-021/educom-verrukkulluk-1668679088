@@ -44,7 +44,9 @@ class boodschappen {
     }
 
     private function artikelBijwerken($boodschap) {
-        $sql = "UPDATE boodschappen SET aantal = 24 WHERE id = $boodschap[id]"; // Vervang die 24 door een berkening
+        $sql = "UPDATE boodschappen SET aantal = CEILING(aantal + 0.1)
+        WHERE id = $boodschap[id]"; // Vervang die 25 door een berkening zoals $this->ingredient[aantal]/$this->ingredient[verpakking]
+        // Mogelijk hier 2 variablen maken in SQL
         $result = mysqli_query($this->connection, $sql);
         echo "Bijwerken<br>";
         var_dump($boodschap);
