@@ -29,9 +29,7 @@ class boodschappen {
         $sql = "select * from boodschappen where user_id = $user_id";
         $result = mysqli_query($this->connection, $sql);
         while ($boodschappen = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-            $return[] = [
-                "boodschappen" =>$boodschappen
-            ];
+            $return[] = $boodschappen;
         }
         return($return);
     }
@@ -46,18 +44,19 @@ class boodschappen {
     }
 
     private function artikelBijwerken($boodschap) {
-        echo "Bijwerken";
+        echo "Bijwerken<br>";
+        var_dump($boodschap);
     }
 
     private function artikelOpLijst($artikel_id, $user_id) {
-        $boodschappen = $this->boodschappen->ophalenBoodschappen($user_id);
+        $boodschappen = $this->ophalenBoodschappen($user_id);
         foreach ($boodschappen as $boodschap) {
-        if($boodschap["artikel_id"] == $artikel_id) {
-            return($boodschap);
-        } else {
-            return FALSE;       // dan moet het worden toegevoegd in boodschappenToevoegen
+            if($boodschap["artikel_id"] == $artikel_id) {
+                return($boodschap);
+            }
         }
-    }}
+        return FALSE; 
+    }
 
     public function boodschappenToevoegen($gerecht_id, $user_id) {
         $ingredienten = $this->selectIngredienten($gerecht_id); 
