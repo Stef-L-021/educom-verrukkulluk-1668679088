@@ -4,7 +4,6 @@ class boodschappen {
     private $connection;
     private $ingredient;
     private $user;
-    //private $gerecht;
     private $boodschappen;
 
     public function __construct($connection) {
@@ -24,17 +23,48 @@ class boodschappen {
         return($data);
     }
 
-    private function toevoegenartikel($ingredient) {
-        var_dump($ingredient);
+    // ophalen van de boodschappen tabel
+    public function ophalenBoodschappen($user_id) {
+        $sql = "select * from boodschappen where user_id = $user_id";
+        $result = mysqli_query($this->connection, $sql);
+        $boodschappen = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        return($boodschappen);
+    }
+
+
+
+    private function toevoegenartikel($ingredient, $user_id) {
+        $artikel_id = $ingredient["artikel_id"];
+        $sql = "INSERT INTO boodschappen (artikel_id, user_id, aantal) VALUES ($artikel_id, $user_id, 10)";
+        $result = mysqli_query($this->connection, $sql); 
+        return TRUE;
+    }
+
+    private function artikelBijwerken($boodschap) {
+        echo "Bijwerken";
+    }
+
+    private function artikelOpLijst($artikel_id, $user_id) {
+        $boodschappen = $this->boodschappen->ophalenBoodschappen($user_id);
+        if($boodschappen["artikel_id"] == $artikel_id) {
+            return($boodschappen);
+        } else {
+            return FALSE;       // dan moet het worden toegevoegd in boodschappenToevoegen
+        }
     }
 
     public function boodschappenToevoegen($gerecht_id, $user_id) {
         $ingredienten = $this->selectIngredienten($gerecht_id); 
         foreach ($ingredienten as $ingredient) {
-            $artikelen = $this->toevoegenartikel($ingredient);
-
+            $gevonden = $this->artikelOpLijst($ingredient["artikel_id"], $user_id);
+            if(!$gevonden) {    
+                $this->toevoegenartikel($ingredient, $user_id);
+            } else {
+                $this->artikelBijwerken($gevonden);
+            }
         }            
-        return($artikelen);
+
+    
 
     } // Einde public function
 
