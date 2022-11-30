@@ -62,8 +62,13 @@ var_dump($dataIngredient);
 //var_dump($selectGerechtArray);
 
 // vraag 12 boodschappenlijst
-$toevoegenboodschappen = $boodschappen->boodschappenToevoegen(4,5);
+//$ophalenBoodsnappen = $boodschappen->ophalenBoodschappen(6);
+//var_dump($ophalenBoodsnappen);
+
+$toevoegenboodschappen = $boodschappen->boodschappenToevoegen(1,6);
 echo($toevoegenboodschappen);
+
+
 
 //$selecteerBoodschapppen = $boodschappen->selectBoodschappen(3);
 //var_dump($selecteerBoodschapppen);
