@@ -24,55 +24,84 @@ class boodschappen {
         return($data);
     }
 
-    // ophalen boodschappen
-    public function selectBoodschappen($gerecht_id) {
-        $sql = "SELECT * FROM boodschappen WHERE gerecht_id = $gerecht_id";
-        $return = [];  
-
-        $result = mysqli_query($this->connection, $sql);
-        while ($boodschappen = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-            $boodschappenGerecht_id = $boodschappen["gerecht_id"];
-            $boodschappenUser_id = $boodschappen["user_id"];
-
-            //$ingredienten = 
-
-            $return[] =[ 
-                "gerecht_id_van_boodschappen" => $boodschappenGerecht_id,
-                "user_id_van_boodschappen" => $boodschappenUser_id
-            ];
-        }
-
-        // dit willen we loopen om alles te zien 
-
-        return($return);
-    }
-
     
     public function boodschappenToevoegen($gerecht_id, $user_id) {
         $sql = "SELECT * FROM boodschappen WHERE gerecht_id = $gerecht_id";
 
+        $x = 0;
         $result = mysqli_query($this->connection, $sql);
         while ($boodschappen = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
             $boodschappenGerecht_id = $boodschappen["gerecht_id"];
             $boodschappenUser_id = $boodschappen["user_id"];
+            $boodschappenAantal = $boodschappen["aantal"];
 
-        if($boodschappenGerecht_id == $gerecht_id AND
-        $boodschappenUser_id == $user_id) {
-            echo "nice";
-            break;
-        } else { 
-            echo "bestaat nog niet";
-            /*
-            $sql = "INSERT INTO boodschappen (gerecht_id, user_id)
-            VALUES ($gerecht_id, $user_id)";
-            if ($this->connection->query($sql) == TRUE) {
-                echo "New record created successfully";
-              } else {
-                echo "Error: " . $sql . "<br>" . $this->connecction->error;
-              }
-              */
-        } // Einde else statement
+            if($boodschappenGerecht_id == $gerecht_id AND
+            $boodschappenUser_id == $user_id) {
+                $x=1;
+            }
         } // einde while functie
+
+        echo "var x = " . $x . "<br>";
+        switch ($x) {
+            case 1:     // Geval waar het al bestaat
+                echo "success<br>";
+                $sql = "UPDATE boodschappen
+                SET aantal = aantal +1
+                WHERE gerecht_id = $gerecht_id AND user_id = $user_id";
+                return ($this->connection->query($sql));
+                break;
+            case 0:     // Hier moet een nieuwe row aan worden toegevoegd
+                echo "error, dit moet worden toegevoegd:";
+                $sql = "INSERT INTO boodschappen (gerecht_id, user_id, aantal)
+                VALUES ($gerecht_id, $user_id, 1)";
+                return ($this->connection->query($sql));
+                break;
+        }
+
+    } // Einde public function
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // ophalen boodschappen
+        public function selectBoodschappen($gerecht_id) {
+            $sql = "SELECT * FROM boodschappen WHERE gerecht_id = $gerecht_id";
+            $return = [];  
+    
+            $result = mysqli_query($this->connection, $sql);
+            while ($boodschappen = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                $boodschappenGerecht_id = $boodschappen["gerecht_id"];
+                $boodschappenUser_id = $boodschappen["user_id"];
+    
+                //$ingredienten = 
+    
+                $return[] =[ 
+                    "gerecht_id_van_boodschappen" => $boodschappenGerecht_id,
+                    "user_id_van_boodschappen" => $boodschappenUser_id
+                ];
+            }
+    
+            // dit willen we loopen om alles te zien 
+    
+            return($return);
+        }
+} // Einde class
+
     
 
     // we moeten zoeken of de unieke combinatie van user en gerecht al in de boodschappenlijst staat. als dit niet het geval is voegen we die toe.
@@ -80,8 +109,7 @@ class boodschappen {
     //check if value is not in array
 
     // we moeten ook kijken wat we nodig hebben op de pagina zelf en deze info ophalen. Is hier de gerecht tabel voor nodig?
-    } // Einde public function
-} // Einde class
+
 
 
 
