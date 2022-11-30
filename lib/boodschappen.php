@@ -33,7 +33,6 @@ class boodschappen {
         while ($boodschappen = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
             $boodschappenGerecht_id = $boodschappen["gerecht_id"];
             $boodschappenUser_id = $boodschappen["user_id"];
-            $boodschappenAantal = $boodschappen["aantal"];
 
             if($boodschappenGerecht_id == $gerecht_id AND
             $boodschappenUser_id == $user_id) {
@@ -44,14 +43,14 @@ class boodschappen {
         echo "var x = " . $x . "<br>";
         switch ($x) {
             case 1:     // Geval waar het al bestaat
-                echo "success<br>";
+                echo "Deze bestaat al in de database, er wordt 1 bij het aantal toegevoegd<br>";
                 $sql = "UPDATE boodschappen
                 SET aantal = aantal +1
                 WHERE gerecht_id = $gerecht_id AND user_id = $user_id";
                 return ($this->connection->query($sql));
                 break;
             case 0:     // Hier moet een nieuwe row aan worden toegevoegd
-                echo "error, dit moet worden toegevoegd:";
+                echo "Deze bestaat nog niet in de database, het wordt nieuw toegevoegd<br>";
                 $sql = "INSERT INTO boodschappen (gerecht_id, user_id, aantal)
                 VALUES ($gerecht_id, $user_id, 1)";
                 return ($this->connection->query($sql));
