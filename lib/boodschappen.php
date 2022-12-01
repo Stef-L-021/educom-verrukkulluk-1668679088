@@ -48,16 +48,15 @@ class boodschappen {
         $ingredientAantal = $ingredient["aantal"];
         $ingredientVerpakking = $ingredient["verpakking"];
         $aantalBerekening = $ingredientAantal/$ingredientVerpakking;
-        
-        $aantalBoodschap = $boodschap["aantal"];
-        $aantal = ceil($aantalBoodschap + $aantalBerekening);
-        echo $aantal;
-        return ($aantal);
+
+        $berekeningPreciesAantal = $boodschap["precies_aantal"] + $aantalBerekening;
+        return ($berekeningPreciesAantal);
     }
 
     private function artikelBijwerken($boodschap, $ingredient) {
-        $aantal = $this->aantalBerekenen($boodschap, $ingredient);
-        $sql = "UPDATE boodschappen SET aantal = $aantal
+        $berekeningPreciesAantal = $this->aantalBerekenen($boodschap, $ingredient);
+        $aantal = ceil($berekeningPreciesAantal);
+        $sql = "UPDATE boodschappen SET aantal = $aantal, precies_aantal = $berekeningPreciesAantal
         WHERE id = $boodschap[id]";
         $result = mysqli_query($this->connection, $sql);
     }
