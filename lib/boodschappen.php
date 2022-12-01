@@ -14,8 +14,8 @@ class boodschappen {
 
     //ophalen ingredienten voor het artikel_id te krijgen
     private function selectIngredienten($gerecht_id){
-        $data = $this->ingredient->selecteerIngredient($gerecht_id);
-        return($data);
+        $ingredienten = $this->ingredient->selecteerIngredient($gerecht_id);
+        return($ingredienten);
     }
 
     private function selectUser($user_id) {
@@ -43,9 +43,19 @@ class boodschappen {
         return TRUE;
     }
 
+    private function aantalBerekening($ingredienten) {
+        foreach($ingredienten as $ingredient);
+        $berekendeAantal = $ingredient["aantal"]/$ingredient["verpakking"];
+        return $berekendeAantal;
+    }
+
     private function artikelBijwerken($boodschap) {
-        $sql = "UPDATE boodschappen SET aantal = CEILING(aantal + 0.1)
-        WHERE id = $boodschap[id]"; // Vervang die 25 door een berkening zoals $this->ingredient[aantal]/$this->ingredient[verpakking]
+        $ingredienten = $this->selectIngredienten($gerecht_id);
+        $aantal = $this->aantalBerekening($ingredienten);
+        echo $aantal;
+
+        $sql = "UPDATE boodschappen SET aantal = $aantal
+        WHERE id = $boodschap[id]";
         // Mogelijk hier 2 variablen maken in SQL
         $result = mysqli_query($this->connection, $sql);
         echo "Bijwerken<br>";
