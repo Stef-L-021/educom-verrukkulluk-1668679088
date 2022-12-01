@@ -44,15 +44,19 @@ class boodschappen {
         return TRUE;
     }
 
-    private function artikelBijwerken($boodschap, $ingredient) {
+    private function aantalBerekenen($boodschap, $ingredient) {
         $ingredientAantal = $ingredient["aantal"];
         $ingredientVerpakking = $ingredient["verpakking"];
         $aantalBerekening = $ingredientAantal/$ingredientVerpakking;
+        
         $aantalBoodschap = $boodschap["aantal"];
         $aantal = ceil($aantalBoodschap + $aantalBerekening);
         echo $aantal;
+        return ($aantal);
+    }
 
-    
+    private function artikelBijwerken($boodschap, $ingredient) {
+        $aantal = $this->aantalBerekenen($boodschap, $ingredient);
         $sql = "UPDATE boodschappen SET aantal = $aantal
         WHERE id = $boodschap[id]";
         $result = mysqli_query($this->connection, $sql);
