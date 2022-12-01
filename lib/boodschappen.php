@@ -39,7 +39,9 @@ class boodschappen {
 
     private function toevoegenartikel($ingredient, $user_id) {
         $artikel_id = $ingredient["artikel_id"];
-        $sql = "INSERT INTO boodschappen (artikel_id, user_id, aantal) VALUES ($artikel_id, $user_id, 1)";
+        $aantalBerekening = $this->aantalBerekenen($ingredient);
+        $aantal = ceil($aantalBerekening);
+        $sql = "INSERT INTO boodschappen (artikel_id, user_id, aantal, precies_aantal) VALUES ($artikel_id, $user_id, $aantal, $aantalBerekening)";
         $result = mysqli_query($this->connection, $sql); 
         return TRUE;
     }
