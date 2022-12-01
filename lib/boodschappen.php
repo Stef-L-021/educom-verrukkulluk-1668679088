@@ -39,6 +39,7 @@ class boodschappen {
 
     private function toevoegenartikel($ingredient, $user_id) {
         $artikel_id = $ingredient["artikel_id"];
+        
         $aantalBerekening = $this->aantalBerekenen($ingredient);
         $aantal = ceil($aantalBerekening);
         $sql = "INSERT INTO boodschappen (artikel_id, user_id, aantal, precies_aantal) VALUES ($artikel_id, $user_id, $aantal, $aantalBerekening)";
@@ -46,17 +47,23 @@ class boodschappen {
         return TRUE;
     }
 
-    private function aantalBerekenen($boodschap, $ingredient) {
+    // Voor de eerste creatie van ingredienten:
+    private function aantalBerekenen($ingredient) {
         $ingredientAantal = $ingredient["aantal"];
         $ingredientVerpakking = $ingredient["verpakking"];
         $aantalBerekening = $ingredientAantal/$ingredientVerpakking;
-
+        return $aantalBerekening;
+    }
+    
+    // Voor updates van aantallen
+    private function preciesAantalUpdate($ingredient, $boodschap) {
+        $aantalBerekening = $this->aantalBerekenen($ingredient);
         $berekeningPreciesAantal = $boodschap["precies_aantal"] + $aantalBerekening;
         return ($berekeningPreciesAantal);
     }
 
     private function artikelBijwerken($boodschap, $ingredient) {
-        $berekeningPreciesAantal = $this->aantalBerekenen($boodschap, $ingredient);
+        $berekeningPreciesAantal = $this->preciesAantalUpdate($ingredient, $boodschap);
         $aantal = ceil($berekeningPreciesAantal);
         $sql = "UPDATE boodschappen SET aantal = $aantal, precies_aantal = $berekeningPreciesAantal
         WHERE id = $boodschap[id]";
