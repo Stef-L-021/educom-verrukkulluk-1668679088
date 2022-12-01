@@ -5,6 +5,7 @@ class boodschappen {
     private $ingredient;
     private $user;
     private $boodschappen;
+    public $aantal;
 
     public function __construct($connection) {
         $this->connection = $connection;
@@ -38,28 +39,23 @@ class boodschappen {
 
     private function toevoegenartikel($ingredient, $user_id) {
         $artikel_id = $ingredient["artikel_id"];
-        $sql = "INSERT INTO boodschappen (artikel_id, user_id, aantal) VALUES ($artikel_id, $user_id, 10)";
+        $sql = "INSERT INTO boodschappen (artikel_id, user_id, aantal) VALUES ($artikel_id, $user_id, 1)";
         $result = mysqli_query($this->connection, $sql); 
         return TRUE;
     }
 
-    private function aantalBerekening($ingredienten) {
-        foreach($ingredienten as $ingredient);
-        $berekendeAantal = $ingredient["aantal"]/$ingredient["verpakking"];
-        return $berekendeAantal;
-    }
-
-    private function artikelBijwerken($boodschap) {
-        $ingredienten = $this->selectIngredienten($gerecht_id);
-        $aantal = $this->aantalBerekening($ingredienten);
+    private function artikelBijwerken($boodschap, $ingredient) {
+        $ingredientAantal = $ingredient["aantal"];
+        $ingredientVerpakking = $ingredient["verpakking"];
+        $aantalBerekening = $ingredientAantal/$ingredientVerpakking;
+        $aantalBoodschap = $boodschap["aantal"];
+        $aantal = ceil($aantalBoodschap + $aantalBerekening);
         echo $aantal;
 
+    
         $sql = "UPDATE boodschappen SET aantal = $aantal
         WHERE id = $boodschap[id]";
-        // Mogelijk hier 2 variablen maken in SQL
         $result = mysqli_query($this->connection, $sql);
-        echo "Bijwerken<br>";
-        var_dump($boodschap);
     }
 
     private function artikelOpLijst($artikel_id, $user_id) {
@@ -73,13 +69,13 @@ class boodschappen {
     }
 
     public function boodschappenToevoegen($gerecht_id, $user_id) {
-        $ingredienten = $this->selectIngredienten($gerecht_id); 
+        $ingredienten = $this->selectIngredienten($gerecht_id);
         foreach ($ingredienten as $ingredient) {
             $gevonden = $this->artikelOpLijst($ingredient["artikel_id"], $user_id);
             if(!$gevonden) {    
                 $this->toevoegenartikel($ingredient, $user_id);
             } else {
-                $this->artikelBijwerken($gevonden);
+                $this->artikelBijwerken($gevonden, $ingredient);
             }
         }            
 
