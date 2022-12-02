@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 02 dec 2022 om 16:43
+-- Gegenereerd op: 02 dec 2022 om 18:16
 -- Serverversie: 10.4.25-MariaDB
 -- PHP-versie: 8.1.10
 
@@ -43,24 +43,24 @@ CREATE TABLE `artikel` (
 --
 
 INSERT INTO `artikel` (`id`, `naam`, `omschrijving`, `prijs`, `eenheid`, `verpakking`, `calorieen`, `afbeelding`) VALUES
-(1, 'Vegan Burger Bun', 'bun', 200, 'broodjes', 6, 100, ''),
-(2, 'Vegan Burger', 'blije koe', 300, 'gram', 500, 318, ''),
-(3, 'Vegan Burger sauce', 'beste sauce', 250, 'ml', 500, 470, ''),
-(4, 'snoep tomaatjes', 'Vers uit de tuin', 199, 'gram', 250, 78, ''),
-(5, 'Eieren', 'Vers uit de kip', 225, 'stuk(s)', 6, 0, ''),
-(6, 'broccoli ', 'groene bloemkool', 159, 'gram', 500, 318, ''),
-(7, 'bloemkool', '', 189, 'stuk', 1, 65, ''),
-(8, 'Komkommer', '', 159, 'stuk', 1, 33, ''),
-(9, 'Geschrapte worteltjes', '', 100, 'gram', 300, 99, ''),
-(10, 'sushi rice', '', 339, 'gram', 500, 1770, ''),
-(11, 'sushi nori', 'Om om de sushi heen te doen', 245, 'gram', 14, 51, ''),
-(12, 'avocado', 'Voor o.a. in de sushi', 139, 'stuk', 1, 0, ''),
-(13, 'Pizza deeg', '', 199, 'gram', 230, 649, ''),
-(14, 'kaas', '', 399, 'gram', 400, 1420, ''),
-(15, 'Italiaanse kruiden', '', 149, 'gram', 12, 1, ''),
-(16, 'tomaten puree', '', 49, 'gram', 70, 79, ''),
-(17, 'ijsbergsla', '', 99, 'krop', 1, 38, ''),
-(18, 'tomaten', '', 179, 'gram', 500, 105, '');
+(1, 'Vegan Burger Bun', 'bun', 200, 'broodjes', 6, 100, 'https://i.imgur.com/u1odQeZ.jpg'),
+(2, 'Vegan Burger', 'blije koe', 300, 'gram', 500, 318, 'https://i.imgur.com/cvrCqGT.png'),
+(3, 'Vegan Burger sauce', 'beste sauce', 250, 'ml', 500, 470, 'https://i.imgur.com/JBZ4fQR.jpg'),
+(4, 'snoep tomaatjes', 'Vers uit de tuin', 199, 'gram', 250, 78, 'https://i.imgur.com/ujlhMHz.jpg'),
+(5, 'Eieren', 'Vers uit de kip', 225, 'stuk(s)', 6, 0, 'https://i.imgur.com/pPqFQ4i.jpg'),
+(6, 'broccoli ', 'groene bloemkool', 159, 'gram', 500, 318, 'https://i.imgur.com/dUEv3KL.jpg'),
+(7, 'bloemkool', '', 189, 'stuk', 1, 65, 'https://i.imgur.com/PUvI0Bw.jpg'),
+(8, 'Komkommer', '', 159, 'stuk', 1, 33, 'https://i.imgur.com/jFeeSfV.jpg'),
+(9, 'Geschrapte worteltjes', '', 100, 'gram', 300, 99, 'https://i.imgur.com/erwNwWL.jpg'),
+(10, 'sushi rice', '', 339, 'gram', 500, 1770, 'https://i.imgur.com/RsmZzFv.jpg'),
+(11, 'sushi nori', 'Om om de sushi heen te doen', 245, 'gram', 14, 51, 'https://i.imgur.com/bqWeqrj.jpg'),
+(12, 'avocado', 'Voor o.a. in de sushi', 139, 'stuk', 1, 0, 'https://i.imgur.com/R6RtZpu.jpg'),
+(13, 'Pizza deeg', '', 199, 'gram', 230, 649, 'https://i.imgur.com/asUBX6h.jpg'),
+(14, 'kaas', '', 399, 'gram', 400, 1420, 'https://i.imgur.com/9Sv8h7p.jpg'),
+(15, 'Italiaanse kruiden', '', 149, 'gram', 12, 1, 'https://i.imgur.com/s5mP6MK.jpg'),
+(16, 'tomaten puree', '', 49, 'gram', 70, 79, 'https://i.imgur.com/4Z1oanZ.jpg'),
+(17, 'ijsbergsla', '', 99, 'krop', 1, 38, 'https://i.imgur.com/GTBdB3a.jpg'),
+(18, 'tomaten', '', 179, 'gram', 500, 105, 'https://i.imgur.com/wnju8GR.jpg');
 
 -- --------------------------------------------------------
 
@@ -81,17 +81,17 @@ CREATE TABLE `boodschappen` (
 --
 
 INSERT INTO `boodschappen` (`id`, `artikel_id`, `user_id`, `aantal`, `precies_aantal`) VALUES
-(119, 4, 6, 2, 1.200000048),
-(120, 5, 6, 2, 1.000000000),
-(121, 6, 6, 2, 1.200000048),
-(122, 7, 6, 6, 6.000000000),
-(123, 8, 6, 11, 11.000000000),
-(124, 9, 6, 2, 1.000000000),
-(125, 1, 6, 1, 0.833333373),
-(126, 2, 6, 3, 2.000000000),
-(127, 3, 6, 1, 0.299999982),
-(128, 17, 6, 5, 5.000000000),
-(129, 18, 6, 1, 0.500000000);
+(119, 4, 6, 2, 1.400000095),
+(120, 5, 6, 2, 1.166666627),
+(121, 6, 6, 2, 1.400000095),
+(122, 7, 6, 7, 7.000000000),
+(123, 8, 6, 13, 13.000000000),
+(124, 9, 6, 2, 1.166666627),
+(125, 1, 6, 2, 1.000000000),
+(126, 2, 6, 3, 2.400000095),
+(127, 3, 6, 1, 0.359999985),
+(128, 17, 6, 6, 6.000000000),
+(129, 18, 6, 1, 0.600000024);
 
 -- --------------------------------------------------------
 
@@ -107,18 +107,19 @@ CREATE TABLE `gerecht` (
   `datum_toegevoegd` date NOT NULL DEFAULT current_timestamp(),
   `titel` varchar(50) NOT NULL,
   `korte_omschrijving` text NOT NULL,
-  `lange_omschrijving` text NOT NULL
+  `lange_omschrijving` text NOT NULL,
+  `afbeelding` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `gerecht`
 --
 
-INSERT INTO `gerecht` (`id`, `keuken_id`, `type_id`, `user_id`, `datum_toegevoegd`, `titel`, `korte_omschrijving`, `lange_omschrijving`) VALUES
-(1, 6, 9, 2, '2022-11-17', 'Eggs & Veggies', 'Eggs & veggies korte beschrijving', 'Eggggss en veggggieessss lange beschrijving'),
-(2, 1, 8, 3, '2022-11-17', 'Vegan Burger', '', ''),
-(3, 5, 7, 3, '2022-11-17', 'Sushi Rolls', '', ''),
-(4, 2, 9, 4, '2022-11-17', 'Pizza Green', '', '');
+INSERT INTO `gerecht` (`id`, `keuken_id`, `type_id`, `user_id`, `datum_toegevoegd`, `titel`, `korte_omschrijving`, `lange_omschrijving`, `afbeelding`) VALUES
+(1, 6, 9, 2, '2022-11-17', 'Eggs & Veggies', 'Eggs & veggies korte beschrijving', 'Eggggss en veggggieessss lange beschrijving', 'https://i.imgur.com/595jfFq.png'),
+(2, 1, 8, 3, '2022-11-17', 'Vegan Burger', '', '', 'https://i.imgur.com/Y5qerZ7.png'),
+(3, 5, 7, 3, '2022-11-17', 'Sushi Rolls', '', '', 'https://i.imgur.com/uhyGGHh.png'),
+(4, 2, 9, 4, '2022-11-17', 'Pizza Green', '', '', 'https://i.imgur.com/JvJ5v7h.png');
 
 -- --------------------------------------------------------
 
@@ -267,26 +268,27 @@ CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `user_name` varchar(30) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `email` varchar(50) NOT NULL
+  `email` varchar(50) NOT NULL,
+  `afbeelding` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `user`
 --
 
-INSERT INTO `user` (`id`, `user_name`, `password`, `email`) VALUES
-(1, 'Tommie Tuup', 'Tommie123', 'tommietuup@mail.com'),
-(2, 'Bennie Blind', 'slechtwachtwoord111', 'Bennie44@email.com'),
-(3, 'Sammy Suf', '3355152', 'ssuf@email.com'),
-(4, 'Katinka Cool', 'etensite@553', 'Katinka@email.com'),
-(5, 'Barry Biemsma', 'Barryyyyyy1', 'barry@email.com'),
-(6, 'Ali Versprille', 'pinguin4', 'pingu@email.com'),
-(7, 'Brigitte Eren', 'Aquarius777', 'iqoahd@email.com'),
-(8, 'Gumi', 'wuewuewue', 'wuegumi@email.com'),
-(9, 'Eren Yeager', 'LongLiveParadise', 'eren@email.com'),
-(10, 'Guts', 'GRIFFITHH', 'guts@email.com'),
-(11, 'Geralt', 'Ciri', 'witcher@email.com'),
-(12, 'Rena Ryuugu', 'USODA', 'Rena@email.com');
+INSERT INTO `user` (`id`, `user_name`, `password`, `email`, `afbeelding`) VALUES
+(1, 'Tommie Tuup', 'Tommie123', 'tommietuup@mail.com', 'https://i.imgur.com/0aDkKot.jpg'),
+(2, 'Bennie Blind', 'slechtwachtwoord111', 'Bennie44@email.com', 'https://i.imgur.com/7S4Emsl.jpg'),
+(3, 'Sammy Suf', '3355152', 'ssuf@email.com', 'https://i.imgur.com/LOHKh2o.jpg'),
+(4, 'Katinka Cool', 'etensite@553', 'Katinka@email.com', 'https://i.imgur.com/wMGfHX1.jpg'),
+(5, 'Barry Biemsma', 'Barryyyyyy1', 'barry@email.com', 'https://i.imgur.com/rJAyM7L.jpg'),
+(6, 'Ali Versprille', 'pinguin4', 'pingu@email.com', 'https://i.imgur.com/JDAspUo.jpg'),
+(7, 'Brigitte Eren', 'Aquarius777', 'iqoahd@email.com', 'https://i.imgur.com/IrL1qtm.jpg'),
+(8, 'Gumi', 'wuewuewue', 'wuegumi@email.com', 'https://i.imgur.com/rKldB3Q.jpg'),
+(9, 'Eren Yeager', 'LongLiveParadise', 'eren@email.com', 'https://i.imgur.com/AUrrt8A.jpg'),
+(10, 'Guts', 'GRIFFITHH', 'guts@email.com', 'https://i.imgur.com/oxlKgIv.jpg'),
+(11, 'Geralt', 'Ciri', 'witcher@email.com', 'https://i.imgur.com/7VrpgRK.jpg'),
+(12, 'Rena Ryuugu', 'USODA', 'Rena@email.com', 'https://i.imgur.com/Ft0wYiv.jpg');
 
 --
 -- Indexen voor geëxporteerde tabellen
