@@ -29,7 +29,7 @@ class ingredient {
                 $art_id = $row["artikel_id"];                            
                 $artikel = $this->selectArtikel($art_id);                   // variable artikel is de selectArtikel functie de we hebben gemaakt met art_id als invoer
 
-                $return[] = [
+                $ingredienten[] = [
 
                     "id" => $row["id"],                                 // ingredient_id
                     "gerecht_id" => $row["gerecht_id"],                 // pakt de artikel_id van de row
@@ -45,7 +45,7 @@ class ingredient {
                 ]; // Einde return             
             } // Einde while functie
 
-        return($return);                                                // Aan t einde van de selecteerIngredient functie returnen we de $return variable die we eerder hebben gemaakt
+        return($ingredienten);                                                // Aan t einde van de selecteerIngredient functie returnen we de $return variable die we eerder hebben gemaakt
     }
 }
 
