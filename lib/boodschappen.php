@@ -19,6 +19,7 @@ class boodschappen {
         return($ingredienten);
     }
 
+    // deze wordt volgens mij niet gebruikt.
     private function selectUser($user_id) {
         $data = $this->user->selecteerUser($user_id);
         return($data);
@@ -36,7 +37,7 @@ class boodschappen {
     }
 
 
-
+    // functie voor het toevoegen van een nieuw artikel in de DB
     private function toevoegenartikel($ingredient, $user_id) {
         $artikel_id = $ingredient["artikel_id"];
         
@@ -47,7 +48,7 @@ class boodschappen {
         return TRUE;
     }
 
-    // Voor de eerste creatie van ingredienten:
+    // De aantal berekening voor nieuwe ingredienten en wordt gebruikt in de berekening voor de updates van ingredienten:
     private function aantalBerekenen($ingredient) {
         $ingredientAantal = $ingredient["aantal"];
         $ingredientVerpakking = $ingredient["verpakking"];
@@ -55,13 +56,14 @@ class boodschappen {
         return $aantalBerekening;
     }
     
-    // Voor updates van aantallen
+    // De aantal berekening voor updates van ingredienten
     private function preciesAantalUpdate($ingredient, $boodschap) {
         $aantalBerekening = $this->aantalBerekenen($ingredient);
         $berekeningPreciesAantal = $boodschap["precies_aantal"] + $aantalBerekening;
         return ($berekeningPreciesAantal);
     }
 
+    // Functie voor het bijwerken van de aantallen van de artikelen in de DB.
     private function artikelBijwerken($boodschap, $ingredient) {
         $berekeningPreciesAantal = $this->preciesAantalUpdate($ingredient, $boodschap);
         $aantal = ceil($berekeningPreciesAantal);
@@ -70,6 +72,7 @@ class boodschappen {
         $result = mysqli_query($this->connection, $sql);
     }
 
+    // functie om te checken of een artikel al op de lijst staat
     private function artikelOpLijst($artikel_id, $user_id) {
         $boodschappen = $this->ophalenBoodschappen($user_id);
         foreach ($boodschappen as $boodschap) {
@@ -80,6 +83,7 @@ class boodschappen {
         return FALSE; 
     }
 
+    // Final functie waarbij oudere in voorkomen:
     public function boodschappenToevoegen($gerecht_id, $user_id) {
         $ingredienten = $this->selectIngredienten($gerecht_id);
         foreach ($ingredienten as $ingredient) {
