@@ -9,7 +9,7 @@ class boodschappen {
         $this->ingredient = new ingredient ($connection);
     }
 
-    // Ophalen van tabellen -------------------------------------------------------------------------------
+    // Ophalen van tabellen --------------------------------------------------------------------------------------------------------------------------------------------
 
     // ophalen van ingredienten:
     private function selectIngredienten($gerecht_id) {
@@ -28,7 +28,7 @@ class boodschappen {
     return($return);
     }
 
-    // Aantal functie berekeningen -----------------------------------------------------------------------------
+    // Aantal functie berekeningen ----------------------------------------------------------------------------------------------------------------------------------
 
     // aantal berekening die voor latere berekeningen worden gebruikt
     private function aantalBerekenen($ingredient) {
@@ -45,7 +45,7 @@ class boodschappen {
         return($berekeningPreciesAantal);
     }
 
-    // functies maken die worden gebruikt in de final functie -------------------------------------------------------------
+    // functies maken die worden gebruikt in de final functie --------------------------------------------------------------------------------------------------------
 
     // check of het artikel al op de lijst staat:
     private function artikelOpLijst($artikel_id, $user_id) {
@@ -76,11 +76,11 @@ class boodschappen {
         $aantal = ceil($berekeningPreciesAantal);                       // Hier doen we dat ceilingen om het afgeronde aantal te krijgen
 
         $sql = "UPDATE boodschappen SET aantal = $aantal, precies_aantal = $berekeningPreciesAantal
-        WHERE id = $boodschap[id]";                                     // aantal en precies aantal updaten in DB. 
+        WHERE id = $boodschap[id]";                                     // aantal en precies aantal updaten in DB. deze where statement heb ik werkende gekregen, maar ik heb geen idee meer hoe dat werkt
         $result = mysqli_query($this->connection, $sql);
     }
 
-    // Finale ----------------------------------------------------------------------------------------------------------------
+    // Finale --------------------------------------------------------------------------------------------------------------------------------------------------------
 
     // final functie:
     public function boodschappenToevoegen($gerecht_id, $user_id) {
