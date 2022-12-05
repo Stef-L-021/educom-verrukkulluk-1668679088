@@ -1,31 +1,22 @@
 <?php
-require "lib/database.php";
+class zoekfunctie {
+    private $connection;
+    //private $gerecht;
 
-$query = $_GET['query'];
-    $sql = "SELECT * FROM gerecht WHERE ('titel' LIKE '%'.$query.'%')";
-    echo $sql;
-    if(mysqli_num_rows($sql)>0) {
-        while($results = mysqli_fetch_array($sql)) {
-            echo "<p><h3>".$results['title']."</h3>";
-        }
+    public function __construct($connection) {
+        $this->connection = $connection;
     }
 
-?>
+    public function zoekfunctie($query) {
+        $sql = "SELECT * FROM gerecht WHERE titel like '%$query%'";
+        echo $sql;
+        $gevonden = [];
+        $result = mysqli_query($this->connection, $sql);
+        while($zoek = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+            $gevonden[] =$zoek;
+        }
+        return $gevonden;
+    } // Einde Class
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title> zoekfunctie</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-</head>
-</style> 
-<body>
-    <div class="container">
-        <form action="check_zoekfunctie.php" method="GET">
-            <input type= "text" placeholder="Zoek op gerecht" name="query" />
-            <input type ="submit" value = "smullen maar!" name="submit" />
-        </form>
-    </div>
-</body
-</html>
+} // Einde class
+?> 
