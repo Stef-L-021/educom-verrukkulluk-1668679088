@@ -23,9 +23,6 @@ require_once("lib/gerecht_info.php");
 require_once("lib/database.php");
 $db = new database();
 
-// DB ophalen opstellen
-
-
 
 /// Next step, iets met je data doen. Ophalen of zo
 require_once("lib/gerecht.php");
