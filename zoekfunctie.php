@@ -8,7 +8,11 @@ class zoekfunctie {
     }
 
     public function zoekfunctie($query) {
-        $sql = "SELECT * FROM gerecht WHERE titel like '%$query%'";
+        $sql = "SELECT * FROM gerecht WHERE titel like '%$query%' OR
+        WHERE id IN (
+            SELECT gerecht_id FROM ingredient WHERE artikel_id IN (
+                SELECT id from artikel WHERE naam LIKE '%$query%'
+        ))";
         echo $sql;
         $gevonden = [];
         $result = mysqli_query($this->connection, $sql);
