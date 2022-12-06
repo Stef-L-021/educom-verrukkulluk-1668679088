@@ -32,7 +32,7 @@ switch($action) {
 
         case "homepage": {
             $data = $gerecht->selecteerGerecht();
-            $template = 'detail.html.twig';
+            $template = 'homepage.html.twig';
             $title = "homepage";
             break;
         }
