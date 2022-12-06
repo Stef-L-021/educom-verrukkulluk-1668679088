@@ -8,10 +8,12 @@ class zoekfunctie {
     }
 
     public function zoekfunctie($query) {
-        $sql = "SELECT id FROM gerecht WHERE titel like '%$query%' 
-        UNION
-        SELECT gerecht_id FROM ingredient WHERE artikel_id IN (
+        $sql = "SELECT * FROM gerecht WHERE id IN (
+            SELECT id FROM gerecht WHERE titel like '%$query%' 
+            UNION
+            SELECT gerecht_id FROM ingredient WHERE artikel_id IN (
                 SELECT id from artikel WHERE naam LIKE '%$query%'
+            )
         )";
         echo $sql;
         $gevonden = [];
