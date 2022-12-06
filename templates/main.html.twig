@@ -18,7 +18,7 @@
 <div class="container-fluid">
 
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12" style="background-color: #F00">
         {% block header %}
             
         {% endblock %}   
@@ -26,23 +26,26 @@
     </div>
 
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-3" style="background-color: #00F">
             <h2>Agenda</h2>
             <i class="fa fa-calendar"></i> FontAwesome <a href="https://fontawesome.com/icons?d=gallery&m=free">Documentation</a><br>
             <i class="fa fa-file-pdf"></i><a href="https://www.layoutit.com/build">Layout-it</a>
 
 
         </div>
-        <div class="col-md-9">
+        <div class="col-md-9" style="background-color: #0F0">
             <h2>Content</h2>
+            <div class="row">
             {%  block content %}
+
             {%  endblock %}
+             </div>
         </div>
     </div>
 
 
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12" style="background-color: #e85d04">
             <h1>Footer</h1>
         </div>
     </div>
