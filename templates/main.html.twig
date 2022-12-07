@@ -17,6 +17,7 @@
 <body>
 <div class="container-fluid">
 
+    {# 1ste row met de header 12 #}
     <div class="row">
         <div class="col-md-12" style="background-color: #F00">
         {% block header %}
@@ -25,8 +26,32 @@
         </div>
     </div>
 
+    {# 2de row met de agenda (moet nog worden opgeslits in homepage.html met agenda en login los) #}
     <div class="row">
         <div class="col-md-3" style="background-color: #00F">
+        {# mogelijk van dit block ook ff een block maken om in de homepage te gebruiken #}
+            <div class="col-md-12" style="background-color: #6e8722"> 
+                <h2> Agenda  </h2>
+                <p> <h3> Vegatarisch koken </h3> 
+                Een workship vegatarisch koken onder leiding van Bobby </p>
+
+                <p> <h3> Vegatarisch koken </h3> 
+                Een workship vegatarisch koken onder leiding van Bobby </p>
+
+                <p> <h3> Vegatarisch koken </h3> 
+                Een workship vegatarisch koken onder leiding van Bobby </p>
+            </div>{# Einde agenda class #}
+
+            <div class="col-md-12" style="background-color: #b31714">
+                <h2> Login </h2>
+                email <br>
+                {# invulvak #}
+                wachtwoord <br>
+                {# invulvak #}
+            </div>
+
+
+
             <h2>Agenda</h2>
             <i class="fa fa-calendar"></i> FontAwesome <a href="https://fontawesome.com/icons?d=gallery&m=free">Documentation</a><br>
             <i class="fa fa-file-pdf"></i><a href="https://www.layoutit.com/build">Layout-it</a>
@@ -43,7 +68,7 @@
         </div>
     </div>
 
-
+    {# 3de en laatste row met de footer #}
     <div class="row">
         <div class="col-md-12" style="background-color: #e85d04">
             <h1>Footer</h1>

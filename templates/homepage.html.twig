@@ -6,21 +6,29 @@
 {% endblock %}
 
 
+
+
 {# nu de block content op in de main pagina vullen #}
 {% block content %}
  
-    {% for record in data %}
-     <div class="col-md-6" style="background-color: #999"> {# nr 4#}    {# HIer maken we een nieuwe bootstrap opdeling binnen content iedere 6 #}
+    {% for record in data %}    {# Deze loopt door de gehele data ($gerechten array) heen. #}
+
+    {# Hier start de eerste row met de grijze achtergrond #}
+     <div class="col-md-6" style="background-color: #999; border: 6px">    {# Hier maken we een nieuwe bootstrap opdeling binnen content iedere 6 #}
 
 
+        {# Hier start de 1de row met daarbinnen de afbeelding #}
         <div class="row">
             <img src="assets/img/gerechten/{{record.gerecht.afbeelding}}" style="width: 400px; height: 200px;">
-        </div> {# #}
+        </div> 
+
+        {# Hier start de 2de row met daarbinnen de titel en sterren #}
         <div class="row">
-            <div class="col-md-6" style="background-color: #ffffff"> {# nr 3#}
-            {{ record.gerecht.titel }}
+            <div class="col-md-6" style="background-color: #ffffff"> {#titel div #}
+            <h2> {{ record.gerecht.titel }} </h2>
+
+            <!--
             {# sub-loop #}
-            
                 {% for ingr in record.ingredienten %}
                
                     
@@ -31,17 +39,36 @@
                             <strong>Dit is ID 3!</strong>
                         {%  endif  %}
                     
-                    
                 {% endfor %}
-            </div> {# nr 3#}
-                 <div class="col-md-6" style="background-color: #097"> Hello {# nr 2#}
-                 </div> {# nr 2#}
+            -->
+
+            </div> {# Einde titel div #}
+
+            <div class="col-md-6" style="background-color: #FFF"> <h3> **** </h3> </div> 
 
         </div>
+
+        {# Hier start de 3de row met de beschijving #}
+        <div class="row"> {{ record.gerecht.korte_omschrijving }} </div>
+
+
+        {# Hier start de 4de een laatste row met de button en andere kleine gegevens #}
         <div class="row">
-
+            <div class="col-md-6" style="background-color: #FFF"> Hier komt de button </div>
+            <div class="col-md-2" style="background-color: #FFF"> 
+                <i class="fa fa-file-pdf"></i> 4
+            </div>
+            <div class="col-md-2" style="background-color: #FFF"> 
+                <i class="fa fa-file-pdf"></i> {{ record.prijs |round(2)}}
+            </div>
+            <div class="col-md-2" style="background-color: #FFF"> 
+                <i class="fa fa-file-pdf"></i> {{ record.calorieen |round(2)}}
+            </div>
         </div>
-        </div> {# nr 4#}
+
+
+    </div> {# Eindigd de grijze box div #}
+
     {% endfor %}
     <ul>
      {# Dump #}
