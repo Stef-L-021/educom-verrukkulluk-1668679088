@@ -6,15 +6,13 @@
 {% endblock %}
 
 
-
-
 {# nu de block content op in de main pagina vullen #}
 {% block content %}
  
     {% for record in data %}    {# Deze loopt door de gehele data ($gerechten array) heen. #}
 
-    {# Hier start de eerste row met de grijze achtergrond #}
-     <div class="col-md-6" style="background-color: #999; border: 6px">    {# Hier maken we een nieuwe bootstrap opdeling binnen content iedere 6 #}
+    {# Hier start de grijze achtergrond #}
+     <div class="col-md-6" style="background-color: #999">    {# Hier maken we een nieuwe bootstrap opdeling binnen content iedere 6 #}
 
 
         {# Hier start de 1de row met daarbinnen de afbeelding #}
