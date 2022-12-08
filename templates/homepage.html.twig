@@ -2,7 +2,9 @@
 {% extends "main.html.twig" %}
 
 {% block header %}
-<img src="assets/img/logo-v2.png"/>
+<div class="col-md-12" style="background-image: url('assets/img/razer-wallpapers-page-hero-mobile.jpg')">
+    <img src="assets/img/logo-v2.png"/>
+</div>
 {% endblock %}
 
 
@@ -11,7 +13,7 @@
  
     {% for record in data %}    {# Deze loopt door de gehele data ($gerechten array) heen. #}
 
-    {# Hier start de grijze achtergrond #}
+    {# Hier starten de 4 grijze achtergrond hokjes #}
      <div class="col-md-6" style="background-color: #999">    {# Hier maken we een nieuwe bootstrap opdeling binnen content iedere 6 #}
 
 
@@ -71,7 +73,7 @@
     <ul>
      {# Dump #}
        <pre>
-        {#{{ dump(data) }}#}
+        {{ dump(data) }}
        </pre>
 
 {% endblock %}

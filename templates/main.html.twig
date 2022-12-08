@@ -17,43 +17,48 @@
 <body>
 <div class="container-fluid">
 
+<!--
+<div class="row">
+<div class="col-md-12" style="background-image: url('assets/img/razer-wallpapers-page-hero-mobile.jpg')">
+-->
+
     {# 1ste row met de header 12 #}
-    <div class="row">
-        <div class="col-md-12">
+        <div class="row">          
         {% block header %}
         {% endblock %}   
+        </div>
         </div>
     </div>
 
     {# 2de row met de agenda (moet nog worden opgeslits in homepage.html met agenda en login los) #}
     <div class="row">
         <div class="col-md-3" style="background-color: #FFF">
-        <div class="col-md-12" style="background-color: #6e8722"> 
-            <h2> Agenda  </h2>
-            <p> <i class="fa fa-file-pdf"></i>
-            <h3> Vegatarisch koken </h3> 
-            Een workship vegatarisch koken onder leiding van Bobby </p>
+            <div class="col-md-12" style="background-color: #6e8722"> 
+                <h2> Agenda  </h2>
+                <p> <h3>  <i class="fa fa-calendar-day"></i>                                      {# hier moet je fa fa_name gebruiken uit fontawesome.css #}
+                Vegatarisch koken </h3> 
+                Een workship vegatarisch koken onder leiding van Bobby </p>
 
-            <p> <h3> Vegatarisch koken </h3> 
-            Een workship vegatarisch koken onder leiding van Bobby </p>
+                <p> <h3> Vegatarisch koken </h3> 
+                Een workship vegatarisch koken onder leiding van Bobby </p>
 
-            <p> <h3> Vegatarisch koken </h3> 
-            Een workship vegatarisch koken onder leiding van Bobby </p>
+                <p> <h3> Vegatarisch koken </h3> 
+                Een workship vegatarisch koken onder leiding van Bobby </p>
 
-            <p> <h3> Vegatarisch koken </h3> 
-            Een workship vegatarisch koken onder leiding van Bobby </p>
+                <p> <h3> Vegatarisch koken </h3> 
+                Een workship vegatarisch koken onder leiding van Bobby </p>
 
-            <p> <h3> Vegatarisch koken </h3> 
-            Een workship vegatarisch koken onder leiding van Bobby </p>
-    </div> {# Einde agenda class #}
+                <p> <h3> Vegatarisch koken </h3> 
+                Een workship vegatarisch koken onder leiding van Bobby </p>
+            </div> {# Einde agenda class #}
 
-    <div class="col-md-12" style="background-color: #b31714">
-        <h2> Login </h2>
-        email <br>
-        {# invulvak #}
-        wachtwoord <br>
-        {# invulvak #}
-    </div> 
+            <div class="col-md-12" style="background-color: #b31714">
+                <h2> Login </h2>
+                email <br>
+                {# invulvak #}
+                wachtwoord <br>
+                {# invulvak #}
+            </div> 
 
 
             <!-- Voorbeeld
@@ -61,18 +66,18 @@
             <i class="fa fa-calendar"></i> FontAwesome <a href="https://fontawesome.com/icons?d=gallery&m=free">Documentation</a><br>
             <i class="fa fa-file-pdf"></i><a href="https://www.layoutit.com/build">Layout-it</a>
             -->
-        </div>
+        </div> {# Eindigd de col 3 #}
 
 
         <div class="col-md-9" style="background-color: #0F0">
             <h2>Content</h2>
             <div class="row">
-            {%  block content %}
+                {%  block content %}
 
-            {%  endblock %}
-             </div>
-        </div>
-    </div>
+                {%  endblock %}
+            </div>
+        </div> {# eindigd col 9 #}
+    </div> {# Einigd class row #}
 
     {# 3de en laatste row met de footer #}
     <div class="row">

@@ -1,8 +1,81 @@
 {% extends "main.html.twig" %}
 
 {% block header %}
-<h1>Hallo Bram</h1>
-<div class="row">
-            <img src="assets/img/gerechten/{{record.gerecht.afbeelding}}" style="width: 400px; height: 200px;">
-        </div> 
+{% for record in data %}  
+<div class="col-md-12" style="background-image: url('assets/img/gerechten/{{record.gerecht.afbeelding}}')">
+    <img src="assets/img/logo-v2.png"/>
+</div>
+{% endfor %}
+{% endblock %}
+
+
+{% block content %}
+{% for record in data %}  
+<div class="col-md-5" style="background-image: url('assets/img/gerechten/{{record.gerecht.afbeelding}}')">   {#kolom met plaatje #}
+</div>
+
+
+<div class="col-md-7" style="background-color: #FFF">
+    {# cijfers van personen, prijs en calorieen #}
+    <div class="row">
+        <div class="col-md-2"> 
+            <i class="fa fa-file-pdf" style="color:#F00"></i> 4
+        </div>
+        <div class="col-md-2"> 
+            <i class="fa fa-file-pdf" style="color:#F00"></i> {{ record.prijs |round(2)}}
+        </div>
+        <div class="col-md-2"> 
+            <i class="fa fa-file-pdf" style="color:#F00"></i> {{ record.calorieen |round(2)}}
+        </div>
+    </div>
+
+    {# Naam en sterren #}
+
+
+    {#% set record = data %#}
+    <div class="row">
+        <div class="col-md-8"> 
+            <h2> {{ record.gerecht.titel }} </h2>
+        </div>
+        <div class="col-md-4"> 
+            <h3> **** </h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <h4> Keuken </h4> 
+        </div>
+        <div class="col-md-3">
+            keuken 
+        </div>
+
+        <div class="col-md-3">
+            <h4> Type </h4> 
+        </div>
+        <div class="col-md-3">
+            Type 
+        </div>
+    </div>
+
+    {# omschrijving #}
+    <div class="row">
+    Omschrijving
+    </div>
+
+    {# op lijst en favorieten knop #}
+    <div class="row">
+        <div class="col-md-8">
+        Knop
+        </div>
+        <div class="col-md-4">
+        favoriet
+        </div>
+    </div>
+
+</div> {# Einde rechter kant #}
+{% endfor %}
+       <pre>
+        {{ dump(data) }}
+       </pre>
 {% endblock %}
