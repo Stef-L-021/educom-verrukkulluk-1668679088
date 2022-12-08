@@ -1,11 +1,22 @@
 {% extends "main.html.twig" %}
 
 {% block header %}
-{% for record in data %}  
-<div class="col-md-12" style="background-image: url('assets/img/gerechten/{{data.0.gerecht.afbeelding}}')">
-    <img src="assets/img/logo-v2.png"/>
-</div>
-{% endfor %}
+
+    <script>
+        $(document).ready( function() {
+
+            const mySlides = [
+                {src: "assets/img/gerechten/{{ data.0.gerecht.afbeelding}}"}
+            ] // Einde slide sources
+                    
+            $("#background-image").vegas({                               // let op de #!!! dit is een ID voor later en hier moet dus een #
+                overlay: 'assets/vegas/overlays/01.png',                        // Mogelijk deze weghalen als we die pixel overlay niet willen hebben
+                slides: mySlides,
+            }) // Einde background-image functie
+
+        }) // Einde .ready functie
+    </script>
+
 {% endblock %}
 
 

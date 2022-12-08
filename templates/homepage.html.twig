@@ -3,13 +3,24 @@
 
 {% block header %}
 
+    <script>
+        $(document).ready( function() {
 
+            const mySlides = [
+                {src: "assets/img/gerechten/Eggs_and_Veggies.PNG"},             // Kan ook met assets/img/gerechten/{{data.0.gerecht.afbeelding}} en dan data.1, data.2 etc
+                {src: "assets/img/gerechten/Vegan_Burger.PNG"},
+                {src: "assets/img/gerechten/Sushi_Rolls.PNG"},
+                {src: "assets/img/gerechten/Pizza_Green.PNG"}
+            ] // Einde slide sources
+                        
+            $("#background-image").vegas({
+                overlay: 'assets/vegas/overlays/01.png',                        // Mogelijk deze weghalen als we die pixel overlay niet willen hebben
+                slides: mySlides
+            }) // Einde background-image functie
 
-<!--
-<div class="col-md-12" style="background-image: url('assets/img/site_header.jpg'); background-repeat: no-repeat;">
-    <img src="assets/img/logo-v2.png"/>
-</div>
--->
+        }) // Einde .ready functie
+    </script>
+
 {% endblock %}
 
 

@@ -19,56 +19,17 @@
     <script src="assets/jquery/jquery-3.5.1.js"></script>
     <script src="assets/vegas/vegas.js"> </script>
 
-    <script>
-    $(document).ready( function() {
-
-                const mySlides = [
-                {src: "https://picsum.photos/id/1/1900/1200", title: "Title #1", subtitle: "Subtitle #1"},
-                {src: "https://picsum.photos/id/10/1900/1200", title: "Title #2", subtitle: "Subtitle #2"},
-                {src: "https://picsum.photos/id/100/1900/1200", title: "Title #3", subtitle: "Subtitle #3"},
-                {src: "https://picsum.photos/id/1000/1900/1200", title: "Title #4", subtitle: "Subtitle #4"},
-                ] // Einde slide sources
-                    
-                $("#background-image").vegas({                               // let op de #!!! dit is een ID voor later en hier moet dus een #
-                    overlay: 'assets/vegas/overlays/01.png',                        // Mogelijk deze weghalen als we die pixel overlay niet willen hebben
-                    slides: mySlides,
-                    walk: function (index, slideSettings) {
-                        $(".text-block h1").html(mySlides[index].title)
-                        $(".text-block h4").html(mySlides[index].subtitle)
-                    } // Einde walk functie
-                }) // Einde background-image functie
-
-            }) // Einde .ready functie
-        </script>
-
-</html>
+</html>                                                                         <!-- Waarom stoppen we HTML hier? -->
 <body>
-
 
 <div class="container-fluid">
 
-        <div id="background-image"> 
-
-            <div class="text-block">
-                <h1></h1>
-                <h4></h4>
-            </div> <!-- Einde text-block -->
-            
-        </div> <!-- background-image -->
-
-<!--
-<div class="row">
-<div class="col-md-12" style="background-image: url('assets/img/razer-wallpapers-page-hero-mobile.jpg')">
--->
-
     {# 1ste row met de header 12 #}
-        <div class="row";>          
-        
+    <div id="background-image"> 
+        <img src="assets/img/logo-v2.png"/>
         {% block header %}
         {% endblock %}   
-        </div>
-        </div>
-    </div>
+    </div> <!-- background-image -->
 
     {# 2de row met de agenda (moet nog worden opgeslits in homepage.html met agenda en login los) #}
     <div class="row">
