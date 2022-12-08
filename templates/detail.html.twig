@@ -2,7 +2,7 @@
 
 {% block header %}
 {% for record in data %}  
-<div class="col-md-12" style="background-image: url('assets/img/gerechten/{{record.gerecht.afbeelding}}')">
+<div class="col-md-12" style="background-image: url('assets/img/gerechten/{{data.0.gerecht.afbeelding}}')">
     <img src="assets/img/logo-v2.png"/>
 </div>
 {% endfor %}
@@ -10,8 +10,7 @@
 
 
 {% block content %}
-{% for record in data %}  
-<div class="col-md-5" style="background-image: url('assets/img/gerechten/{{record.gerecht.afbeelding}}')">   {#kolom met plaatje #}
+<div class="col-md-5" style="background-image: url('assets/img/gerechten/{{data.0.gerecht.afbeelding}}')">   {#kolom met plaatje #}
 </div>
 
 
@@ -22,10 +21,10 @@
             <i class="fa fa-file-pdf" style="color:#F00"></i> 4
         </div>
         <div class="col-md-2"> 
-            <i class="fa fa-file-pdf" style="color:#F00"></i> {{ record.prijs |round(2)}}
+            <i class="fa fa-file-pdf" style="color:#F00"></i> {{ data.0.prijs |round(2)}}
         </div>
         <div class="col-md-2"> 
-            <i class="fa fa-file-pdf" style="color:#F00"></i> {{ record.calorieen |round(2)}}
+            <i class="fa fa-file-pdf" style="color:#F00"></i> {{ data.0.calorieen |round(2)}}
         </div>
     </div>
 
@@ -35,7 +34,7 @@
     {#% set record = data %#}
     <div class="row">
         <div class="col-md-8"> 
-            <h2> {{ record.gerecht.titel }} </h2>
+            <h2> {{ data.0.gerecht.titel }} </h2>
         </div>
         <div class="col-md-4"> 
             <h3> **** </h3>
@@ -74,8 +73,9 @@
     </div>
 
 </div> {# Einde rechter kant #}
-{% endfor %}
+
        <pre>
-        {{ dump(data) }}
+        {{ dump(data.0.gerecht) }} 
+        {#{{dump data.0}} #}
        </pre>
 {% endblock %}
