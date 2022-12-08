@@ -13,9 +13,48 @@
     <script type="text/javascript" language="javascript" src="assets/jquery/jquery-3.5.1.js"></script>
     <script type="text/javascript" language="javascript" src="assets/bootstrap/js/bootstrap.js"></script>
 
+    {# load Vegas #}
+    <link rel="stylesheet" href="assets/css/vegas-style.css"/>
+    <link rel="stylesheet" href="assets/vegas/vegas.css"/>
+    <script src="assets/jquery/jquery-3.5.1.js"></script>
+    <script src="assets/vegas/vegas.js"> </script>
+
+    <script>
+    $(document).ready( function() {
+
+                const mySlides = [
+                {src: "https://picsum.photos/id/1/1900/1200", title: "Title #1", subtitle: "Subtitle #1"},
+                {src: "https://picsum.photos/id/10/1900/1200", title: "Title #2", subtitle: "Subtitle #2"},
+                {src: "https://picsum.photos/id/100/1900/1200", title: "Title #3", subtitle: "Subtitle #3"},
+                {src: "https://picsum.photos/id/1000/1900/1200", title: "Title #4", subtitle: "Subtitle #4"},
+                ] // Einde slide sources
+                    
+                $("#background-image").vegas({                               // let op de #!!! dit is een ID voor later en hier moet dus een #
+                    overlay: 'assets/vegas/overlays/01.png',                        // Mogelijk deze weghalen als we die pixel overlay niet willen hebben
+                    slides: mySlides,
+                    walk: function (index, slideSettings) {
+                        $(".text-block h1").html(mySlides[index].title)
+                        $(".text-block h4").html(mySlides[index].subtitle)
+                    } // Einde walk functie
+                }) // Einde background-image functie
+
+            }) // Einde .ready functie
+        </script>
+
 </html>
 <body>
+
+
 <div class="container-fluid">
+
+        <div id="background-image"> 
+
+            <div class="text-block">
+                <h1></h1>
+                <h4></h4>
+            </div> <!-- Einde text-block -->
+            
+        </div> <!-- background-image -->
 
 <!--
 <div class="row">
@@ -23,7 +62,8 @@
 -->
 
     {# 1ste row met de header 12 #}
-        <div class="row" style= "min-height: 70%";>          
+        <div class="row";>          
+        
         {% block header %}
         {% endblock %}   
         </div>
