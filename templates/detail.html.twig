@@ -76,7 +76,7 @@
     {# op lijst en favorieten knop #}
     <div class="row">
         <div class="col-md-8">
-        Knop
+        Knop 
         </div>
         <div class="col-md-4">
         favoriet
@@ -85,8 +85,54 @@
 
 </div> {# Einde rechter kant #}
 
+
+<!-- tabladen: -->
+
+
+<!-- Tab buttons -->
+<div class="row">
+
+    <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'Ingredienten')">Ingrediënten </button>
+        <button class="tablinks" onclick="openTab(event, 'Paris')">Paris </button>
+        <button class="tablinks" onclick="openTab(event, 'Tokyo')">Tokyo </button>
+    </div>
+
+    <!-- content -->
+    <div id="Ingredienten" class="tabcontent">
+    Test
+        {% for record in data.0.ingredienten %}
+            {{record.naam}} <br>
+        {% endfor %}
+    </div>
+
+    <div id="Paris" class="tabcontent">
+        <h3> Paris </h3>
+        <p>Paris is the capital of France.</p>
+    </div>
+
+    <div id="Tokyo" class="tabcontent">
+        <h3> Tokyo </h3>
+        <p>Tokyo is the capital of Japan.</p>
+    </div>
+
+</div>
+
+
+
        <pre>
-        {{ dump(data.0.gerecht) }} 
+        {{ dump(data.0.ingredienten.0.naam)}}
+        {{ dump(data.0) }} 
+
+{#}
+        {{dump(
+        {% for record in data.0.ingredienten %}
+            {{data.0.ingredienten.record.naam}}
+        {% endfor %}
+        )}}
+#}
+
+
         {#{{dump data.0}} #}
        </pre>
 {% endblock %}
