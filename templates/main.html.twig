@@ -12,6 +12,7 @@
 
     <script type="text/javascript" language="javascript" src="assets/jquery/jquery-3.5.1.js"></script>
     <script type="text/javascript" language="javascript" src="assets/bootstrap/js/bootstrap.js"></script>
+    <script src="assets/jquery/custom.js"></script>                                                             <!-- Adds my self made javascript file -->
 
     {# load Vegas #}
     <link rel="stylesheet" href="assets/css/vegas-style.css"/>
@@ -35,30 +36,37 @@
     <div class="row">
         <div class="col-md-3" style="background-color: #FFF">
             <div class="col-md-12" style="background-color: #6e8722"> 
-                <h2> Agenda  </h2>
-                <p> <h3>  <i class="fa fa-calendar-day"></i>                                      {# hier moet je fa fa_name gebruiken uit fontawesome.css #}
+                <center> <img src="assets/img/verrukkulluk-agenda.png" style="height: 80px; width: 187px"/> </center> <br>
+                <div class="row">
+                <p> <h3>  <i class="fa fa-calendar-day" style="color:white"></i>                                    
                 Vegatarisch koken </h3> 
                 Een workship vegatarisch koken onder leiding van Bobby </p>
 
-                <p> <h3> Vegatarisch koken </h3> 
+                <p> <h3>  <i class="fa fa-calendar-day" style="color:white"></i>                                    
+                Vegatarisch koken </h3> 
                 Een workship vegatarisch koken onder leiding van Bobby </p>
 
-                <p> <h3> Vegatarisch koken </h3> 
+                <p> <h3>  <i class="fa fa-calendar-day" style="color:white"></i>                                    
+                Vegatarisch koken </h3> 
                 Een workship vegatarisch koken onder leiding van Bobby </p>
 
-                <p> <h3> Vegatarisch koken </h3> 
+                <p> <h3>  <i class="fa fa-calendar-day" style="color:white"></i>                                    
+                Vegatarisch koken </h3> 
                 Een workship vegatarisch koken onder leiding van Bobby </p>
 
-                <p> <h3> Vegatarisch koken </h3> 
+                <p> <h3>  <i class="fa fa-calendar-day" style="color:white"></i>                                    
+                Vegatarisch koken </h3> 
                 Een workship vegatarisch koken onder leiding van Bobby </p>
-            </div> {# Einde agenda class #}
+                </div>
+            </div> {# Einde agenda class #} <br> <br> <br> <br> {# Hier komen line breaks #}
 
             <div class="col-md-12" style="background-color: #b31714">
-                <h2> Login </h2>
+                <center> <img src="assets/img/verrukkulluk-login.png" style="height: 80px; width: 187px"/> </center> <br>
                 email <br>
                 {# invulvak #}
                 wachtwoord <br>
-                {# invulvak #}
+                {# invulvak #} <br>
+                <div id="login" class="login_button"> Login </div>
             </div> 
 
 
@@ -70,8 +78,8 @@
         </div> {# Eindigd de col 3 #}
 
 
+        <!-- Content -->
         <div class="col-md-9" style="background-color: #0F0">
-            <h2>Content</h2>
             <div class="row">
                 {%  block content %}
 
@@ -82,8 +90,13 @@
 
     {# 3de en laatste row met de footer #}
     <div class="row">
-        <div class="col-md-12" style="background-color: #e85d04">
-            <h1>Footer</h1>
+        <div class="col-md-12" style="background-color: #e85d04; color: #FFF">
+            <img src="assets/img/verrukkulluk-pay-off.png" style="height: 100px; width: 100px"/> <br>
+            <img src="assets/img/verrukkulluk-contact.png" style="height: 80px; width: 187px"/> <br>
+            verrukkulluk.nl <br>
+            Posttrtaat 2b <br>
+            Sittard <br>
+            info@verrukkulluk.n;
         </div>
     </div>
 
