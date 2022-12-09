@@ -34,9 +34,20 @@
 
 
         {# Hier start de 1de row met daarbinnen de afbeelding #}
+
+        <!-- oude manier met een gewone image 
         <div class="row">
-            <img src="assets/img/gerechten/{{record.gerecht.afbeelding}}" style="width: 400px; height: 200px; background-repeat: no-repeat;">
+           <img src="assets/img/gerechten/{{record.gerecht.afbeelding}}" style="; background-repeat: no-repeat;"> 
         </div> 
+        -->        
+
+        <!-- Nieuwe manier via background image -->
+        <div class="row">
+        <div class="col-md-12" style="background-image: url('assets/img/gerechten/{{record.gerecht.afbeelding}}'); background-repeat: no-repeat;"> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+        </div>
+        </div>
+   
+
 
         {# Hier start de 2de row met daarbinnen de titel en sterren #}
         <div class="row">
@@ -70,7 +81,11 @@
 
         {# Hier start de 4de een laatste row met de button en andere kleine gegevens #}
         <div class="row">
-            <div class="col-md-6" style="background-color: #FFF"> Hier komt de button </div>
+            <div class="col-md-6" style="background-color: #FFF"> 
+                <!-- <a class="btn btn-primary btn-md" href="#" style="background-color: red"> Smullen! </a> -->
+                <!-- <button id="save"> Smullen! </button> -->
+                <div id="smullen" class="smullen_button"> Smullen! </div>
+            </div>
             <div class="col-md-2" style="background-color: #FFF"> 
                 <i class="fa fa-file-pdf"></i> 4
             </div>
