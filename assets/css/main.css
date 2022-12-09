@@ -52,3 +52,73 @@ html, body {
     font-family: "Helvetica Neue", Arial, SansSerif;
     font-size: 16px;
 }
+
+.login_button {
+    font-family: var(--heading);
+    line-height: 45px;
+    margin: 5px;
+    width: 200px;
+    height: 50px;
+    font-size: 50px;
+    background-color: #fca01f;
+    color: #FFF;
+    cursor: pointer;
+    text-align: center;
+    transition: all ease 0.4s;
+    border-radius: 30%;
+}
+
+.smullen_button {
+    font-family: var(--heading);
+    line-height: 40px;
+    margin: 5px;
+    width: 150px;
+    height: 40px;
+    font-size: 40px;
+    background-color: #b31714;
+    color: #FFF;
+    cursor: pointer;
+    text-align: center;
+    transition: all ease 0.1s;
+    border-radius: 40%;
+}
+
+.smullen_button:hover {
+    background-color: #8B0000;
+}
+
+.login_button:hover {
+    background-color: #CCC;
+}
+
+
+/* Create Tabladen */
+
+/* style the tab itself */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* styling for the button */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+.tab button:hover {
+    background-color: #CCC;
+}
+
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #CCC;
+    border-top: none;
+}
