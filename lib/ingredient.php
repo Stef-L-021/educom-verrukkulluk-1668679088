@@ -40,7 +40,8 @@ class ingredient {
                     "prijs" => $artikel["prijs"],
                     "eenheid" => $artikel["eenheid"],
                     "verpakking" => $artikel["verpakking"],
-                    "calorieen" => $artikel["calorieen"]
+                    "calorieen" => $artikel["calorieen"],
+                    "afbeelding" => $artikel["afbeelding"]
 
                 ]; // Einde return             
             } // Einde while functie
