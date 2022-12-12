@@ -32,23 +32,15 @@
     {% for record in data %}    {# Deze loopt door de gehele data ($gerechten array) heen. #}
 
     {# Hier starten de 4 grijze achtergrond hokjes #}
-     <div class="col-md-6" style="background-color: #999">    {# Hier maken we een nieuwe bootstrap opdeling binnen content iedere 6 #}
+    <div class="col-md-6" style="background-color: #FFF">    {# Hier maken we een nieuwe bootstrap opdeling binnen content iedere 6 #}
+    <div class="p-5">
 
 
         {# Hier start de 1de row met daarbinnen de afbeelding #}
-
-        <!-- oude manier met een gewone image 
-        <div class="row">
-           <img src="assets/img/gerechten/{{record.gerecht.afbeelding}}" style="; background-repeat: no-repeat;"> 
-        </div> 
-        -->        
-
-        <!-- Nieuwe manier via background image -->
         <div class="row" style="min-height: 400px";>
-        <div class="col-md-12" style="background-image: url('assets/img/gerechten/{{record.gerecht.afbeelding}}'); background-repeat: no-repeat; background-position: center; background-size: cover">
-        </div>
-        </div>
-   
+            <div class="col-md-12" style="background-image: url('assets/img/gerechten/{{record.gerecht.afbeelding}}'); background-repeat: no-repeat; background-position: center; background-size: cover">
+            </div>
+        </div>   
 
 
         {# Hier start de 2de row met daarbinnen de titel en sterren #}
@@ -97,15 +89,16 @@
             </div>
         </div>
 
-
+    </div> {# Einde van de p-5 div #}
     </div> {# Eindigd de grijze box div #}
 
     {% endfor %}
 
-
+<!--
 {# Dump #}
 <pre>
     {{ dump(data) }}
 </pre>
+-->
 
 {% endblock %}
