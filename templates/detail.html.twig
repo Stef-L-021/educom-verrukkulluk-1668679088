@@ -24,7 +24,7 @@
 <div class="row" style="min-height: 600px";> {# Begin bevenste gedeelte #}
 
 <div class="col-md-5" 
-    style="background-image: url('assets/img/gerechten/{{data.0.gerecht.afbeelding}}')">   {#kolom met plaatje #}
+    style="background-image: url('assets/img/gerechten/{{data.0.gerecht.afbeelding}}'); background-position: center; background-size: cover">   {#kolom met plaatje #}
 </div>
 
 <div class="col-md-7" style="background-color: #FFF">
@@ -106,7 +106,7 @@
         {% for record in data.0.ingredienten %}
             <div class="row" style="min-height: 100px";>
                 <div class="col-md-1" 
-                    style="background-image: url('assets/img/artikelen/{{record.afbeelding}}');"> 
+                    style="background-image: url('assets/img/artikelen/{{record.afbeelding}}'); background-position: center; background-size: cover"> 
                 </div>
                 <div class="col-md-11">
                     <h3> {{record.naam}} </h3>
@@ -118,31 +118,34 @@
     </div>
 
     <div id="Bereidingswijze" class="tabcontent">
-        <h3> Paris </h3>
-        <p>Paris is the capital of France.</p>
+        {% for record in data.0.bereidingswijze %}
+        <div class="row" style="min-height: 50px";>
+            <div class="col-md-1"> {{record.nummeriekveld}}. </div>
+            <div class="col-md-11"> {{record.tekstveld}} </div>
+        </div>
+        {% endfor %}
     </div>
 
     <div id="Opmerkingen" class="tabcontent">
-        <h3> Tokyo </h3>
-        <p>Tokyo is the capital of Japan.</p>
-    </div>
+        {% for record in data.0.opmerkingen %}
+        <div class="row">
+            <div class="col-md-4"
+                style="background-image: url('assets/img/users/{{record.afbeelding}}'); background-position: center; background-size: cover; height: 150px; max-width: 150px; border-radius: 50%"> 
+            </div>
+            <div class="col-sm-8"> 
+                <div class="row"> {{record.user_name}} </div>
+                <div class="row"> {{record.tekstveld}} </div> <br>
+            </div>
+        </div>
+        {% endfor %}
+    </div> {# Einde opmerkingen div #}
 
-</div>
+</div> {# Einde button div #}
 
-
+{#
        <pre>
         {{ dump(data.0.ingredienten.0.naam)}}
         {{ dump(data.0) }} 
-
-{#}
-        {{dump(
-        {% for record in data.0.ingredienten %}
-            {{data.0.ingredienten.record.naam}}
-        {% endfor %}
-        )}}
 #}
 
-
-        {#{{dump data.0}} #}
-       </pre>
 {% endblock %}
