@@ -21,9 +21,10 @@
 
 
 {% block content %}
+<div class="row" style="min-height: 600px";> {# Begin bevenste gedeelte #}
+
 <div class="col-md-5" style="background-image: url('assets/img/gerechten/{{data.0.gerecht.afbeelding}}')">   {#kolom met plaatje #}
 </div>
-
 
 <div class="col-md-7" style="background-color: #FFF">
     {# cijfers van personen, prijs en calorieen #}
@@ -84,6 +85,7 @@
     </div>
 
 </div> {# Einde rechter kant #}
+</div> {# Einde geheel bovenste gedeelte #}
 
 
 <!-- tabladen: -->
@@ -94,30 +96,38 @@
 
     <div class="tab">
         <button class="tablinks" onclick="openTab(event, 'Ingredienten')">Ingrediënten </button>
-        <button class="tablinks" onclick="openTab(event, 'Paris')">Paris </button>
-        <button class="tablinks" onclick="openTab(event, 'Tokyo')">Tokyo </button>
+        <button class="tablinks" onclick="openTab(event, 'Bereidingswijze')">Bereidingswijze </button>
+        <button class="tablinks" onclick="openTab(event, 'Opmerkingen')">Opmerkingen </button>
     </div>
 
     <!-- content -->
     <div id="Ingredienten" class="tabcontent">
-    Test
         {% for record in data.0.ingredienten %}
-            {{record.naam}} <br>
+        <div class="row">
+            <div class="col-md-2" 
+                style="background-image: url('assets/img/artikelen/{{record.afbeelding}}');"> 
+                <br> <br> <br> <br> <br> <br>
+            </div>
+            <div class="col-md-10">
+                {{record.naam}} <br>
+                {{record.omschrijving}} <br>
+                Hoeveelheid: {{record.aantal}} {{record.eenheid}} 
+            </div>
+        </div>
         {% endfor %}
     </div>
 
-    <div id="Paris" class="tabcontent">
+    <div id="Bereidingswijze" class="tabcontent">
         <h3> Paris </h3>
         <p>Paris is the capital of France.</p>
     </div>
 
-    <div id="Tokyo" class="tabcontent">
+    <div id="Opmerkingen" class="tabcontent">
         <h3> Tokyo </h3>
         <p>Tokyo is the capital of Japan.</p>
     </div>
 
 </div>
-
 
 
        <pre>
