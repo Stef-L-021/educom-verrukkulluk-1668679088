@@ -44,8 +44,8 @@
         -->        
 
         <!-- Nieuwe manier via background image -->
-        <div class="row">
-        <div class="col-md-12" style="background-image: url('assets/img/gerechten/{{record.gerecht.afbeelding}}'); background-repeat: no-repeat;"> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+        <div class="row" style="min-height: 400px";>
+        <div class="col-md-12" style="background-image: url('assets/img/gerechten/{{record.gerecht.afbeelding}}'); background-repeat: no-repeat; background-position: center; background-size: cover">
         </div>
         </div>
    
@@ -78,15 +78,13 @@
         </div>
 
         {# Hier start de 3de row met de beschijving #}
-        <div class="row"> {{ record.gerecht.korte_omschrijving }} </div>
+        <div class="row" style="min-height: 150px";> {{ record.gerecht.korte_omschrijving }} </div>
 
 
         {# Hier start de 4de een laatste row met de button en andere kleine gegevens #}
         <div class="row">
             <div class="col-md-6" style="background-color: #FFF"> 
-                <!-- <a class="btn btn-primary btn-md" href="#" style="background-color: red"> Smullen! </a> -->
-                <!-- <button id="save"> Smullen! </button> -->
-                <div id="smullen" class="smullen_button"> Smullen! </div>
+                <a href="http://localhost/educom-verrukkulluk-1668679088/index.php?gerecht_id={{record.gerecht.id}}&action=detail"  style="text-decoration: none"> <div id="smullen" class="smullen_button" style> Smullen! </div> </a>
             </div>
             <div class="col-md-2" style="background-color: #FFF"> 
                 <i class="fa fa-file-pdf"></i> 4
@@ -95,7 +93,7 @@
                 <i class="fa fa-file-pdf"></i> {{ record.prijs |round(2)}}
             </div>
             <div class="col-md-2" style="background-color: #FFF"> 
-                <i class="fa fa-file-pdf"></i> {{ record.calorieen |round(2)}}
+                <i class="fa fa-file-pdf"></i> {{ record.calorieen |round(0)}}
             </div>
         </div>
 
@@ -103,10 +101,11 @@
     </div> {# Eindigd de grijze box div #}
 
     {% endfor %}
-    <ul>
-     {# Dump #}
-       <pre>
-        {{ dump(data) }}
-       </pre>
+
+
+{# Dump #}
+<pre>
+    {{ dump(data) }}
+</pre>
 
 {% endblock %}
