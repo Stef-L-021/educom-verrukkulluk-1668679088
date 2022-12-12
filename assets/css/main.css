@@ -65,7 +65,7 @@ html, body {
     cursor: pointer;
     text-align: center;
     transition: all ease 0.4s;
-    border-radius: 30%;
+    border-radius: 20px;
 }
 
 .smullen_button {
@@ -80,7 +80,7 @@ html, body {
     cursor: pointer;
     text-align: center;
     transition: all ease 0.1s;
-    border-radius: 40%;
+    border-radius: 20px;
 }
 
 .smullen_button:hover {
