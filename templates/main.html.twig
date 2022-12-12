@@ -37,13 +37,11 @@
         <div class="col-md-3" style="background-color: #FFF">
             <div class="col-md-12" style="background-color: #6e8722"> 
                 <center> <img src="assets/img/verrukkulluk-agenda.png" style="height: 80px; width: 187px"/> </center> <br>
-                <div class="row"> {# Rijen met input van de agenda #}
                 {% for calendar in 0..5 %}
                     <p> <h3>  <i class="fa fa-calendar-day" style="color:white"></i>                                    
                     Vegatarisch koken </h3> 
                     Een workship vegatarisch koken onder leiding van Bobby </p>
                 {% endfor %}
-                </div> {# Einde rijen input #}
             </div> {# Einde agenda class #} {# Hier stonden de line breaks #}
 
             <div class="col-md-12" style="background-color: #b31714">
@@ -52,7 +50,7 @@
                 {# invulvak #}
                 wachtwoord <br>
                 {# invulvak #} <br>
-                <div id="login" class="login_button"> Login </div>
+                <center> <div id="login" class="login_button"> Login </div> </center>
             </div> 
 
 
@@ -65,7 +63,7 @@
 
 
         <!-- Content -->
-        <div class="col-md-9" style="background-color: #0F0">
+        <div class="col-md-9" style="background-color: #FFF">
             <div class="row">
                 {%  block content %}
 
@@ -80,7 +78,7 @@
             <img src="assets/img/verrukkulluk-pay-off.png" style="height: 100px; width: 100px"/> <br>
             <img src="assets/img/verrukkulluk-contact.png" style="height: 80px; width: 187px"/> <br>
             verrukkulluk.nl <br>
-            Posttrtaat 2b <br>
+            Poststraat 2b <br>
             Sittard <br>
             info@verrukkulluk.n;
         </div>
