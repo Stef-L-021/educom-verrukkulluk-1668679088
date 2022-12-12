@@ -23,6 +23,10 @@
 </html>                                                                         <!-- Waarom stoppen we HTML hier? -->
 <body>
 
+<div class="pl-5">
+<div class="pr-5">
+<div class="pl-5">
+<div class="pr-5">
 <div class="container-fluid">
 
     {# 1ste row met de header 12 #}
@@ -33,9 +37,10 @@
     </div> <!-- background-image -->
 
     {# 2de row met de agenda #}
-    <div class="pt-5"> <!-- opent ruimte tussen header en daaronder -->
     <div class="row">
+    
         <div class="col-md-3" style="background-color: #FFF">
+            <div class="p-5"> <!-- opent ruimte rondom agenda -->
             <div class="col-md-12" style="background-color: #6e8722"> 
                 <center> <img src="assets/img/verrukkulluk-agenda.png" style="height: 80px; width: 187px"/> </center> <br>
                 {% for calendar in 0..5 %}
@@ -44,7 +49,9 @@
                     Een workship vegatarisch koken onder leiding van Bobby </p>
                 {% endfor %}
             </div> {# Einde agenda class #} {# Hier stonden de line breaks #}
+            </div>{# EIndigd de pt-5 #}
 
+            <div class="p-5">
             <div class="col-md-12" style="background-color: #b31714">
                 <center> <img src="assets/img/verrukkulluk-login.png" style="height: 80px; width: 187px"/> </center> <br>
                 email <br>
@@ -53,6 +60,7 @@
                 {# invulvak #} <br>
                 <center> <div id="login" class="login_button"> Login </div> </center>
             </div> 
+            </div>
 
 
             <!-- Voorbeeld
@@ -73,7 +81,6 @@
             </div>
         </div> {# eindigd col 9 #}
     </div> {# Einigd class row #}
-    </div>{# EIndigd de pt-5 #}
 
 
     {# 3de en laatste row met de footer #}
@@ -84,11 +91,15 @@
             verrukkulluk.nl <br>
             Poststraat 2b <br>
             Sittard <br>
-            info@verrukkulluk.n;
+            info@verrukkulluk.nl
         </div>
     </div>
 
 
+</div> {# Einde container #}
+</div>
+</div>
+</div>
 </div>
 
 </body>
