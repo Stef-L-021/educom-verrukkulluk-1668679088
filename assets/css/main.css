@@ -127,3 +127,12 @@ html, body {
     border: 1px solid #CCC;
     border-top: none;
 }
+
+.col-container {
+    display: table;
+    width: 100%;
+}
+
+.col {
+    display: table-cell;
+}
