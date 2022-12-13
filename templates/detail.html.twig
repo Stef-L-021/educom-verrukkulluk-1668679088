@@ -21,6 +21,7 @@
 
 
 {% block content %}
+<div class="p-5 shadow">
 <div class="row" style="min-height: 600px";> {# Begin bevenste gedeelte #}
 
 <div class="col-md-5" 
@@ -31,13 +32,13 @@
     {# cijfers van personen, prijs en calorieen #}
     <div class="row">
         <div class="col-md-2"> 
-            <i class="fa fa-file-pdf" style="color:#F00"></i> 4
+            <i class="fa fa-user" style="color:#F00"></i> 4
         </div>
         <div class="col-md-2"> 
-            <i class="fa fa-file-pdf" style="color:#F00"></i> {{ data.0.prijs |round(2)}}
+            <i class="fa fa-euro-sign" style="color:#F00"></i> {{ data.0.prijs |round(2)}}
         </div>
         <div class="col-md-2"> 
-            <i class="fa fa-file-pdf" style="color:#F00"></i> {{ data.0.calorieen |round(2)}}
+            <i class="fa fa-fire" style="color:#F00"></i> {{ data.0.calorieen |round(2)}}
         </div>
     </div>
 
@@ -59,29 +60,29 @@
             <h4> Keuken </h4> 
         </div>
         <div class="col-md-3">
-            keuken 
+            {{data.0.keuken.omschrijving}} 
         </div>
 
         <div class="col-md-3">
             <h4> Type </h4> 
         </div>
         <div class="col-md-3">
-            Type 
+            {{data.0.type.omschrijving}}
         </div>
     </div>
 
     {# omschrijving #}
-    <div class="row">
-    Omschrijving
+    <div class="row" style="min-height: 600px";>
+        {{data.0.gerecht.lange_omschrijving}}
     </div>
 
     {# op lijst en favorieten knop #}
     <div class="row">
-        <div class="col-md-8">
-        Knop 
+        <div class="col-md-11">
+            <a href="http://localhost/educom-verrukkulluk-1668679088/index.php?gerecht_id=2&action=detail"  style="text-decoration: none"> <div id="smullen" class="smullen_button" style> Op lijst </div> </a>
         </div>
-        <div class="col-md-4">
-        favoriet
+        <div class="col-md-1">
+            <i class="fa fa-heart fa-2x"></i>
         </div>
     </div>
 
@@ -141,6 +142,7 @@
     </div> {# Einde opmerkingen div #}
 
 </div> {# Einde button div #}
+</div> 
 
 {#
        <pre>

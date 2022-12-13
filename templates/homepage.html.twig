@@ -28,15 +28,16 @@
 
 {#voor spacing later toe te voegen mogelijk gebruijken: https://getbootstrap.com/docs/4.0/utilities/spacing/ #}
 {% block content %}
- 
     {% for record in data %}    {# Deze loopt door de gehele data ($gerechten array) heen. #}
-
+    
     {# Hier starten de 4 grijze achtergrond hokjes #}
-    <div class="col-md-6" style="background-color: #FFF">    {# Hier maken we een nieuwe bootstrap opdeling binnen content iedere 6 #}
-    <div class="p-5">
+    <div class="col-md-6 p-5" style=" ">    {# Hier maken we een nieuwe bootstrap opdeling binnen content iedere 6 #}
+   
+   
 
 
         {# Hier start de 1de row met daarbinnen de afbeelding #}
+        <div class="" style="box-shadow: 6px 6px 6px 15px #000;background-color: #ffffff">
         <div class="row" style="min-height: 400px";>
             <div class="col-md-12" style="background-image: url('assets/img/gerechten/{{record.gerecht.afbeelding}}'); background-repeat: no-repeat; background-position: center; background-size: cover">
             </div>
@@ -70,7 +71,11 @@
         </div>
 
         {# Hier start de 3de row met de beschijving #}
-        <div class="row" style="min-height: 150px";> {{ record.gerecht.korte_omschrijving }} </div>
+        <div class="row" >
+        <div class="col-md-12" style="background-color: #FFF"> 
+        <h1>{{ record.gerecht.korte_omschrijving }} </h1>
+        </div>
+        </div>
 
 
         {# Hier start de 4de een laatste row met de button en andere kleine gegevens #}
@@ -79,22 +84,25 @@
                 <a href="http://localhost/educom-verrukkulluk-1668679088/index.php?gerecht_id={{record.gerecht.id}}&action=detail"  style="text-decoration: none"> <div id="smullen" class="smullen_button" style> Smullen! </div> </a>
             </div>
             <div class="col-md-2" style="background-color: #FFF"> 
-                <i class="fa fa-file-pdf"></i> 4
+                <i class="fa fa-user" style="color:#F00"></i> 4
             </div>
             <div class="col-md-2" style="background-color: #FFF"> 
-                <i class="fa fa-file-pdf"></i> {{ record.prijs |round(2)}}
+                <i class="fa fa-euro-sign" style="color:#F00"></i> {{ record.prijs |round(2)}}
             </div>
             <div class="col-md-2" style="background-color: #FFF"> 
-                <i class="fa fa-file-pdf"></i> {{ record.calorieen |round(0)}}
+                <i class="fa fa-fire" style="color:#F00"></i> {{ record.calorieen |round(0)}}
             </div>
         </div>
 
-    </div> {# Einde van de p-5 div #}
+   
+    </div>
+  
     </div> {# Eindigd de grijze box div #}
+
 
     {% endfor %}
 
-<!--
+<!-- 
 {# Dump #}
 <pre>
     {{ dump(data) }}

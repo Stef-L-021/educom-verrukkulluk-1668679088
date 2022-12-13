@@ -46,6 +46,11 @@ h3, h4, h5 {
     font-size: 32px;
 }
 
+.h7 {
+    font-size: 22px;
+    font-family: "Helvetica Neue", Arial, SansSerif;
+}
+
 
 /** HTML / BODY **/
 html, body {
