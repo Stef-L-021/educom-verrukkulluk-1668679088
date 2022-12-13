@@ -114,10 +114,11 @@
                 </div>
                 <div class="col-md-11">
                     <h3> {{record.naam}} </h3>
-                    {{record.omschrijving}} <br>
-                    Hoeveelheid: {{record.aantal}} {{record.eenheid}} 
-                </div>
-            </div>
+                    <div> {{record.omschrijving}} </div>
+                    <a class="hgreen"> Hoeveelheid: </a>            {# zoek hiervoor een goeie a h of whatever #}
+                    <a>  {{record.aantal}} {{record.eenheid}} </a>
+                </div> {# Einde div md-11 #}
+            </div> {# Einde row class #}
         {% endfor %}
     </div>
 

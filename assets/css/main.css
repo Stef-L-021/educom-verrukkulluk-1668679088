@@ -51,6 +51,11 @@ h3, h4, h5 {
     font-family: "Helvetica Neue", Arial, SansSerif;
 }
 
+.hgreen {
+    font-size: 19px;
+    font-family: "pretty_lilyregular";
+    color: #6e8722;
+}
 
 /** HTML / BODY **/
 html, body {
