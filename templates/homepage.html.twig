@@ -31,13 +31,13 @@
     {% for record in data %}    {# Deze loopt door de gehele data ($gerechten array) heen. #}
     
     {# Hier starten de 4 grijze achtergrond hokjes #}
-    <div class="col-md-6 p-5" style=" ">    {# Hier maken we een nieuwe bootstrap opdeling binnen content iedere 6 #}
+    <div class="col-md-6 p-5">    {# Hier maken we een nieuwe bootstrap opdeling binnen content iedere 6 #}
    
    
 
 
         {# Hier start de 1de row met daarbinnen de afbeelding #}
-        <div class="" style="box-shadow: 6px 6px 6px 15px #000;background-color: #ffffff">
+        <div class="" style="box-shadow: 6px 6px 20px 15px rgba(120, 117, 119, 0.5);background-color: #ffffff">
         <div class="row" style="min-height: 400px";>
             <div class="col-md-12" style="background-image: url('assets/img/gerechten/{{record.gerecht.afbeelding}}'); background-repeat: no-repeat; background-position: center; background-size: cover">
             </div>
@@ -72,8 +72,8 @@
 
         {# Hier start de 3de row met de beschijving #}
         <div class="row" >
-        <div class="col-md-12" style="background-color: #FFF"> 
-        <h1>{{ record.gerecht.korte_omschrijving }} </h1>
+        <div class="col-md-12" style="background-color: #FFF; min-height: 150px"> 
+        {{ record.gerecht.korte_omschrijving }} 
         </div>
         </div>
 
