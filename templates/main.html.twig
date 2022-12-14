@@ -44,20 +44,22 @@
 
             {# ///////////////// Agenda ///////////////// #}
 
-            <div class="mb-5"> {# opent ruimte onder agenda #}
-                <div class="col-md-12 p-4" style="background-color: #6e8722">                                                           {# Voegt groene achterkant toe en padding rond tekst#}
+            <div class="mb-4-5-x2"> {# opent ruimte onder agenda #}
+                <div class="col-md-12 p-4 shadow" style="background-color: #6e8722">                                                    {# Voegt groene achterkant toe, padding rond tekst & een shadow#}
+
                     <center> <img src="assets/img/verrukkulluk-agenda.png" style="height: 80px; width: 187px"/> </center> <br>
                     {% for calendar in 0..5 %}
                         <p> <h3>  <i class="fa fa-calendar-day" style="color:white"></i>                                    
                         Vegatarisch koken </h3> 
                         Een workship vegatarisch koken onder leiding van Bobby </p>
                     {% endfor %}
-                </div> {# Einde agenda class #} {# Hier stonden de line breaks #}
+
+                </div> {# Einde agenda class #} 
             </div>{# EIndigd de mb-5 #}
 
             {# ///////////////// Login ///////////////// #}
 
-            <div class="col-md-12 p-4 background-red">
+            <div class="col-md-12 p-4 shadow background-red">
                 <center class="pb-3"> <img src="assets/img/verrukkulluk-login.png" style="height: 80px; width: 187px"/> </center>
                 <form id="form">
                     <div class="white"> Email: </div>
