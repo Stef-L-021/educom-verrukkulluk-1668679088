@@ -74,17 +74,27 @@ h3, h4, h5 {
 }
 
 
-.wit {
+.white {
     color: #FFF;
+}
+
+.red {
+    color: #b31714;
+}
+
+.background-white {
+    background-color: #FFF;
+}
+
+.background-red {
+    background-color: #b31714;
 }
 
 .shadow {
     box-shadow: 6px 6px 20px 15px rgba(120, 117, 119, 0.5);
 }
 
-.background-wit {
-    background-color: #FFF;
-}
+
 
 /** HTML / BODY **/
 html, body {
