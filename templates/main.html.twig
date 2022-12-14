@@ -49,13 +49,16 @@
             </div>{# EIndigd de pt-5 #}
 
             <div class="p-5">
-            <div class="col-md-12" style="background-color: #b31714">
-                <center> <img src="assets/img/verrukkulluk-login.png" style="height: 80px; width: 187px"/> </center> <br>
-                email <br>
-                {# invulvak #}
-                wachtwoord <br>
-                {# invulvak #} <br>
-                <center> <div id="login" class="login_button"> Login </div> </center>
+            <div class="col-md-12 p-4" style="background-color: #b31714">
+                <center class="pb-3"> <img src="assets/img/verrukkulluk-login.png" style="height: 80px; width: 187px"/> </center>
+                <form id="form">
+                    <div class="wit pb-3"> Email: 
+                    <input type="text" name="name" style="width: 350px"> </div>
+
+                    <div class="wit pb-4"> Wachtwoord 
+                    <input type="text" name="wachtwoord" style="width: 350px"> </div>
+                </form>
+                <center> <div id="login" class="login_button"> Login </div> </center>                                               {# Login button#}
             </div> 
             </div>
 

@@ -73,6 +73,11 @@ h3, h4, h5 {
     color: #6e8722;
 }
 
+
+.wit {
+    color: #FFF;
+}
+
 /** HTML / BODY **/
 html, body {
     font-family: "Helvetica Neue", Arial, SansSerif;
