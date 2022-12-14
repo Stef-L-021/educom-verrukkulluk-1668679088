@@ -184,3 +184,7 @@ html, body {
 .m-4-5 {
     margin: 2rem !important;
   }
+
+.mb-4-5-x2 {
+    margin-bottom: 4rem !important;
+}
