@@ -52,8 +52,24 @@ h3, h4, h5 {
 }
 
 .hgreen {
-    font-size: 19px;
+    font-size: 21px;
     font-family: "pretty_lilyregular";
+    color: #6e8722;
+}
+
+.tab-green {
+    font-size: 25;
+    font-family: "pretty_lilyregular";
+    color: #6e8722;
+}
+
+.h2-5 {
+    font-size: 37px;
+    font-family: "pretty_lilyregular";
+    color: #6e8722;
+}
+
+.green {
     color: #6e8722;
 }
 

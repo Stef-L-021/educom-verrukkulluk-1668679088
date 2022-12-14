@@ -28,7 +28,7 @@
 
     {# 1ste row met de header 12 #}
     <div id="background-image"> 
-        <img src="assets/img/logo-v2.png"/>
+        <img src="assets/img/logo-v2.png"/>         {# Dit gedeelte voegt het logo toe #}
         {% block header %}
         {% endblock %}   
     </div> <!-- background-image -->
@@ -38,7 +38,7 @@
     
         <div class="col-md-3 " style="background-color: #FFF">
             <div class="p-5"> <!-- opent ruimte rondom agenda -->
-            <div class="col-md-12" style="background-color: #6e8722"> 
+            <div class="col-md-12 p-4" style="background-color: #6e8722">                                                           {# Voegt groene achterkant toe en padding rond tekst#}
                 <center> <img src="assets/img/verrukkulluk-agenda.png" style="height: 80px; width: 187px"/> </center> <br>
                 {% for calendar in 0..5 %}
                     <p> <h3>  <i class="fa fa-calendar-day" style="color:white"></i>                                    

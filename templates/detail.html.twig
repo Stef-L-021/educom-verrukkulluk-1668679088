@@ -49,7 +49,7 @@
 
     {#% set record = data %#}
     <div class="row">
-        <div class="col-md-8"> 
+        <div class="col-md-8 green"> 
             <h2> {{ data.0.gerecht.titel }} </h2>
         </div>
         <div class="col-md-4"> 
@@ -58,14 +58,14 @@
     </div>
 
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-3 green">
             <h4> Keuken </h4> 
         </div>
         <div class="col-md-3">
             {{data.0.keuken.omschrijving}} 
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-3 green">
             <h4> Type </h4> 
         </div>
         <div class="col-md-3">
@@ -100,9 +100,9 @@
 <div class="row">
 
     <div class="tab">
-        <button class="tablinks" onclick="openTab(event, 'Ingredienten')">Ingrediënten </button>
-        <button class="tablinks" onclick="openTab(event, 'Bereidingswijze')">Bereidingswijze </button>
-        <button class="tablinks" onclick="openTab(event, 'Opmerkingen')">Opmerkingen </button>
+        <button class="tablinks" onclick="openTab(event, 'Ingredienten')"> <span class="tab-green"> Ingrediënten </span> </button>
+        <button class="tablinks" onclick="openTab(event, 'Bereidingswijze')"> <span class="tab-green"> Bereidingswijze </span> </button>
+        <button class="tablinks" onclick="openTab(event, 'Opmerkingen')"> <span class="tab-green"> Opmerkingen </span> </button>
     </div>
 
     <!-- content -->
@@ -113,10 +113,10 @@
                     style="background-image: url('assets/img/artikelen/{{record.afbeelding}}'); background-position: center; background-size: cover"> 
                 </div>
                 <div class="col-md-11">
-                    <h3> {{record.naam}} </h3>
+                    <h2 style="color: #6e8722"> {{record.naam}} </h2>
                     <div> {{record.omschrijving}} </div>
-                    <a class="hgreen"> Hoeveelheid: </a>            {# zoek hiervoor een goeie a h of whatever #}
-                    <a>  {{record.aantal}} {{record.eenheid}} </a>
+                    <span class="hgreen"> Hoeveelheid: </span>            {# zoek hiervoor een goeie a h of whatever #}
+                    <span>  {{record.aantal}} {{record.eenheid}} </span>
                 </div> {# Einde div md-11 #}
             </div> {# Einde row class #}
         {% endfor %}
@@ -133,12 +133,12 @@
 
     <div id="Opmerkingen" class="tabcontent">
         {% for record in data.0.opmerkingen %}
-        <div class="row">
+        <div class="row pt-3 pl-5">
             <div class="col-md-4"
                 style="background-image: url('assets/img/users/{{record.afbeelding}}'); background-position: center; background-size: cover; height: 150px; max-width: 150px; border-radius: 50%"> 
             </div>
-            <div class="col-sm-8"> 
-                <div class="row"> {{record.user_name}} </div>
+            <div class="col-sm-8 pl-4"> 
+                <div class="row h2-5"> {{record.user_name}} </div>
                 <div class="row"> {{record.tekstveld}} </div> <br>
             </div>
         </div>
