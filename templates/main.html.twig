@@ -40,30 +40,31 @@
     
         {# Linker helft ======================================================== #}
         <div class="col-md-4 " style="background-color: #FFF">
-        <div class="m-4-5">
+        <div class="m-4-5">                                                                                                             {# margin rond Agenda & Login #}
 
             {# ///////////////// Agenda ///////////////// #}
-            <div class="mb-5"> <!-- opent ruimte rondom agenda -->
-            <div class="col-md-12 p-4" style="background-color: #6e8722">                                                           {# Voegt groene achterkant toe en padding rond tekst#}
-                <center> <img src="assets/img/verrukkulluk-agenda.png" style="height: 80px; width: 187px"/> </center> <br>
-                {% for calendar in 0..5 %}
-                    <p> <h3>  <i class="fa fa-calendar-day" style="color:white"></i>                                    
-                    Vegatarisch koken </h3> 
-                    Een workship vegatarisch koken onder leiding van Bobby </p>
-                {% endfor %}
-            </div> {# Einde agenda class #} {# Hier stonden de line breaks #}
-            </div>{# EIndigd de pt-5 #}
+
+            <div class="mb-5"> {# opent ruimte onder agenda #}
+                <div class="col-md-12 p-4" style="background-color: #6e8722">                                                           {# Voegt groene achterkant toe en padding rond tekst#}
+                    <center> <img src="assets/img/verrukkulluk-agenda.png" style="height: 80px; width: 187px"/> </center> <br>
+                    {% for calendar in 0..5 %}
+                        <p> <h3>  <i class="fa fa-calendar-day" style="color:white"></i>                                    
+                        Vegatarisch koken </h3> 
+                        Een workship vegatarisch koken onder leiding van Bobby </p>
+                    {% endfor %}
+                </div> {# Einde agenda class #} {# Hier stonden de line breaks #}
+            </div>{# EIndigd de mb-5 #}
 
             {# ///////////////// Login ///////////////// #}
 
             <div class="col-md-12 p-4 background-red">
                 <center class="pb-3"> <img src="assets/img/verrukkulluk-login.png" style="height: 80px; width: 187px"/> </center>
                 <form id="form">
-                    <div class="white pb-3"> Email: 
-                    <input type="text" name="name" style="width: 350px"> </div>
+                    <div class="white"> Email: </div>
+                    <div class="pb-3"> <input type="text" name="name" style="width: 350px"> </div>
 
-                    <div class="white pb-4"> Wachtwoord 
-                    <input type="text" name="wachtwoord" style="width: 350px"> </div>
+                    <div class="white"> Wachtwoord </div>
+                    <div class="pb-4"> <input type="text" name="wachtwoord" style="width: 350px"> </div>
                 </form>
                 <center> <div id="login" class="login_button"> Login </div> </center>                                               {# Login button#}
             </div> 
