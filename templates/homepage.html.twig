@@ -32,12 +32,9 @@
     
     {# Hier starten de 4 grijze achtergrond hokjes #}
     <div class="col-md-6 p-5">    {# Hier maken we een nieuwe bootstrap opdeling binnen content iedere 6 #}
-   
-   
+    <div class="" style="box-shadow: 6px 6px 20px 15px rgba(120, 117, 119, 0.5);background-color: #ffffff"> {# Let op hier is een andere soort shadow!! #}
 
-
-        {# Hier start de 1de row met daarbinnen de afbeelding #}
-        <div class="" style="box-shadow: 6px 6px 20px 15px rgba(120, 117, 119, 0.5);background-color: #ffffff">
+        {# Hier start de 1ste row met daarbinnen de afbeelding #}
         <div class="row" style="min-height: 400px";>
             <div class="col-md-12" style="background-image: url('assets/img/gerechten/{{record.gerecht.afbeelding}}'); background-repeat: no-repeat; background-position: center; background-size: cover">
             </div>
@@ -47,34 +44,17 @@
         {# Hier start de 2de row met daarbinnen de titel en sterren #}
         <div class="row">
             <div class="col-md-6" style="background-color: #ffffff"> {#titel div #}
-            <h2> {{ record.gerecht.titel }} </h2>
-
-            <!--
-            {# sub-loop #}
-                {% for ingr in record.ingredienten %}
-               
-                    
-                        <span {% if ingr.id < 3 %}style='color: #F00'{% endif %}>{{  ingr.naam }}</span>
-
-                        {# if #}
-                        {%  if ingr.id == 3 %}
-                            <strong>Dit is ID 3!</strong>
-                        {%  endif  %}
-                    
-                {% endfor %}
-            -->
-
+                <h2> {{ record.gerecht.titel }} </h2>
             </div> {# Einde titel div #}
-
             <div class="col-md-6" style="background-color: #FFF"> <h3> **** </h3> </div> 
+        </div> {# einde class row voor de titel en sterren #}
 
-        </div>
 
         {# Hier start de 3de row met de beschijving #}
-        <div class="row" >
-        <div class="col-md-12" style="background-color: #FFF; height: 150px"> 
-        {{ record.gerecht.korte_omschrijving }} 
-        </div>
+        <div class="row">
+            <div class="col-md-12" style="background-color: #FFF; height: 150px"> 
+                {{ record.gerecht.korte_omschrijving }} 
+            </div>
         </div>
 
 
@@ -95,18 +75,17 @@
         </div>
 
    
-    </div>
-  
+    </div> {# shadow & background div #}
     </div> {# Eindigd de grijze box div #}
 
 
     {% endfor %}
 
-<!-- 
-{# Dump #}
-<pre>
-    {{ dump(data) }}
-</pre>
--->
+    <!-- 
+    {# Dump #}
+    <pre>
+        {{ dump(data) }}
+    </pre>
+    -->
 
 {% endblock %}
