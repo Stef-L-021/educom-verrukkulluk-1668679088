@@ -180,3 +180,7 @@ html, body {
 .col {
     display: table-cell;
 }
+
+.m-4-5 {
+    margin: 2rem !important;
+  }
