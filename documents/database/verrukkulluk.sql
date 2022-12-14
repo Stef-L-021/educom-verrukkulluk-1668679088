@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 11 dec 2022 om 20:05
--- Serverversie: 10.4.25-MariaDB
--- PHP-versie: 8.1.10
+-- Generation Time: Dec 14, 2022 at 08:04 AM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `artikel`
+-- Table structure for table `artikel`
 --
 
 CREATE TABLE `artikel` (
@@ -39,14 +39,14 @@ CREATE TABLE `artikel` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Gegevens worden geëxporteerd voor tabel `artikel`
+-- Dumping data for table `artikel`
 --
 
 INSERT INTO `artikel` (`id`, `naam`, `omschrijving`, `prijs`, `eenheid`, `verpakking`, `calorieen`, `afbeelding`) VALUES
-(1, 'Vegan Burger Bun', 'bun', 200, 'broodjes', 6, 100, 'https://i.imgur.com/u1odQeZ.jpg'),
-(2, 'Vegan Burger', 'blije koe', 300, 'gram', 500, 318, 'https://i.imgur.com/cvrCqGT.png'),
+(1, 'Vegan Burger Bun', 'bun', 200, 'broodjes', 6, 100, 'vegan_burger_bun.jpg'),
+(2, 'Vegan Burger', 'blije koe', 300, 'gram', 500, 318, 'vegan_burger.png'),
 (3, 'Vegan Burger sauce', 'beste sauce', 250, 'ml', 500, 470, 'https://i.imgur.com/JBZ4fQR.jpg'),
-(4, 'snoep tomaatjes', 'Vers uit de tuin', 199, 'gram', 250, 78, 'https://i.imgur.com/ujlhMHz.jpg'),
+(4, 'snoep tomaatjes', 'Vers uit de tuin', 199, 'gram', 250, 78, 'snoep_tomaatjes.jpg'),
 (5, 'Eieren', 'Vers uit de kip', 225, 'stuk(s)', 6, 0, 'https://i.imgur.com/pPqFQ4i.jpg'),
 (6, 'broccoli ', 'groene bloemkool', 159, 'gram', 500, 318, 'https://i.imgur.com/dUEv3KL.jpg'),
 (7, 'bloemkool', '', 189, 'stuk', 1, 65, 'https://i.imgur.com/PUvI0Bw.jpg'),
@@ -65,7 +65,7 @@ INSERT INTO `artikel` (`id`, `naam`, `omschrijving`, `prijs`, `eenheid`, `verpak
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `boodschappen`
+-- Table structure for table `boodschappen`
 --
 
 CREATE TABLE `boodschappen` (
@@ -77,7 +77,7 @@ CREATE TABLE `boodschappen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Gegevens worden geëxporteerd voor tabel `boodschappen`
+-- Dumping data for table `boodschappen`
 --
 
 INSERT INTO `boodschappen` (`id`, `artikel_id`, `user_id`, `aantal`, `precies_aantal`) VALUES
@@ -102,7 +102,7 @@ INSERT INTO `boodschappen` (`id`, `artikel_id`, `user_id`, `aantal`, `precies_aa
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `gerecht`
+-- Table structure for table `gerecht`
 --
 
 CREATE TABLE `gerecht` (
@@ -118,19 +118,19 @@ CREATE TABLE `gerecht` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Gegevens worden geëxporteerd voor tabel `gerecht`
+-- Dumping data for table `gerecht`
 --
 
 INSERT INTO `gerecht` (`id`, `keuken_id`, `type_id`, `user_id`, `datum_toegevoegd`, `titel`, `korte_omschrijving`, `lange_omschrijving`, `afbeelding`) VALUES
 (1, 6, 9, 2, '2022-11-17', 'Eggs & Veggies', 'Eggs & veggies korte beschrijving', 'Eggggss en veggggieessss lange beschrijving', 'eggs_and_veggies.jpg'),
-(2, 1, 8, 3, '2022-11-17', 'Vegan Burger', 'Een mooie Vegan burger', '', 'Vegan_Burger.jpg'),
-(3, 5, 7, 3, '2022-11-17', 'Sushi Rolls', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur', '', 'Sushi_Rolls.jpg'),
+(2, 1, 8, 3, '2022-11-17', 'Vegan Burger', 'Een mooie Vegan burger', 'veryyyy long beschrijving', 'Vegan_Burger.jpg'),
+(3, 5, 7, 3, '2022-11-17', 'Sushi Rolls', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur', '  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam feugiat sem ac magna venenatis vehicula. Etiam sapien lorem, luctus sed efficitur non, euismod vel risus. Suspendisse finibus leo turpis, a egestas metus volutpat nec. In malesuada auctor lectus. Nunc id posuere orci. Nunc non arcu quis dolor lobortis dapibus a nec lorem. Integer congue arcu quis sodales mattis. Nunc euismod ex nisl, ac ultricies quam dignissim vel. Curabitur a porttitor erat. Nullam semper mattis est, quis egestas ex hendrerit sed.  Fusce varius a est id placerat. Nam sed augue vitae libero auctor dapibus. Maecenas ultrices non ipsum ut molestie. Nullam nulla diam, ultrices non dolor feugiat, ultrices pretium nulla. Vestibulum pharetra augue id est feugiat feugiat. Cras consequat leo velit, eget cursus elit pellentesque eget. Mauris aliquam maximus eros, ac tempus leo mollis nec. Aliquam erat volutpat. Suspendisse aliquet semper justo, eget maximus arcu dictum non. Aliquam congue nisi sem, sit amet fermentum nisi porttitor semper. Duis quam magna, cursus et sapien eu, tincidunt gravida lorem. In lobortis laoreet vehicula. Pellentesque quis laoreet quam, at viverra sapien. Quisque finibus gravida neque, ac fringilla mauris fermentum eget. Phasellus id leo consectetur, posuere dolor ut, viverra ex. Fusce a tortor dignissim, egestas sem sed, ultrices eros. ', 'Sushi_Rolls.jpg'),
 (4, 2, 9, 4, '2022-11-17', 'Pizza Green', 'Nee de pizza is niet groen', '', 'Pizza_Green.png');
 
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `gerecht_info`
+-- Table structure for table `gerecht_info`
 --
 
 CREATE TABLE `gerecht_info` (
@@ -144,7 +144,7 @@ CREATE TABLE `gerecht_info` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Gegevens worden geëxporteerd voor tabel `gerecht_info`
+-- Dumping data for table `gerecht_info`
 --
 
 INSERT INTO `gerecht_info` (`id`, `record_type`, `gerecht_id`, `user_id`, `datum`, `nummeriekveld`, `tekstveld`) VALUES
@@ -200,7 +200,7 @@ INSERT INTO `gerecht_info` (`id`, `record_type`, `gerecht_id`, `user_id`, `datum
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `ingredient`
+-- Table structure for table `ingredient`
 --
 
 CREATE TABLE `ingredient` (
@@ -211,7 +211,7 @@ CREATE TABLE `ingredient` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Gegevens worden geëxporteerd voor tabel `ingredient`
+-- Dumping data for table `ingredient`
 --
 
 INSERT INTO `ingredient` (`id`, `gerecht_id`, `artikel_id`, `aantal`) VALUES
@@ -240,7 +240,7 @@ INSERT INTO `ingredient` (`id`, `gerecht_id`, `artikel_id`, `aantal`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `keuken_type`
+-- Table structure for table `keuken_type`
 --
 
 CREATE TABLE `keuken_type` (
@@ -250,7 +250,7 @@ CREATE TABLE `keuken_type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Gegevens worden geëxporteerd voor tabel `keuken_type`
+-- Dumping data for table `keuken_type`
 --
 
 INSERT INTO `keuken_type` (`id`, `record_type`, `omschrijving`) VALUES
@@ -267,7 +267,7 @@ INSERT INTO `keuken_type` (`id`, `record_type`, `omschrijving`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -279,13 +279,13 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Gegevens worden geëxporteerd voor tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `user_name`, `password`, `email`, `afbeelding`) VALUES
-(1, 'Tommie Tuup', 'Tommie123', 'tommietuup@mail.com', 'https://i.imgur.com/0aDkKot.jpg'),
-(2, 'Bennie Blind', 'slechtwachtwoord111', 'Bennie44@email.com', 'https://i.imgur.com/7S4Emsl.jpg'),
-(3, 'Sammy Suf', '3355152', 'ssuf@email.com', 'https://i.imgur.com/LOHKh2o.jpg'),
+(1, 'Tommie Tuup', 'Tommie123', 'tommietuup@mail.com', 'Tommy_tuup.jpg'),
+(2, 'Bennie Blind', 'slechtwachtwoord111', 'Bennie44@email.com', 'Benny_Blind.jpg'),
+(3, 'Sammy Suf', '3355152', 'ssuf@email.com', 'Sammy_Suf.jpg'),
 (4, 'Katinka Cool', 'etensite@553', 'Katinka@email.com', 'https://i.imgur.com/wMGfHX1.jpg'),
 (5, 'Barry Biemsma', 'Barryyyyyy1', 'barry@email.com', 'https://i.imgur.com/rJAyM7L.jpg'),
 (6, 'Ali Versprille', 'pinguin4', 'pingu@email.com', 'https://i.imgur.com/JDAspUo.jpg'),
@@ -294,27 +294,27 @@ INSERT INTO `user` (`id`, `user_name`, `password`, `email`, `afbeelding`) VALUES
 (9, 'Eren Yeager', 'LongLiveParadise', 'eren@email.com', 'https://i.imgur.com/AUrrt8A.jpg'),
 (10, 'Guts', 'GRIFFITHH', 'guts@email.com', 'https://i.imgur.com/oxlKgIv.jpg'),
 (11, 'Geralt', 'Ciri', 'witcher@email.com', 'https://i.imgur.com/7VrpgRK.jpg'),
-(12, 'Rena Ryuugu', 'USODA', 'Rena@email.com', 'https://i.imgur.com/Ft0wYiv.jpg');
+(12, 'Rena Ryuugu', 'USODA', 'Rena@email.com', 'Rena_Ryuugu.jpg');
 
 --
--- Indexen voor geëxporteerde tabellen
+-- Indexes for dumped tables
 --
 
 --
--- Indexen voor tabel `artikel`
+-- Indexes for table `artikel`
 --
 ALTER TABLE `artikel`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexen voor tabel `boodschappen`
+-- Indexes for table `boodschappen`
 --
 ALTER TABLE `boodschappen`
   ADD PRIMARY KEY (`id`),
   ADD KEY `artikel_id` (`artikel_id`);
 
 --
--- Indexen voor tabel `gerecht`
+-- Indexes for table `gerecht`
 --
 ALTER TABLE `gerecht`
   ADD PRIMARY KEY (`id`),
@@ -323,14 +323,14 @@ ALTER TABLE `gerecht`
   ADD KEY `user` (`user_id`);
 
 --
--- Indexen voor tabel `gerecht_info`
+-- Indexes for table `gerecht_info`
 --
 ALTER TABLE `gerecht_info`
   ADD PRIMARY KEY (`id`),
   ADD KEY `gerecht_id` (`gerecht_id`);
 
 --
--- Indexen voor tabel `ingredient`
+-- Indexes for table `ingredient`
 --
 ALTER TABLE `ingredient`
   ADD PRIMARY KEY (`id`),
@@ -338,76 +338,76 @@ ALTER TABLE `ingredient`
   ADD KEY `gerecht` (`gerecht_id`);
 
 --
--- Indexen voor tabel `keuken_type`
+-- Indexes for table `keuken_type`
 --
 ALTER TABLE `keuken_type`
   ADD PRIMARY KEY (`id`),
   ADD KEY `record_type` (`record_type`,`omschrijving`);
 
 --
--- Indexen voor tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT voor geëxporteerde tabellen
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT voor een tabel `artikel`
+-- AUTO_INCREMENT for table `artikel`
 --
 ALTER TABLE `artikel`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT voor een tabel `boodschappen`
+-- AUTO_INCREMENT for table `boodschappen`
 --
 ALTER TABLE `boodschappen`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
 
 --
--- AUTO_INCREMENT voor een tabel `gerecht`
+-- AUTO_INCREMENT for table `gerecht`
 --
 ALTER TABLE `gerecht`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT voor een tabel `gerecht_info`
+-- AUTO_INCREMENT for table `gerecht_info`
 --
 ALTER TABLE `gerecht_info`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
--- AUTO_INCREMENT voor een tabel `ingredient`
+-- AUTO_INCREMENT for table `ingredient`
 --
 ALTER TABLE `ingredient`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT voor een tabel `keuken_type`
+-- AUTO_INCREMENT for table `keuken_type`
 --
 ALTER TABLE `keuken_type`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT voor een tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- Beperkingen voor geëxporteerde tabellen
+-- Constraints for dumped tables
 --
 
 --
--- Beperkingen voor tabel `boodschappen`
+-- Constraints for table `boodschappen`
 --
 ALTER TABLE `boodschappen`
   ADD CONSTRAINT `boodschappen_ibfk_1` FOREIGN KEY (`artikel_id`) REFERENCES `artikel` (`id`);
 
 --
--- Beperkingen voor tabel `gerecht`
+-- Constraints for table `gerecht`
 --
 ALTER TABLE `gerecht`
   ADD CONSTRAINT `keuken_id` FOREIGN KEY (`keuken_id`) REFERENCES `keuken_type` (`id`),
@@ -415,13 +415,13 @@ ALTER TABLE `gerecht`
   ADD CONSTRAINT `user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 
 --
--- Beperkingen voor tabel `gerecht_info`
+-- Constraints for table `gerecht_info`
 --
 ALTER TABLE `gerecht_info`
   ADD CONSTRAINT `gerecht_id` FOREIGN KEY (`gerecht_id`) REFERENCES `gerecht` (`id`);
 
 --
--- Beperkingen voor tabel `ingredient`
+-- Constraints for table `ingredient`
 --
 ALTER TABLE `ingredient`
   ADD CONSTRAINT `artikel_id` FOREIGN KEY (`artikel_id`) REFERENCES `artikel` (`id`),
