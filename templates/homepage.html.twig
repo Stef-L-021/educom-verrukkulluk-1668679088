@@ -31,8 +31,9 @@
     {% for record in data %}    {# Deze loopt door de gehele data ($gerechten array) heen. #}
     
     {# Hier starten de 4 grijze achtergrond hokjes #}
-    <div class="col-md-6 p-5">    {# Hier maken we een nieuwe bootstrap opdeling binnen content iedere 6 #}
-    <div class="" style="box-shadow: 6px 6px 20px 15px rgba(120, 117, 119, 0.5);background-color: #ffffff"> {# Let op hier is een andere soort shadow!! #}
+    <div class="col-md-6">      {# Hier maken we een nieuwe bootstrap opdeling binnen content iedere 6 #}
+    <div class="m-4-5">           {# Hier kan je nu zowel m and p gebruiken #}
+    <div class="" style="box-shadow: 6px 6px 20px 15px rgba(120, 117, 119, 0.5);background-color: #ffffff"> {# Let op hier is een andere soort shadow!! #} 
 
         {# Hier start de 1ste row met daarbinnen de afbeelding #}
         <div class="row" style="min-height: 400px";>
@@ -77,6 +78,7 @@
    
     </div> {# shadow & background div #}
     </div> {# Eindigd de grijze box div #}
+    </div>
 
 
     {% endfor %}
