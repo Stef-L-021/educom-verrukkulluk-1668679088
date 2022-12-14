@@ -36,42 +36,44 @@
     <div class="" style="box-shadow: 6px 6px 20px 15px rgba(120, 117, 119, 0.5);background-color: #ffffff"> {# Let op hier is een andere soort shadow!! #} 
 
         {# Hier start de 1ste row met daarbinnen de afbeelding #}
-        <div class="row" style="min-height: 400px";>
+        <div class="row" style="min-height: 300px";>
             <div class="col-md-12" style="background-image: url('assets/img/gerechten/{{record.gerecht.afbeelding}}'); background-repeat: no-repeat; background-position: center; background-size: cover">
             </div>
         </div>   
 
 
         {# Hier start de 2de row met daarbinnen de titel en sterren #}
-        <div class="row">
-            <div class="col-md-6" style="background-color: #ffffff"> {#titel div #}
+        <div class="row pt-3" style="background-color: #FFF">
+            <div class="col-md-6"> {#titel div #}
                 <h2> {{ record.gerecht.titel }} </h2>
             </div> {# Einde titel div #}
-            <div class="col-md-6" style="background-color: #FFF"> <h3> **** </h3> </div> 
+            <div class="col-md-6"> 
+                <h3> **** </h3> 
+            </div> 
         </div> {# einde class row voor de titel en sterren #}
 
 
         {# Hier start de 3de row met de beschijving #}
         <div class="row">
-            <div class="col-md-12" style="background-color: #FFF; height: 150px"> 
+            <div class="col-md-12 pt-3" style="background-color: #FFF; height: 200px"> 
                 {{ record.gerecht.korte_omschrijving }} 
             </div>
         </div>
 
 
         {# Hier start de 4de een laatste row met de button en andere kleine gegevens #}
-        <div class="row">
-            <div class="col-md-6" style="background-color: #FFF"> 
+        <div class="row" style="background-color: #FF0">
+            <div class="col-md-6 pb-3"> 
                 <a href="http://localhost/educom-verrukkulluk-1668679088/index.php?gerecht_id={{record.gerecht.id}}&action=detail"  style="text-decoration: none"> <div id="smullen" class="smullen_button" style> Smullen! </div> </a>
             </div>
             <div class="col-md-2" style="background-color: #FFF"> 
-                <i class="fa fa-user" style="color:#F00"></i> 4
+                <i class="fa fa-user fa-lg" style="color:#F00"></i> 4
             </div>
             <div class="col-md-2" style="background-color: #FFF"> 
-                <i class="fa fa-euro-sign" style="color:#F00"></i> {{ record.prijs |round(2)}}
+                <i class="fa fa-euro-sign fa-lg" style="color:#F00"></i> {{ record.prijs |round(2)}}
             </div>
             <div class="col-md-2" style="background-color: #FFF"> 
-                <i class="fa fa-fire" style="color:#F00"></i> {{ record.calorieen |round(0)}}
+                <i class="fa fa-fire fa-lg" style="color:#F00"></i> {{ record.calorieen |round(0)}}
             </div>
         </div>
 
