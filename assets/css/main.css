@@ -69,6 +69,15 @@ h3, h4, h5 {
     color: #6e8722;
 }
 
+.h2-helv {
+    font-size: 41px;
+    font-family: "Helvetica Neue", Arial, SansSerif;
+}
+
+.bold {
+    font-weight: bold;
+}
+
 .green {
     color: #6e8722;
 }
@@ -78,22 +87,34 @@ h3, h4, h5 {
     color: #FFF;
 }
 
-.red {
-    color: #b31714;
-}
-
 .background-white {
     background-color: #FFF;
+}
+
+.red {
+    color: #b31714;
 }
 
 .background-red {
     background-color: #b31714;
 }
 
-.shadow {
-    box-shadow: 6px 6px 20px 15px rgba(120, 117, 119, 0.5);
+.custom-shadow {
+    box-shadow: 3px 3px 20px 10px rgba(120, 117, 119, 0.2);
+    /* alt box-shadow: 1px 1px 20px 5px rgba(120, 117, 119, 0.9); */
 }
 
+/* Centering */
+.center-vertical {
+    display: grid; 
+    align-items: center;
+}
+
+.center-vert-hor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 
 /** HTML / BODY **/

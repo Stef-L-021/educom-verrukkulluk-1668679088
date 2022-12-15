@@ -33,7 +33,7 @@
     {# Hier starten de 4 grijze achtergrond hokjes #}
     <div class="col-md-6">      {# Hier maken we een nieuwe bootstrap opdeling binnen content iedere 6 #}
     <div class="m-4-5">           {# Hier kan je nu zowel m and p gebruiken #}
-    <div class="" style="box-shadow: 6px 6px 20px 15px rgba(120, 117, 119, 0.5);background-color: #ffffff"> {# Let op hier is een andere soort shadow!! #} 
+    <div class="custom-shadow"> {# Let op hier is een andere soort shadow!! #} 
 
         {# Hier start de 1ste row met daarbinnen de afbeelding #}
         <div class="row" style="min-height: 300px";>
@@ -62,17 +62,17 @@
 
 
         {# Hier start de 4de een laatste row met de button en andere kleine gegevens #}
-        <div class="row" style="background-color: #FF0">
+        <div class="row" style="background-color: #FFF">
             <div class="col-md-6 pb-3"> 
                 <a href="http://localhost/educom-verrukkulluk-1668679088/index.php?gerecht_id={{record.gerecht.id}}&action=detail"  style="text-decoration: none"> <div id="smullen" class="smullen_button" style> Smullen! </div> </a>
             </div>
-            <div class="col-md-2" style="background-color: #FFF"> 
+            <div class="col-md-2 pt-3" style="background-color: #FFF"> 
                 <i class="fa fa-user fa-lg" style="color:#F00"></i> 4
             </div>
-            <div class="col-md-2" style="background-color: #FFF"> 
+            <div class="col-md-2 pt-3" style="background-color: #FFF"> 
                 <i class="fa fa-euro-sign fa-lg" style="color:#F00"></i> {{ record.prijs |round(2)}}
             </div>
-            <div class="col-md-2" style="background-color: #FFF"> 
+            <div class="col-md-2 pt-3" style="background-color: #FFF"> 
                 <i class="fa fa-fire fa-lg" style="color:#F00"></i> {{ record.calorieen |round(0)}}
             </div>
         </div>

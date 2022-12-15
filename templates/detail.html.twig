@@ -22,7 +22,7 @@
 
 {% block content %}
 <div class="m-4-5">
-<div class="row shadow background-white"> {# Begin bevenste gedeelte. Hier kan je min-height achter zetten, maar de omschrijving hieronder doet dat ook al#}  
+<div class="row custom-shadow background-white"> {# Begin bevenste gedeelte. Hier kan je min-height achter zetten, maar de omschrijving hieronder doet dat ook al#}  
 
 
 <div class="col-md-5"
@@ -95,7 +95,7 @@
 
 <div class="m-4-5">     {# opent een nieuwe m4-5 voor de tabs#}
 <!-- Tab buttons -->
-<div class="row shadow background-white">
+<div class="row custom-shadow background-white">
 
     <div class="tab">
         <button class="tablinks" onclick="openTab(event, 'Ingredienten')"> <span class="tab-green"> Ingrediënten </span> </button>
@@ -106,7 +106,7 @@
     <!-- content -->
     <div id="Ingredienten" class="tabcontent">
         {% for record in data.0.ingredienten %}
-            <div class="row" style="min-height: 100px";>
+            <div class="row ml-5 mt-4" style="min-height: 100px";>
                 <div class="col-md-1" 
                     style="background-image: url('assets/img/artikelen/{{record.afbeelding}}'); background-position: center; background-size: cover"> 
                 </div>
@@ -122,9 +122,9 @@
 
     <div id="Bereidingswijze" class="tabcontent">
         {% for record in data.0.bereidingswijze %}
-        <div class="row" style="min-height: 50px";>
-            <div class="col-md-1" style="background-color: #fca01f; width: 50px; border-radius: 50%"> {{record.nummeriekveld}}. </div>
-            <div class="col-md-11"> {{record.tekstveld}} </div>
+        <div class="row ml-5 mt-4" style="min-height: 80px";>
+            <div class="col-md-1" style="background-color: #fca01f; width: 80px; border-radius: 50%"> <div class="h2-helv bold white center-vert-hor pt-2"> {{record.nummeriekveld}}. </div> </div>
+            <div class="col-md-11 center-vertical"> {{record.tekstveld}} </div>
         </div>
         {% endfor %}
     </div>
