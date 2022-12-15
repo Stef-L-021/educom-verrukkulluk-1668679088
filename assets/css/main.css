@@ -78,8 +78,14 @@ h3, h4, h5 {
     font-weight: bold;
 }
 
+/* Colors ------------------------------------------------------------------------------------------- */
+
 .green {
     color: #6e8722;
+}
+
+.background-darker-green {
+    background-color: #6e8722
 }
 
 
@@ -108,7 +114,16 @@ h3, h4, h5 {
     /* alt box-shadow: 1px 1px 20px 5px rgba(120, 117, 119, 0.9); */
 }
 
+.logos {
+    height: 80px;
+    width: auto;
+}
 
+.center-horizontal {                /* Dit werkt sws voor afbeeldingen, mogelijk ook voor tekst */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /* Centering */
 .center-vertical {
@@ -128,6 +143,8 @@ html, body {
     font-family: "Helvetica Neue", Arial, SansSerif;
     font-size: 16px;
 }
+
+/* Buttons -------------------------------------------------------------------------------------------------*/
 
 .login_button {
     font-family: var(--heading);
@@ -168,7 +185,7 @@ html, body {
 }
 
 
-/* Create Tabladen */
+/* Create Tabladen ------------------------------------------------------------------------------------------------- */
 
 /* style the tab itself */
 .tab {

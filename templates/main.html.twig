@@ -39,15 +39,15 @@
     <div class="row">
     
         {# Linker helft ======================================================== #}
-        <div class="col-md-4 " style="background-color: #FFF">
+        <div class="col-md-4 background-white">
         <div class="m-4-5">                                                                                                             {# margin rond Agenda & Login #}
 
             {# ///////////////// Agenda ///////////////// #}
 
             <div class="mb-4-5-x2"> {# opent ruimte onder agenda #}
-                <div class="col-md-12 p-4 custom-shadow" style="background-color: #6e8722">                                                    {# Voegt groene achterkant toe, padding rond tekst & een shadow#}
+                <div class="col-md-12 background-darker-green p-4 custom-shadow">                                                    {# Voegt groene achterkant toe, padding rond tekst & een shadow#}
 
-                    <center> <img src="assets/img/verrukkulluk-agenda.png" style="height: 80px; width: 187px"/> </center> <br>
+                    <img src="assets/img/verrukkulluk-agenda.png" class="logos center-horizontal mb-4"/> 
                     {% for calendar in 0..5 %}
                         <p> <h3>  <i class="fa fa-calendar-day" style="color:white"></i>                                    
                         Vegatarisch koken </h3> 
@@ -59,8 +59,8 @@
 
             {# ///////////////// Login ///////////////// #}
 
-            <div class="col-md-12 p-4 custom-shadow background-red">
-                <center class="pb-3"> <img src="assets/img/verrukkulluk-login.png" style="height: 80px; width: 187px"/> </center>
+            <div class="col-md-12 background-red p-4 custom-shadow">
+                <img src="assets/img/verrukkulluk-login.png" class="logos center-horizontal mb-2"/>
                 <form id="form">
                     <div class="white"> Email: </div>
                     <div class="pb-3"> <input type="text" name="name" style="width: 350px"> </div>
