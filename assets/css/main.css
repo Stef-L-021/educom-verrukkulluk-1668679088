@@ -99,10 +99,16 @@ h3, h4, h5 {
     background-color: #b31714;
 }
 
+.light-red {
+    color: #dc3439;
+}
+
 .custom-shadow {
     box-shadow: 3px 3px 20px 10px rgba(120, 117, 119, 0.2);
     /* alt box-shadow: 1px 1px 20px 5px rgba(120, 117, 119, 0.9); */
 }
+
+
 
 /* Centering */
 .center-vertical {

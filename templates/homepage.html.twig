@@ -43,8 +43,8 @@
 
 
         {# Hier start de 2de row met daarbinnen de titel en sterren #}
-        <div class="row pt-3" style="background-color: #FFF">
-            <div class="col-md-6"> {#titel div #}
+        <div class="row background-white pt-3">
+            <div class="col-md-6 green"> {#titel div #}
                 <h2> {{ record.gerecht.titel }} </h2>
             </div> {# Einde titel div #}
             <div class="col-md-6"> 
@@ -55,32 +55,32 @@
 
         {# Hier start de 3de row met de beschijving #}
         <div class="row">
-            <div class="col-md-12 pt-3" style="background-color: #FFF; height: 200px"> 
+            <div class="col-md-12 background-white pt-3" style="height: 200px"> 
                 {{ record.gerecht.korte_omschrijving }} 
             </div>
         </div>
 
 
         {# Hier start de 4de een laatste row met de button en andere kleine gegevens #}
-        <div class="row" style="background-color: #FFF">
+        <div class="row background-white">
             <div class="col-md-6 pb-3"> 
                 <a href="http://localhost/educom-verrukkulluk-1668679088/index.php?gerecht_id={{record.gerecht.id}}&action=detail"  style="text-decoration: none"> <div id="smullen" class="smullen_button" style> Smullen! </div> </a>
             </div>
-            <div class="col-md-2 pt-3" style="background-color: #FFF"> 
-                <i class="fa fa-user fa-lg" style="color:#F00"></i> 4
+            <div class="col-md-2 background-white pt-3"> 
+                <i class="fa fa-user fa-lg light-red"></i> 4
             </div>
-            <div class="col-md-2 pt-3" style="background-color: #FFF"> 
-                <i class="fa fa-euro-sign fa-lg" style="color:#F00"></i> {{ record.prijs |round(2)}}
+            <div class="col-md-2 background-white pt-3"> 
+                <i class="fa fa-euro-sign fa-lg light-red"></i> {{ record.prijs |round(2)}}
             </div>
-            <div class="col-md-2 pt-3" style="background-color: #FFF"> 
-                <i class="fa fa-fire fa-lg" style="color:#F00"></i> {{ record.calorieen |round(0)}}
+            <div class="col-md-2 background-white pt-3"> 
+                <i class="fa fa-fire fa-lg light-red"></i> {{ record.calorieen |round(0)}}
             </div>
         </div>
 
    
-    </div> {# shadow & background div #}
-    </div> {# Eindigd de grijze box div #}
-    </div>
+    </div>  {# shadow & background div #}
+    </div>  {# m-4-5 class #}
+    </div>  {# Eindigd de grijze box div #}
 
 
     {% endfor %}
