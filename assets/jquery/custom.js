@@ -23,4 +23,4 @@ function openTab(evt, tab_name) {
 
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
-
+/* https://www.w3schools.com/howto/howto_js_tabs.asp */
