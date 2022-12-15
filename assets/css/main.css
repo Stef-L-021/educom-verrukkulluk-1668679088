@@ -166,32 +166,45 @@ html, body {
 
 /* style the tab itself */
 .tab {
-    overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
+    /* overflow: hidden; */
+    /* border: 1px solid #ccc; */
 }
 
 /* styling for the button */
 .tab button {
-    background-color: inherit;
     float: left;
     border: none;
+    background-color: #FFF;
+
+    box-shadow: 3px 3px 20px 10px rgba(120, 117, 119, 0.2);
     outline: none;
     cursor: pointer;
-    padding: 14px 16px;
+    /* padding: 14px 16px; */
     transition: 0.3s;
+
+    -webkit-border-top-left-radius: 15px;
+    -webkit-border-top-right-radius: 15px;
+    -moz-border-radius-topleft: 15px;
+    -moz-border-radius-topright: 15px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px; 
 }
 
 .tab button:hover {
     background-color: #CCC;
 }
 
+.tab button.active {
+    background-color: rgb(184, 184, 184);
+}
+
 .tabcontent {
     display: none;
     padding: 6px 12px;
-    border: 1px solid #CCC;
+    border: 1px solid rgb(204, 204, 204);
     border-top: none;
 }
+
 
 .col-container {
     display: table;
