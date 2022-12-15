@@ -15,6 +15,7 @@
             }) // Einde background-image functie
 
         }) // Einde .ready functie
+
     </script>
 
 {% endblock %}
@@ -95,16 +96,16 @@
 
 <div class="m-4-5">     {# opent een nieuwe m4-5 voor de tabs#}
 <!-- Tab buttons -->
-<div class="row custom-shadow background-white">
+<div class="row background-white">
 
     <div class="tab">
-        <button class="tablinks" onclick="openTab(event, 'Ingredienten')"> <span class="tab-green"> Ingrediënten </span> </button>
+        <button class="tablinks" onclick="openTab(event, 'Ingredienten')" id="defaultOpen"> <span class="tab-green"> Ingrediënten </span> </button>
         <button class="tablinks" onclick="openTab(event, 'Bereidingswijze')"> <span class="tab-green"> Bereidingswijze </span> </button>
         <button class="tablinks" onclick="openTab(event, 'Opmerkingen')"> <span class="tab-green"> Opmerkingen </span> </button>
     </div>
 
     <!-- content -->
-    <div id="Ingredienten" class="tabcontent">
+    <div id="Ingredienten" class="tabcontent custom-shadow">
         {% for record in data.0.ingredienten %}
             <div class="row ml-5 mt-4" style="min-height: 100px";>
                 <div class="col-md-1" 
@@ -120,7 +121,7 @@
         {% endfor %}
     </div>
 
-    <div id="Bereidingswijze" class="tabcontent">
+    <div id="Bereidingswijze" class="tabcontent custom-shadow">
         {% for record in data.0.bereidingswijze %}
         <div class="row ml-5 mt-4" style="min-height: 80px";>
             <div class="col-md-1" style="background-color: #fca01f; width: 80px; border-radius: 50%"> <div class="h2-helv bold white center-vert-hor pt-2"> {{record.nummeriekveld}}. </div> </div>
@@ -129,7 +130,7 @@
         {% endfor %}
     </div>
 
-    <div id="Opmerkingen" class="tabcontent">
+    <div id="Opmerkingen" class="tabcontent custom-shadow">
         {% for record in data.0.opmerkingen %}
         <div class="row pt-3 pl-5">
             <div class="col-md-4"
