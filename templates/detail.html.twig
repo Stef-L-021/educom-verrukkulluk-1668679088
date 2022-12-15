@@ -29,9 +29,9 @@
     style="background-image: url('assets/img/gerechten/{{data.0.gerecht.afbeelding}}'); background-position: center; background-size: cover">   {#kolom met plaatje #}
 </div>
 
-<div class="col-md-7 background-white">
+<div class="col-md-7 background-white pb-4 pt-4 pl-5 pr-5">                                                                                     {# Padding van het geheel wit detail blok #}
     {# cijfers van personen, prijs en calorieen #}
-    <div class="row">
+    <div class="row pb-3">                                                                                                                      {# Padding van de icons #}
         <div class="col-md-2"> 
             <i class="fa fa-user fa-lg" style="color:#F00"></i> 4
         </div>
@@ -39,7 +39,7 @@
             <i class="fa fa-euro-sign fa-lg" style="color:#F00"></i> {{ data.0.prijs |round(2)}}
         </div>
         <div class="col-md-2"> 
-            <i class="fa fa-fire fa-lg" style="color:#F00"></i> {{ data.0.calorieen |round(2)}}
+            <i class="fa fa-fire fa-lg" style="color:#F00"></i> {{ data.0.calorieen |round(0)}}
         </div>
     </div>
 
@@ -60,20 +60,20 @@
         <div class="col-md-3 green">
             <h4> Keuken </h4> 
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 pt-2">
             {{data.0.keuken.omschrijving}} 
         </div>
 
         <div class="col-md-3 green">
             <h4> Type </h4> 
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 pt-2">
             {{data.0.type.omschrijving}}
         </div>
     </div>
 
     {# omschrijving #}
-    <div class="row" style="min-height: 410px";>
+    <div class="row pl-2 pb-4" style="min-height: 410px";>
         {{data.0.gerecht.lange_omschrijving}}
     </div>
 
