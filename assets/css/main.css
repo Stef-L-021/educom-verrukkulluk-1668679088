@@ -122,21 +122,6 @@ h3, h4, h5 {
     /* alt box-shadow: 1px 1px 20px 5px rgba(120, 117, 119, 0.9); */
 }
 
-.logos {
-    height: 85px;
-    width: auto;
-}
-
-.logos-xl {
-    height: 100px;
-    width: auto;
-}
-
-.logos-xxl {
-    height: 150px;
-    width: auto;
-}
-
 .center-horizontal {                /* Dit werkt sws voor afbeeldingen, mogelijk ook voor tekst */
     display: block;
     margin-left: auto;
@@ -278,8 +263,29 @@ html, body {
     margin-bottom: 4rem !important;
 }
 
+/* Width & Heights */
+
 .detail-width {
     width: 1050px;
+}
+
+.footer-height {
+    height: 400px;
+}
+
+.logos {
+    height: 85px;
+    width: auto;
+}
+
+.logos-xl {
+    height: 100px;
+    width: auto;
+}
+
+.logos-xxl {
+    height: 150px;
+    width: auto;
 }
 
 .fa-2-3x {
