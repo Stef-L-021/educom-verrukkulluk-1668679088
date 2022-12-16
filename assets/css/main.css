@@ -182,7 +182,7 @@ html, body {
     width: 150px;
     height: 40px;
     font-size: 40px;
-    background-color: #b31714;
+    background-color: #dc3439;
     color: #FFF;
     cursor: pointer;
     text-align: center;
@@ -191,7 +191,7 @@ html, body {
 }
 
 .smullen_button:hover {
-    background-color: #8B0000;
+    background-color: #b31714;
 }
 
 .login_button:hover {
@@ -240,6 +240,9 @@ html, body {
     padding: 6px 12px;
     border: 1px solid rgb(204, 204, 204);
     border-top: none;
+    /* Als je een scroll erin wilt hebben:
+    max-height: 340px;
+    overflow: scroll; */
 }
 
 
@@ -258,4 +261,8 @@ html, body {
 
 .mb-4-5-x2 {
     margin-bottom: 4rem !important;
+}
+
+.detail-width {
+    width: 1050px;
 }
