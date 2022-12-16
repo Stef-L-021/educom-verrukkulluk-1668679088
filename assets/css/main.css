@@ -78,6 +78,10 @@ h3, h4, h5 {
     font-weight: bold;
 }
 
+.no-text-decoration {
+    text-decoration: none;
+}
+
 /* Colors ------------------------------------------------------------------------------------------- */
 
 .green {
@@ -271,6 +275,14 @@ html, body {
 
 .footer-height {
     height: 400px;
+}
+
+.homepage-picture-height {
+    height: 300px;
+}
+
+.homepage-beschrijving-height {
+    height: 200px
 }
 
 .logos {

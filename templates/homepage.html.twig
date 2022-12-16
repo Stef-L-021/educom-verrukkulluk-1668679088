@@ -36,7 +36,7 @@
     <div class="custom-shadow"> {# Let op hier is een andere soort shadow!! #} 
 
         {# Hier start de 1ste row met daarbinnen de afbeelding #}
-        <div class="row" style="min-height: 300px";>
+        <div class="row homepage-picture-height">
             <div class="col-md-12" style="background-image: url('assets/img/gerechten/{{record.gerecht.afbeelding}}'); background-repeat: no-repeat; background-position: center; background-size: cover">
             </div>
         </div>   
@@ -55,7 +55,7 @@
 
         {# Hier start de 3de row met de beschijving #}
         <div class="row">
-            <div class="col-md-12 background-white pt-3" style="height: 200px"> 
+            <div class="col-md-12 homepage-beschrijving-height background-white pt-3"> 
                 {{ record.gerecht.korte_omschrijving }} 
             </div>
         </div>
@@ -64,7 +64,7 @@
         {# Hier start de 4de een laatste row met de button en andere kleine gegevens #}
         <div class="row background-white">
             <div class="col-md-6 pb-3"> 
-                <a href="http://localhost/educom-verrukkulluk-1668679088/index.php?gerecht_id={{record.gerecht.id}}&action=detail"  style="text-decoration: none"> <div id="smullen" class="smullen_button" style> Smullen! </div> </a>
+                <a href="http://localhost/educom-verrukkulluk-1668679088/index.php?gerecht_id={{record.gerecht.id}}&action=detail" class="no-text-decoration"> <div id="smullen" class="smullen_button"> Smullen! </div> </a>
             </div>
             <div class="col-md-2 background-white pt-3"> 
                 <i class="fa fa-user fa-lg light-red"></i> 4
