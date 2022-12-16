@@ -110,9 +110,9 @@
         {% for record in data.0.ingredienten %}
             <div class="row ml-5 mt-4" style="min-height: 100px";>
                 <div class="col-md-1" 
-                    style="background-image: url('assets/img/artikelen/{{record.afbeelding}}'); background-position: center; background-size: cover"> 
+                    style="background-image: url('assets/img/artikelen/{{record.afbeelding}}'); background-position: center; background-size: cover; height: 125px; width: 100px"> 
                 </div>
-                <div class="col-md-11">
+                <div class="col-md-11" style="max-width: 500px">
                     <h2 style="color: #6e8722"> {{record.naam}} </h2>
                     <div> {{record.omschrijving}} </div>
                     <span class="hgreen"> Hoeveelheid: </span>            {# zoek hiervoor een goeie a h of whatever #}
