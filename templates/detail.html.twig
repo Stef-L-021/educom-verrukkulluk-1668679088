@@ -3,6 +3,7 @@
 {% block header %}
 
     <script>
+        // Vegas functie:
         $(document).ready( function() {
 
             const mySlides = [
@@ -15,6 +16,40 @@
             }) // Einde background-image functie
 
         }) // Einde .ready functie
+
+
+        // rating functie: 
+        $(document).ready( function() {
+
+            $(".star").click(function() {
+                const value = $(this).attr('data-value')
+
+                /// verwijder alle rode sterren:
+                $(".star").removeClass('red')
+
+                /// eerdere sterren worden ook rood:
+                $(".star").each( (index, elem) => {
+                    const itemValue = $(elem).attr('data-value')
+                    if(itemValue <= value) {
+                        $(elem).addClass('red')
+                    }
+                }) // eindeigd eerdere sterren worden rood functie
+
+                $.ajax({                                                // Let op hier met de $ dat deze erbij moet!
+                url: "https://api.dev-master.ninja/js/rating",
+                method: "POST",
+                data: {rating: value},
+                success: function(result) {
+                    console.log(result)
+                    console.log(result.result)
+                    // alert("hallo")
+                        ///code
+                }
+                }) // eindigd ajax functie
+
+            }) /// Eindigd click functie
+
+        }) //// eindigd document ready
 
     </script>
 
@@ -53,7 +88,13 @@
             <h2> {{ data.0.gerecht.titel }} </h2>
         </div>
         <div class="col-md-4"> 
-            <h3> **** </h3>
+            <h3> 
+                <span class="star" data-value="1">*</span>
+                <span class="star" data-value="2">*</span>
+                <span class="star" data-value="3">*</span>
+                <span class="star" data-value="4">*</span>
+                <span class="star" data-value="5">*</span>
+            </h3>
         </div>
     </div>
 

@@ -82,6 +82,18 @@ h3, h4, h5 {
     text-decoration: none;
 }
 
+/* sterretjes */
+.star {
+    font-size: 30px;
+    color: #000;
+    cursor: poiner;
+    width: 50px;
+}
+
+.star:hover {
+    color: #F00;
+}
+
 /* Colors ------------------------------------------------------------------------------------------- */
 
 .green {
