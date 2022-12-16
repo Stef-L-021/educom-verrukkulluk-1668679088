@@ -28,8 +28,8 @@
 
     {# 1ste row met de header 12 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- #}
     <div class="mb-4">
-    <div id="background-image" style="height: 700px"> 
-        <a href="http://localhost/educom-verrukkulluk-1668679088/index.php"> <img src="assets/img/logo-v2.png"/> </a>         {# Dit gedeelte voegt het logo toe met eenlink naar de homepage#}
+    <div id="background-image"  class="pl-5 pt-4" style="height: 700px"> 
+        <a href="http://localhost/educom-verrukkulluk-1668679088/index.php"> <img src="assets/img/logo-v2.png" style="height: 250px; width: auto"/> </a>         {# Dit gedeelte voegt het logo toe met eenlink naar de homepage#}
         {% block header %}
         {% endblock %}   
     </div> <!-- background-image -->
@@ -49,9 +49,11 @@
 
                     <img src="assets/img/verrukkulluk-agenda.png" class="logos center-horizontal mb-4"/> 
                     {% for calendar in 0..5 %}
-                        <p> <h3>  <i class="fa fa-calendar-day white"></i>                                    
-                        Vegatarisch koken </h3> 
-                        Een workship vegatarisch koken onder leiding van Bobby </p>
+                        <div class="row">
+                            <div class="col-md-2">   <i class="fa fa-calendar-day white fa-2-3x"></i> </div>                                    
+                            <div class="col-md-10 mb-3"> <h3>Vegatarisch koken </h3>
+                            Een workship vegatarisch koken onder leiding van Bobby  </div>
+                        </div>
                     {% endfor %}
 
                 </div> {# Einde agenda md-12 class #} 
@@ -62,7 +64,7 @@
             <div class="col-md-12 background-red p-4 custom-shadow">
                 <img src="assets/img/verrukkulluk-login.png" class="logos center-horizontal mb-2"/>
                 <form id="form" class="ml-4">
-                    <div class="white"> Email: </div>
+                    <div class="white"> Email </div>
                     <div class="pb-3"> <input type="text" name="name" style="width: 350px"> </div>
 
                     <div class="white"> Wachtwoord </div>

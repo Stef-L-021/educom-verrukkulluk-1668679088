@@ -105,7 +105,8 @@
     </div>
 
     <!-- content -->
-    <div id="Ingredienten" class="tabcontent custom-shadow">
+    <div class="row custom-shadow">
+    <div id="Ingredienten" class="tabcontent">
         {% for record in data.0.ingredienten %}
             <div class="row ml-5 mt-4" style="min-height: 100px";>
                 <div class="col-md-1" 
@@ -121,7 +122,7 @@
         {% endfor %}
     </div>
 
-    <div id="Bereidingswijze" class="tabcontent custom-shadow">
+    <div id="Bereidingswijze" class="tabcontent">
         {% for record in data.0.bereidingswijze %}
         <div class="row ml-5 mt-4" style="min-height: 80px";>
             <div class="col-md-1" style="background-color: #fca01f; width: 80px; border-radius: 50%"> <div class="h2-helv bold white center-vert-hor pt-2"> {{record.nummeriekveld}}. </div> </div>
@@ -130,7 +131,7 @@
         {% endfor %}
     </div>
 
-    <div id="Opmerkingen" class="tabcontent custom-shadow">
+    <div id="Opmerkingen" class="tabcontent">
         {% for record in data.0.opmerkingen %}
         <div class="row pt-3 pl-5">
             <div class="col-md-4"
@@ -143,6 +144,10 @@
         </div>
         {% endfor %}
     </div> {# Einde opmerkingen div #}
+
+    <div class="green background-white detail-width"> <h2 style=" position:relative; left: 300px"> ˅ </h2> </div>
+
+</div> {# Einde content div row shadow #}
 
 </div> {# Einde button div #}
 </div> 

@@ -238,11 +238,22 @@ html, body {
 .tabcontent {
     display: none;
     padding: 6px 12px;
-    border: 1px solid rgb(204, 204, 204);
+    /* border-bottom: 1px solid rgb(204, 204, 204); */
     border-top: none;
-    /* Als je een scroll erin wilt hebben:
-    max-height: 340px;
-    overflow: scroll; */
+    /* Als je een scroll erin wilt hebben: */
+    height: 438px;
+    overflow-y: scroll; 
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.tabcontent::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.tabcontent {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 
@@ -265,4 +276,8 @@ html, body {
 
 .detail-width {
     width: 1050px;
+}
+
+.fa-2-3x {
+    font-size: 2.5em; 
 }
