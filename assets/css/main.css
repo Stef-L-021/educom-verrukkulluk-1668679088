@@ -52,16 +52,118 @@ h3, h4, h5 {
 }
 
 .hgreen {
-    font-size: 19px;
+    font-size: 21px;
     font-family: "pretty_lilyregular";
     color: #6e8722;
 }
+
+.tab-green {
+    font-size: 25;
+    font-family: "pretty_lilyregular";
+    color: #6e8722;
+}
+
+.h2-5 {
+    font-size: 37px;
+    font-family: "pretty_lilyregular";
+    color: #6e8722;
+}
+
+.h2-helv {
+    font-size: 41px;
+    font-family: "Helvetica Neue", Arial, SansSerif;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.no-text-decoration {
+    text-decoration: none;
+}
+
+/* sterretjes */
+.star {
+    font-size: 30px;
+    color: #000;
+    cursor: poiner;
+    width: 50px;
+}
+
+.star:hover {
+    color: #F00;
+}
+
+/* Colors ------------------------------------------------------------------------------------------- */
+
+.green {
+    color: #6e8722;
+}
+
+.background-darker-green {
+    background-color: #6e8722
+}
+
+
+.white {
+    color: #FFF;
+}
+
+.background-white {
+    background-color: #FFF;
+}
+
+.red {
+    color: #b31714;
+}
+
+.background-red {
+    background-color: #b31714;
+}
+
+.light-red {
+    color: #dc3439;
+}
+
+.background-darker-orange {
+    background-color: #e85d04;
+}
+
+.background-lighter-orange {
+    background-color: #fca01f;
+}
+
+.custom-shadow {
+    box-shadow: 3px 3px 20px 10px rgba(120, 117, 119, 0.2);
+    /* alt box-shadow: 1px 1px 20px 5px rgba(120, 117, 119, 0.9); */
+}
+
+.center-horizontal {                /* Dit werkt sws voor afbeeldingen, mogelijk ook voor tekst */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Centering */
+.center-vertical {
+    display: grid; 
+    align-items: center;
+}
+
+.center-vert-hor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 
 /** HTML / BODY **/
 html, body {
     font-family: "Helvetica Neue", Arial, SansSerif;
     font-size: 16px;
 }
+
+/* Buttons -------------------------------------------------------------------------------------------------*/
 
 .login_button {
     font-family: var(--heading);
@@ -85,7 +187,7 @@ html, body {
     width: 150px;
     height: 40px;
     font-size: 40px;
-    background-color: #b31714;
+    background-color: #dc3439;
     color: #FFF;
     cursor: pointer;
     text-align: center;
@@ -94,7 +196,7 @@ html, body {
 }
 
 .smullen_button:hover {
-    background-color: #8B0000;
+    background-color: #b31714;
 }
 
 .login_button:hover {
@@ -102,36 +204,63 @@ html, body {
 }
 
 
-/* Create Tabladen */
+/* Create Tabladen ------------------------------------------------------------------------------------------------- */
 
 /* style the tab itself */
 .tab {
-    overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
+    /* overflow: hidden; */
+    /* border: 1px solid #ccc; */
 }
 
 /* styling for the button */
 .tab button {
-    background-color: inherit;
     float: left;
     border: none;
+    background-color: #FFF;
+
+    box-shadow: 3px 3px 20px 10px rgba(120, 117, 119, 0.2);
     outline: none;
     cursor: pointer;
-    padding: 14px 16px;
+    /* padding: 14px 16px; */
     transition: 0.3s;
+
+    -webkit-border-top-left-radius: 15px;
+    -webkit-border-top-right-radius: 15px;
+    -moz-border-radius-topleft: 15px;
+    -moz-border-radius-topright: 15px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px; 
 }
 
 .tab button:hover {
     background-color: #CCC;
 }
 
+.tab button.active {
+    background-color: rgb(184, 184, 184);
+}
+
 .tabcontent {
     display: none;
     padding: 6px 12px;
-    border: 1px solid #CCC;
+    /* border-bottom: 1px solid rgb(204, 204, 204); */
     border-top: none;
+    /* Als je een scroll erin wilt hebben: */
+    height: 416px;
+    overflow-y: scroll; 
 }
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.tabcontent::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.tabcontent {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
 
 .col-container {
     display: table;
@@ -140,4 +269,49 @@ html, body {
 
 .col {
     display: table-cell;
+}
+
+.m-4-5 {
+    margin: 2rem !important;
+  }
+
+.mb-4-5-x2 {
+    margin-bottom: 4rem !important;
+}
+
+/* Width & Heights */
+
+.detail-width {
+    width: 1050px;
+}
+
+.footer-height {
+    height: 400px;
+}
+
+.homepage-picture-height {
+    height: 300px;
+}
+
+.homepage-beschrijving-height {
+    height: 200px
+}
+
+.logos {
+    height: 85px;
+    width: auto;
+}
+
+.logos-xl {
+    height: 100px;
+    width: auto;
+}
+
+.logos-xxl {
+    height: 150px;
+    width: auto;
+}
+
+.fa-2-3x {
+    font-size: 2.5em; 
 }

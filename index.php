@@ -27,11 +27,10 @@ $db = new database();
 /// Next step, iets met je data doen. Ophalen of zo
 require_once("lib/gerecht.php");
 $gerecht = new gerecht($db->getConnection());
-//$data = $gerecht->selecteerGerecht();
 
 require_once("lib/zoekfunctie.php");
 $zoekfunctie = new zoekfunctie($db->getConnection());
-//$data = $zoekfunctie->zoekfunctie("bobby");
+// $data = $zoekfunctie->zoekfunctie($query);
 
 /*
 URL:
