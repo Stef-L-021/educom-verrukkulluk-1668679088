@@ -39,6 +39,7 @@ http://localhost/index.php?gerecht_id=4&action=detail
 
 $gerecht_id = isset($_GET["gerecht_id"]) ? $_GET["gerecht_id"] : "";
 $action = isset($_GET["action"]) ? $_GET["action"] : "homepage";
+$rating= isset($_GET["rating"]);
 
 
 switch($action) {
@@ -57,9 +58,24 @@ switch($action) {
             break;
         }
 
+        case "boodschappen": {
+
+            $data = $gerecht->selecteerGerecht($gerecht_id);
+            $template = 'detail.html.twig';
+            $title = "boodschappen";
+            break;
+        }
+
+        case "rating": {
+            $data = $gerecht->selecteerGerecht($gerecht_id);
+            /* $sql */
+            break;
+        }
+
         /// etc
 
 }
+
 
 
 /// Onderstaande code schrijf je idealiter in een layout klasse of iets dergelijks

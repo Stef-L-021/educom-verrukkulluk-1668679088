@@ -33,17 +33,14 @@
                     if(itemValue <= value) {
                         $(elem).addClass('red')
                     }
-                }) // eindeigd eerdere sterren worden rood functie
+                }) // eindigd eerdere sterren worden rood functie
 
                 $.ajax({                                                // Let op hier met de $ dat deze erbij moet!
                 url: "https://api.dev-master.ninja/js/rating",
-                method: "POST",
+                method: "GET",
                 data: {rating: value},
                 success: function(result) {
-                    console.log(result)
-                    console.log(result.result)
-                    // alert("hallo")
-                        ///code
+                    console.log(result.rating)
                 }
                 }) // eindigd ajax functie
 
@@ -57,6 +54,14 @@
 
 
 {% block content %}
+
+<script>
+$(document).ready( function() {
+document.getElementById("defaultOpen").click();
+}) //// eindigd document ready
+</script>
+
+
 <div class="detail-width m-4-5">
 <div class="row custom-shadow background-white"> {# Begin bevenste gedeelte. Hier kan je min-height achter zetten, maar de omschrijving hieronder doet dat ook al#}  
 
@@ -140,7 +145,7 @@
 <div class="row background-white">
 
     <div class="tab">
-        <button class="tablinks" onclick="openTab(event, 'Ingredienten')"> <span class="tab-green"> Ingrediënten </span> </button>
+        <button class="tablinks" onclick="openTab(event, 'Ingredienten')"> <span class="tab-green" id="defaultOpen"> Ingrediënten </span> </button>
         <button class="tablinks" onclick="openTab(event, 'Bereidingswijze')"> <span class="tab-green"> Bereidingswijze </span> </button>
         <button class="tablinks" onclick="openTab(event, 'Opmerkingen')"> <span class="tab-green"> Opmerkingen </span> </button>
     </div>
