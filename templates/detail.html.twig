@@ -34,7 +34,7 @@
                 $.ajax({                                                // Let op hier met de $ dat deze erbij moet!
                 url: "index.php",
                 method: "GET",
-                data: {gerecht_id:{{data.0.gerecht.id}},action:"addrating", rating:value}
+                data: {gerecht_id:{{data.0.gerecht.id}}, rating:value, action:"addrating"}
                 
                 
                 }) // eindigd ajax functie

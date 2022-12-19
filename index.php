@@ -69,12 +69,14 @@ switch($action) {
 
         case "addrating": {
            // $dataGerecht = $gerecht_info->addRating($gerecht_id, $rating);
-           $template = 'homepage.html.twig';
-           $title = "homepage";
+            
            
-           echo "hallo?";
-          
+           header('Content-Type: application/json; charset-utf-8');
+            // $data Hier komt de data
+            echo json_encode($data);
+            die ();
             break;
+            /* https://stackoverflow.com/questions/4064444/returning-json-from-a-php-script */
         }
 
         /// etc
