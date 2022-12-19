@@ -39,7 +39,8 @@ http://localhost/index.php?gerecht_id=4&action=detail
 
 $gerecht_id = isset($_GET["gerecht_id"]) ? $_GET["gerecht_id"] : "";
 $action = isset($_GET["action"]) ? $_GET["action"] : "homepage";
-$rating= isset($_GET["rating"]);
+$rating= isset($_GET["rating"]) ? $_GET["rating"] : "";
+
 
 
 switch($action) {
@@ -66,9 +67,13 @@ switch($action) {
             break;
         }
 
-        case "rating": {
-            $data = $gerecht->selecteerGerecht($gerecht_id);
-            /* $sql */
+        case "addrating": {
+           // $dataGerecht = $gerecht_info->addRating($gerecht_id, $rating);
+           $template = 'homepage.html.twig';
+           $title = "homepage";
+           
+           echo "hallo?";
+          
             break;
         }
 

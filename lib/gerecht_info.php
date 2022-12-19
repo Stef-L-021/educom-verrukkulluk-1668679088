@@ -73,6 +73,8 @@ class gerecht_info {
         return ($this->connection->query($sql));
 
     } // Einde gerecht_info class
+
+    
 }
 
 ?>

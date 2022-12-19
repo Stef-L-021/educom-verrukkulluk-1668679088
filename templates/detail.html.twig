@@ -15,11 +15,7 @@
                 slides: mySlides,
             }) // Einde background-image functie
 
-        }) // Einde .ready functie
-
-
-        // rating functie: 
-        $(document).ready( function() {
+       
 
             $(".star").click(function() {
                 const value = $(this).attr('data-value')
@@ -36,12 +32,11 @@
                 }) // eindigd eerdere sterren worden rood functie
 
                 $.ajax({                                                // Let op hier met de $ dat deze erbij moet!
-                url: "https://api.dev-master.ninja/js/rating",
+                url: "index.php",
                 method: "GET",
-                data: {rating: value},
-                success: function(result) {
-                    console.log(result.rating)
-                }
+                data: {gerecht_id:{{data.0.gerecht.id}},action:"addrating", rating:value}
+                
+                
                 }) // eindigd ajax functie
 
             }) /// Eindigd click functie
@@ -94,7 +89,7 @@ document.getElementById("defaultOpen").click();
         </div>
         <div class="col-md-4"> 
             <h3> 
-                <span class="star" data-value="1">*</span>
+                <span class="star" data-value="1" gerecht_id="{{data.0.id}}">*</span>
                 <span class="star" data-value="2">*</span>
                 <span class="star" data-value="3">*</span>
                 <span class="star" data-value="4">*</span>
