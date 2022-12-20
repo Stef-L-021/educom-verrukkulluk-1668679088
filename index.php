@@ -39,7 +39,7 @@ http://localhost/index.php?gerecht_id=4&action=detail
 
 $gerecht_id = isset($_GET["gerecht_id"]) ? $_GET["gerecht_id"] : "";
 $action = isset($_GET["action"]) ? $_GET["action"] : "homepage";
-$rating= isset($_GET["rating"]) ? $_GET["rating"] : "";
+$rating= isset($_GET["rating"]) ? $_GET["rating"] : []; 
 
 
 
@@ -69,13 +69,12 @@ switch($action) {
 
         case "addrating": {
            // $dataGerecht = $gerecht_info->addRating($gerecht_id, $rating);
-            
-           
            header('Content-Type: application/json; charset-utf-8');
-            // $data Hier komt de data
-            echo json_encode($data);
-            die ();
-            break;
+           $data = [10, 5, 9];
+           $datafilter= array_filter($rating);                                /* filtert lege getallen weg */
+           $average = array_sum($datafilter)/count($datafilter);
+           echo json_encode($average);
+           die ();
             /* https://stackoverflow.com/questions/4064444/returning-json-from-a-php-script */
         }
 
