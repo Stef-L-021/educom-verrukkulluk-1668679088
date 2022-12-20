@@ -72,9 +72,42 @@ class gerecht_info {
         // test of het werkt
         return ($this->connection->query($sql));
 
-    } // Einde gerecht_info class
+    } 
+
+
+
+    public function addWaardering($gerecht_id) {
+        $waarde = 5;
+
+        //// TOEVOEGEN WAARDE 
+        $sql = "INSERT INTO gerecht_info (gerecht_id, record_type, nummeriekveld)
+        VALUES ($gerecht_id, 'W', $waarde)";
+        return ($this->connection->query($sql));
+    }
+
+    public function berekenGemiddelde($gerecht_id) {
+        /// OPHALEN RATING
+        
+
+        $sql="SELECT nummeriekveld FROM gerecht_info WHERE record_type='W' AND gerecht_id=$gerecht_id";
+        $result = mysqli_query($this->connection, $sql);
+
+        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+            $waarderingen[] = 
+                $row["nummeriekveld"]
+            ;
+        }
+        //echo "<pre>";
+        //var_dump($waarderingen);
+
+        //// BEREKEN GEMIDDELDE 
+        $count= count($waarderingen);
+        $sum = array_sum($waarderingen);
+        $berekening=$sum/$count;
+        return $berekening;
+        }
 
     
-}
+} // Einde gerecht_info class
 
 ?>

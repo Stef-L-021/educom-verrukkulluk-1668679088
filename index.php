@@ -18,13 +18,15 @@ require_once("lib/keuken_type.php");
 require_once("lib/ingredient.php");
 require_once("lib/artikel.php");
 require_once("lib/user.php");
-require_once("lib/gerecht_info.php");
 
 require_once("lib/database.php");
 $db = new database();
 
 
 /// Next step, iets met je data doen. Ophalen of zo
+require_once("lib/gerecht_info.php");
+$gerecht_info = new gerecht_info($db->getConnection());
+
 require_once("lib/gerecht.php");
 $gerecht = new gerecht($db->getConnection());
 
@@ -54,6 +56,7 @@ switch($action) {
 
         case "detail": {
             $data = $gerecht->selecteerGerecht($gerecht_id);
+            $data2 = $gerecht_info->berekenGemiddelde($gerecht_id);
             $template = 'detail.html.twig';
             $title = "detail pagina";
             break;
@@ -68,14 +71,17 @@ switch($action) {
         }
 
         case "addrating": {
-           // $dataGerecht = $gerecht_info->addRating($gerecht_id, $rating);
+            //$addWaardering= $gerecht_info->addWaardering(1);
+            
+            $gemiddeldeWaardering= $gerecht_info->berekenGemiddelde(1);
+            
            header('Content-Type: application/json; charset-utf-8');
-           $data = [10, 5, 9];
-           $datafilter= array_filter($rating);                                /* filtert lege getallen weg */
-           $average = array_sum($datafilter)/count($datafilter);
-           echo json_encode($average);
+           $data = ["average" => $gemiddeldeWaardering];
+           
+           echo json_encode($data);
            die ();
             /* https://stackoverflow.com/questions/4064444/returning-json-from-a-php-script */
+            
         }
 
         /// etc
@@ -90,4 +96,4 @@ $template = $twig->load($template);
 
 
 /// En tonen die handel!
-echo $template->render(["title" => $title, "data" => $data]);
+echo $template->render(["title" => $title, "data" => $data, "data2" =>$data2]);
