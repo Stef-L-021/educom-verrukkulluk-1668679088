@@ -72,7 +72,7 @@ switch($action) {
 
         case "addrating": {
             /* Gerecht_id wordt gepakt uit hierboven de GET */
-            $addWaardering= $gerecht_info->addWaardering($gerecht_id, 2);
+            $addWaardering= $gerecht_info->addWaardering($gerecht_id, $rating);
             
             $gemiddeldeWaardering= $gerecht_info->berekenGemiddelde($gerecht_id);
             
@@ -97,4 +97,4 @@ $template = $twig->load($template);
 
 
 /// En tonen die handel!
-echo $template->render(["title" => $title, "data" => $data, "data2" =>$data2]);
+echo $template->render(["title" => $title, "data" => $data]);
