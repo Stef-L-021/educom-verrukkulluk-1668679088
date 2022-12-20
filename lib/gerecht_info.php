@@ -76,12 +76,11 @@ class gerecht_info {
 
 
 
-    public function addWaardering($gerecht_id) {
-        $waarde = 5;
+    public function addWaardering($gerecht_id, $rating) {
 
         //// TOEVOEGEN WAARDE 
         $sql = "INSERT INTO gerecht_info (gerecht_id, record_type, nummeriekveld)
-        VALUES ($gerecht_id, 'W', $waarde)";
+        VALUES ($gerecht_id, 'W', $rating)";
         return ($this->connection->query($sql));
     }
 

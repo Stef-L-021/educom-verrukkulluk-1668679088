@@ -71,9 +71,10 @@ switch($action) {
         }
 
         case "addrating": {
-            //$addWaardering= $gerecht_info->addWaardering(1);
+            /* Gerecht_id wordt gepakt uit hierboven de GET */
+            $addWaardering= $gerecht_info->addWaardering($gerecht_id, 2);
             
-            $gemiddeldeWaardering= $gerecht_info->berekenGemiddelde(1);
+            $gemiddeldeWaardering= $gerecht_info->berekenGemiddelde($gerecht_id);
             
            header('Content-Type: application/json; charset-utf-8');
            $data = ["average" => $gemiddeldeWaardering];
