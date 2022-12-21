@@ -16,7 +16,24 @@
                 slides: mySlides,
             }) // Einde background-image functie
 
-       
+
+              if ("{{data.0.rating}}" <=1) {
+              var element = document.getElementById(1);
+              element.classList.add("green");
+            } else if ("{{data.0.rating}}" <= 2) {
+              var element = document.getElementById(2);
+              element.classList.add("green");
+            } else if ("{{data.0.rating}}" <= 3) {
+              var element = document.getElementById(3);
+              element.classList.add("green");
+            } else if ("{{data.0.rating}}" <= 4) {
+              var element = document.getElementById(4);
+              element.classList.add("green");
+            } else if ("{{data.0.rating}}" <= 5) {
+              var element = document.getElementById(5);
+              element.classList.add("green");
+            }
+
 
             $(".star").click(function() {
                 const value = $(this).attr('data-value')
@@ -33,8 +50,9 @@
                 }) // eindigd eerdere sterren worden rood functie
 
                 $.ajax({                                                // Let op hier met de $ dat deze erbij moet!
-                url: "index.php?gerecht_id={{data.0.gerecht.id}}&action=addrating&rating=",
+                url: `index.php?gerecht_id={{data.0.gerecht.id}}&action=addrating&rating=${value}`,
                 method: "GET",
+                // https://e-learning.educom.nu/essentials/JS/output/#string-templates
                 // data: {gerecht_id:{{data.0.gerecht.id}}, rating:value, action:"addrating"}
                 /*
                 success: function(response) {
@@ -47,6 +65,7 @@
                 }) // eindigd ajax functie
 
             }) /// Eindigd click functie
+            
 
         }) //// eindigd document ready
 
@@ -96,11 +115,21 @@ document.getElementById("defaultOpen").click();
         </div>
         <div class="col-md-4"> 
             <h3> 
-                <span class="star" data-value="1" gerecht_id="{{data.0.id}}">*</span>
-                <span class="star" data-value="2">*</span>
-                <span class="star" data-value="3">*</span>
-                <span class="star" data-value="4">*</span>
-                <span class="star" data-value="5">*</span>
+                <span id="5">
+                    <span id="4">
+                        <span id="3">
+                            <span id="2">
+                                <span id="1">
+                                    <span class="star" data-value="1">*</span> {# if functie + class green om dit werkende te krijgen #}
+                                </span>
+                                <span class="star" data-value="2">*</span>
+                            </span>
+                            <span class="star" data-value="3">*</span>
+                        </span> {# 3 ster span #}
+                        <span class="star" data-value="4">*</span>
+                    </span> {# 4 ster span #}
+                        <span class="star" data-value="5">*</span>
+                </span> {# 5 ster span #}
             </h3>
         </div>
     </div>

@@ -106,6 +106,22 @@ class gerecht_info {
         return $berekening;
         }
 
+    public function showSter($gerecht_id) {
+        $berekening = $this->berekenGemiddelde($gerecht_id);
+        if ($berekening <=1) {
+            $value="*";
+        } elseif ($berekening <=2) {
+            $value="**";
+        } elseif ($berekening <=3) {
+            $value="***";
+        } elseif ($berekening <=4) {
+            $value="****";
+        } elseif ($berekening <=5) {
+            $value="*****";
+        } else $value="";
+        return $value;
+    }
+
     
 } // Einde gerecht_info class
 

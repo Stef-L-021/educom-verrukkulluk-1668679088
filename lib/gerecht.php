@@ -70,6 +70,12 @@ class gerecht {
         return($data);
     }
 
+    // Selecteer rating stars
+    private function selectStar($gerecht_id) {
+        $data = $this->gerechtInfo->berekenGemiddelde($gerecht_id);
+        return($data);
+    }
+
     // Select gerecht -----------------------------------------------------------
     public function selecteerGerecht($gerecht_id=NULL) {    // het mag of gerecht_id zijn of NULL
 
@@ -82,6 +88,8 @@ class gerecht {
         $result = mysqli_query($this->connection, $sql);
         while ($gerecht = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
             $gerecht_id = $gerecht["id"];       // Deze worden 
+
+            $gemiddeldeRating = $this->selectStar($gerecht_id);
 
             $keuken_id = $gerecht["keuken_id"];                 // ..._id = $gerecht[Naam van de kolom in de gerecht tabel]
             $keuken = $this->selectKeukenType($keuken_id);
@@ -108,6 +116,7 @@ class gerecht {
 
             $return[] = [                   // noem dit gerechten
                 "gerecht" => $gerecht,
+                "rating" => $gemiddeldeRating,
                 "keuken" => $keuken,
                 "type" => $type,
                 "ingredienten" => $ingredienten,
