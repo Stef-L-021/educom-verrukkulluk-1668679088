@@ -63,6 +63,10 @@ h3, h4, h5 {
     color: #6e8722;
 }
 
+.wit-ruimte {
+    width: 1700px;
+}
+
 .h2-5 {
     font-size: 37px;
     font-family: "pretty_lilyregular";
@@ -95,7 +99,7 @@ h3, h4, h5 {
 }
 
 .four-star{
-    
+
 }
 
 /* Colors ------------------------------------------------------------------------------------------- */
