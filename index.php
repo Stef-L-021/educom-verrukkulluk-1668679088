@@ -34,6 +34,9 @@ require_once("lib/zoekfunctie.php");
 $zoekfunctie = new zoekfunctie($db->getConnection());
 // $data = $zoekfunctie->zoekfunctie($query);
 
+require_once("lib/boodschappen.php");
+$boodschappen = new boodschappen($db->getConnection());
+
 /*
 URL:
 http://localhost/index.php?gerecht_id=4&action=detail
@@ -42,6 +45,7 @@ http://localhost/index.php?gerecht_id=4&action=detail
 $gerecht_id = isset($_GET["gerecht_id"]) ? $_GET["gerecht_id"] : "";
 $action = isset($_GET["action"]) ? $_GET["action"] : "homepage";
 $rating= isset($_GET["rating"]) ? $_GET["rating"] : []; 
+$user_id=6;
 
 
 
@@ -56,17 +60,8 @@ switch($action) {
 
         case "detail": {
             $data = $gerecht->selecteerGerecht($gerecht_id);
-            $data2 = $gerecht_info->berekenGemiddelde($gerecht_id);
             $template = 'detail.html.twig';
             $title = "detail pagina";
-            break;
-        }
-
-        case "boodschappen": {
-
-            $data = $gerecht->selecteerGerecht($gerecht_id);
-            $template = 'detail.html.twig';
-            $title = "boodschappen";
             break;
         }
 
@@ -85,7 +80,13 @@ switch($action) {
             
         }
 
-        /// etc
+        case "ophalen_boodschappen": {
+            $data= $boodschappen->ophalenBoodschappen($user_id);
+            $template = 'boodschappen.html.twig';
+            $title = "boodschappen";
+            break;
+            // http://localhost/educom-verrukkulluk-1668679088/index.php?action=ophalen_boodschappen
+        }
 
 }
 

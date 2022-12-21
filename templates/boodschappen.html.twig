@@ -1,0 +1,129 @@
+{% extends "main.html.twig" %}
+
+{% block header %}
+
+    <script>
+        // Vegas functie:
+
+        $(document).ready( function() {
+
+            const mySlides = [
+                {src: "assets/img/gerechten/{{ data.0.gerecht.afbeelding}}"}
+            ] // Einde slide sources
+                    
+            $("#background-image").vegas({                               // let op de #!!! dit is een ID voor later en hier moet dus een #
+                overlay: 'assets/vegas/overlays/01.png',                        // Mogelijk deze weghalen als we die pixel overlay niet willen hebben
+                slides: mySlides,
+            }) // Einde background-image functie
+            
+
+        }) //// eindigd document ready
+
+    </script>
+
+{% endblock %}
+
+
+{% block content %}
+
+<script>
+$(document).ready( function() {
+document.getElementById("defaultOpen").click();
+}) //// eindigd document ready
+</script>
+
+
+<div class="detail-width m-4-5">
+<div class="row custom-shadow background-white"> {# Begin bevenste gedeelte. Hier kan je min-height achter zetten, maar de omschrijving hieronder doet dat ook al#}  
+
+
+<div class="col-md-12 background-white pb-4 pt-4 pl-5 pr-5">                                                                                     {# Padding van het geheel wit detail blok #}
+    {# cijfers van personen, prijs en calorieen #}
+    <div class="row pb-3">                                                                                                                      {# Padding van de icons #}
+        <h1 class="green"> Boodschappen </h1>
+    </div>
+
+    {# ingredienten #}
+
+    <div class="row">
+            {% for record in data.0.ingredienten %}
+            <div class="row ml-1 mt-4" style="min-height: 100px";>
+                <div class="col-md-1" 
+                    style="background-image: url('assets/img/artikelen/{{record.afbeelding}}'); background-position: center; background-size: cover; height: 125px; width: 125px"> 
+                </div>
+                <div class="col-md-7" style="max-width: 500px">
+                    <h2 style="color: #6e8722"> {{record.naam}} </h2>
+                    <div> {{record.omschrijving}} </div>
+                </div> {# Einde div md-7 #}
+                <div class="col-md-1">
+                    {{data2.1.aantal}}
+                </div>
+            </div> {# Einde row class #}
+        {% endfor %}
+    </div>
+
+
+
+    {#% set record = data %#}
+    <div class="row">
+        <div class="col-md-8 green"> 
+            <h2> {{ data.0.gerecht.titel }} </h2>
+        </div>
+        <div class="col-md-4"> 
+            <h3> 
+                <span class="star" data-value="1">*</span> 
+                <span class="star" data-value="2">*</span>
+                <span class="star" data-value="3">*</span>
+                <span class="star" data-value="4">*</span>
+                <span class="star" data-value="5">*</span>
+            </h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3 green">
+            <h4> Keuken </h4> 
+        </div>
+        <div class="col-md-3 pt-2">
+            {{data.0.keuken.omschrijving}} 
+        </div>
+
+        <div class="col-md-3 green">
+            <h4> Type </h4> 
+        </div>
+        <div class="col-md-3 pt-2">
+            {{data.0.type.omschrijving}}
+        </div>
+    </div>
+
+    {# omschrijving #}
+    <div class="row pl-2 pb-4" style="min-height: 410px";>
+        {{data.0.gerecht.lange_omschrijving}}
+    </div>
+
+    {# op lijst en favorieten knop #}
+    <div class="row">
+        <div class="col-md-11">
+            <a href="http://localhost/educom-verrukkulluk-1668679088/index.php?gerecht_id=2&action=detail"  style="text-decoration: none"> <div id="smullen" class="smullen_button" style> Op lijst </div> </a>
+        </div>
+        <div class="col-md-1">
+            <i class="fa fa-heart fa-2x"></i>
+        </div>
+    </div>
+
+</div> {# Einde rechter kant #}
+</div> {# Einde geheel bovenste gedeelte #}
+
+</div>  {# Sluit de m4-5 van hieroven voor de gerecht details#}
+
+{#
+       <pre>
+        {{ dump(data.0.ingredienten.0.naam)}}
+        {{ dump(data.0) }}
+#}
+
+       <pre>
+       {{dump(data)}}
+
+
+{% endblock %}
