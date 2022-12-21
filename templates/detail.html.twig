@@ -17,23 +17,13 @@
             }) // Einde background-image functie
 
 
-              if ("{{data.0.rating}}" <=1) {
-              var element = document.getElementById(1);
-              element.classList.add("green");
-            } else if ("{{data.0.rating}}" <= 2) {
-              var element = document.getElementById(2);
-              element.classList.add("green");
-            } else if ("{{data.0.rating}}" <= 3) {
-              var element = document.getElementById(3);
-              element.classList.add("green");
-            } else if ("{{data.0.rating}}" <= 4) {
-              var element = document.getElementById(4);
-              element.classList.add("green");
-            } else if ("{{data.0.rating}}" <= 5) {
-              var element = document.getElementById(5);
-              element.classList.add("green");
-            } else {}
-
+            $('.star').each( (index, elem) => {
+              const rating = {{data.0.rating}}
+              const itemValue = $(elem).attr('data-value')
+              if(itemValue <= rating) {
+                $(elem).addClass('green')
+              }
+            })
 
             $(".star").click(function() {
                 const value = $(this).attr('data-value')

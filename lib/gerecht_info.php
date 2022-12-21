@@ -103,7 +103,8 @@ class gerecht_info {
         $count= count($waarderingen);
         $sum = array_sum($waarderingen);
         $berekening=$sum/$count;
-        return $berekening;
+        $berekeningRounded=round($berekening);
+        return $berekeningRounded;
         }
 
     public function showSter($gerecht_id) {
