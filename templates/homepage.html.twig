@@ -29,6 +29,25 @@
 {#voor spacing later toe te voegen mogelijk gebruijken: https://getbootstrap.com/docs/4.0/utilities/spacing/ #}
 {% block content %}
     {% for record in data %}    {# Deze loopt door de gehele data ($gerechten array) heen. #}
+    <script>
+              if ("{{record.rating}}" <=1) {
+              var element = document.getElementById(1);
+              element.classList.add("green");
+            } else if ("{{record.rating}}" <= 2) {
+              var element = document.getElementById(2);
+              element.classList.add("green");
+            } else if ("{{record.rating}}" <= 3) {
+              var element = document.getElementById(3);
+              element.classList.add("green");
+            } else if ("{{record.rating}}" <= 4) {
+              var element = document.getElementById(4);
+              element.classList.add("green");
+            } else if ("{{record.rating}}" <= 5) {
+              var element = document.getElementById(5);
+              element.classList.add("green");
+            }
+    </script>
+
     
     {# Hier starten de 4 grijze achtergrond hokjes #}
     <div class="col-md-6">      {# Hier maken we een nieuwe bootstrap opdeling binnen content iedere 6 #}
@@ -48,7 +67,23 @@
                 <h2> {{ record.gerecht.titel }} </h2>
             </div> {# Einde titel div #}
             <div class="col-md-6"> 
-                <h3> {{ record.rating}} </h3> 
+                <h3> 
+                    <span id="5">
+                        <span id="4">
+                            <span id="3">
+                                <span id="2">
+                                    <span id="1">
+                                        <span class="star" data-value="1">*</span> {# if functie + class green om dit werkende te krijgen #}
+                                    </span> {# 1 ster span #}
+                                    <span class="star" data-value="2">*</span>
+                                </span> {# 2 ster span #}
+                                <span class="star" data-value="3">*</span>
+                            </span> {# 3 ster span #}
+                            <span class="star" data-value="4">*</span>
+                        </span> {# 4 ster span #}
+                        <span class="star" data-value="5">*</span>
+                    </span> {# 5 ster span #}
+                </h3>
             </div> 
         </div> {# einde class row voor de titel en sterren #}
 
