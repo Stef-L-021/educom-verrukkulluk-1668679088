@@ -37,91 +37,62 @@ document.getElementById("defaultOpen").click();
 <div class="row custom-shadow background-white"> {# Begin bevenste gedeelte. Hier kan je min-height achter zetten, maar de omschrijving hieronder doet dat ook al#}  
 
 
-<div class="col-md-12 background-white pb-4 pt-4 pl-5 pr-5">                                                                                     {# Padding van het geheel wit detail blok #}
-    {# cijfers van personen, prijs en calorieen #}
-    <div class="row pb-3">                                                                                                                      {# Padding van de icons #}
+<div class="col-md-12 background-white pb-4 pt-4 pl-5 pr-5">          
+
+    {# Boodschappen header #}
+    <div class="row pb-3">                                                                                                                     
         <h1 class="green"> Boodschappen </h1>
-        <div class="row"> user_id: {{data.0.boodschappen.user_id}}</div>
     </div>
 
-    {# ingredienten #}
+    {# Boodschappen content #}
 
-    <div class="row">
+    <div class="row" style="height:1000px; overflow-y: scroll;">
             {% for record in data %}
-            <div class="row ml-1 mt-4" style="min-height: 100px";>
+            <div class="row ml-1 mt-4";>
                 <div class="col-md-1" 
                     style="background-image: url('assets/img/artikelen/{{record.artikel.afbeelding}}'); background-position: center; background-size: cover; height: 125px; width: 125px"> 
                 </div>
-                <div class="col-md-7" style="max-width: 500px">
+                <div class="col-md-5" style="max-width: 500px">
                     <h2 style="color: #6e8722"> {{record.artikel.naam}} </h2>
                     <div> {{record.artikel.omschrijving}} </div>
                 </div> {# Einde div md-7 #}
-                <div class="col-md-1">
+                <div class="col-md-1 green">
+                <div class="row" style="border: 1px solid">
                     {{record.boodschappen.aantal}}
                 </div>
-                <div class="col-md-2">
+                </div>
+                <div class="col-md-2">                                                                                      {# maak hier een md-1-5 aan #}
                     <i class="fa fa-euro-sign fa-lg light-red"></i>  <span class="h8"> {{record.prijzen}}  </span>
                 </div>
                 <div class="col-md-1">
-                    <i class="fa fa-euro-sign fa-lg light-red"> </i>  
+                    <i class="fa fa-check fa-lg green"> </i>  
+                </div>
+                <div class="col-md-1">
+                    <i class="fa fa-trash fa-lg light-red"></i>
                 </div>
             </div> {# Einde row class #}
         {% endfor %}
-        {{totaalprijs}}
     </div>
 
-
-
-    {#% set record = data %#}
-    <div class="row">
-        <div class="col-md-8 green"> 
-            <h2> {{ data.0.gerecht.titel }} </h2>
+    {# Totaal #}
+    <div class="row mt-3 ml-1">
+        <div class="col-md-7">
+            <h1 class="red"> Totaal </h1>
         </div>
-        <div class="col-md-4"> 
-            <h3> 
-                <span class="star" data-value="1">*</span> 
-                <span class="star" data-value="2">*</span>
-                <span class="star" data-value="3">*</span>
-                <span class="star" data-value="4">*</span>
-                <span class="star" data-value="5">*</span>
-            </h3>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-3 green">
-            <h4> Keuken </h4> 
-        </div>
-        <div class="col-md-3 pt-2">
-            {{data.0.keuken.omschrijving}} 
-        </div>
-
-        <div class="col-md-3 green">
-            <h4> Type </h4> 
-        </div>
-        <div class="col-md-3 pt-2">
-            {{data.0.type.omschrijving}}
-        </div>
-    </div>
-
-    {# omschrijving #}
-    <div class="row pl-2 pb-4" style="min-height: 410px";>
-        {{data.0.gerecht.lange_omschrijving}}
-    </div>
-
-    {# op lijst en favorieten knop #}
-    <div class="row">
-        <div class="col-md-11">
-            <a href="http://localhost/educom-verrukkulluk-1668679088/index.php?gerecht_id=2&action=detail"  style="text-decoration: none"> <div id="smullen" class="smullen_button" style> Op lijst </div> </a>
+        <div class="col-md-2 ml-4">
+            <i class="fa fa-euro-sign fa-lg light-red"></i>  <span class="h8"> {{totaalprijs}} </span>
         </div>
         <div class="col-md-1">
-            <i class="fa fa-heart fa-2x"></i>
         </div>
+        <div class="col-md-1">
+            <i class="fa fa-trash fa-lg light-red"></i>
+        </div>
+
     </div>
+
 
 </div> {# Einde rechter kant #}
 </div> {# Einde geheel bovenste gedeelte #}
-
 </div>  {# Sluit de m4-5 van hieroven voor de gerecht details#}
 
 {#
@@ -129,9 +100,6 @@ document.getElementById("defaultOpen").click();
         {{ dump(data.0.ingredienten.0.naam)}}
         {{ dump(data.0) }}
 #}
-
-       <pre>
-       {{dump(data)}}
 
 
 {% endblock %}

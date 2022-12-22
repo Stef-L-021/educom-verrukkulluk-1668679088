@@ -68,8 +68,6 @@ class boodschappen {
 
             $prijsMeerArt = number_format(($boodschappen["aantal"]*$artikel["prijs"])/100,2);
 
-            $totaalprijs=$totaalprijs+$prijsMeerArt;
-
             $return[] = [
                 "boodschappen"=> $boodschappen,
                 "artikel" => $artikel,
