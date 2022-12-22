@@ -3,10 +3,12 @@
 class boodschappen {
     private $connection;
     private $ingredient;
+    private $art;
 
     public function __construct($connection) {
         $this->connection = $connection;
         $this->ingredient = new ingredient ($connection);
+        $this->art = new artikel($connection);
     }
 
     // Ophalen van tabellen --------------------------------------------------------------------------------------------------------------------------------------------
@@ -24,6 +26,35 @@ class boodschappen {
         $result = mysqli_query($this->connection, $sql);
         while ($boodschappen = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
             $return[] = $boodschappen;
+        }
+    return($return);
+    }
+
+
+
+    // uitgebreidere boodschappen ophalen met artikel drbij
+    private function selectArtikel($art_id) {                   // We maken hier een nieuwe tabel
+        $data = $this->art->selecteerArtikel($art_id);          // dit moet selecteer zijn omdat het in de artikel.php ook selecteer is. We gebruiken de data van artikel.php
+        return($data);                                          // aan het einde van de functie wordt de data returned
+    }
+
+    public function ophalenUitgebreideBoodschappen($user_id) {
+        $sql = "select * FROM boodschappen where user_id = $user_id";
+        $return = [];
+
+        $result = mysqli_query($this->connection, $sql);
+
+        while ($boodschappen = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+            $art_id = $boodschappen["artikel_id"];
+            $artikel = $this->selectArtikel($art_id);
+
+            $prijsMeerArt = number_format(($boodschappen["aantal"]*$artikel["prijs"])/100,2);
+
+            $return[] = [
+                "boodschappen"=> $boodschappen,
+                "artikel" => $artikel,
+                "prijzen" => $prijsMeerArt
+            ];
         }
     return($return);
     }

@@ -81,7 +81,7 @@ switch($action) {
         }
 
         case "ophalen_boodschappen": {
-            $data= $boodschappen->ophalenBoodschappen($user_id);
+            $data= $boodschappen->ophalenUitgebreideBoodschappen($user_id);
             $template = 'boodschappen.html.twig';
             $title = "boodschappen";
             break;

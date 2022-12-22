@@ -8,7 +8,7 @@
         $(document).ready( function() {
 
             const mySlides = [
-                {src: "assets/img/gerechten/{{ data.0.gerecht.afbeelding}}"}
+                {src: "assets/img/gerechten/Eggs_and_Veggies.jpg"}
             ] // Einde slide sources
                     
             $("#background-image").vegas({                               // let op de #!!! dit is een ID voor later en hier moet dus een #
@@ -41,22 +41,26 @@ document.getElementById("defaultOpen").click();
     {# cijfers van personen, prijs en calorieen #}
     <div class="row pb-3">                                                                                                                      {# Padding van de icons #}
         <h1 class="green"> Boodschappen </h1>
+        <div class="row"> user_id: {{data.0.boodschappen.user_id}}</div>
     </div>
 
     {# ingredienten #}
 
     <div class="row">
-            {% for record in data.0.ingredienten %}
+            {% for record in data %}
             <div class="row ml-1 mt-4" style="min-height: 100px";>
                 <div class="col-md-1" 
-                    style="background-image: url('assets/img/artikelen/{{record.afbeelding}}'); background-position: center; background-size: cover; height: 125px; width: 125px"> 
+                    style="background-image: url('assets/img/artikelen/{{record.artikel.afbeelding}}'); background-position: center; background-size: cover; height: 125px; width: 125px"> 
                 </div>
                 <div class="col-md-7" style="max-width: 500px">
-                    <h2 style="color: #6e8722"> {{record.naam}} </h2>
-                    <div> {{record.omschrijving}} </div>
+                    <h2 style="color: #6e8722"> {{record.artikel.naam}} </h2>
+                    <div> {{record.artikel.omschrijving}} </div>
                 </div> {# Einde div md-7 #}
                 <div class="col-md-1">
-                    {{data2.1.aantal}}
+                    {{record.boodschappen.aantal}}
+                </div>
+                <div class="col-md-1">
+                    {{record.prijzen}}
                 </div>
             </div> {# Einde row class #}
         {% endfor %}
