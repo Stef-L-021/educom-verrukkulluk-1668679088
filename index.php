@@ -46,7 +46,7 @@ $gerecht_id = isset($_GET["gerecht_id"]) ? $_GET["gerecht_id"] : "";
 $action = isset($_GET["action"]) ? $_GET["action"] : "homepage";
 $rating= isset($_GET["rating"]) ? $_GET["rating"] : []; 
 $user_id=6;
-
+$totaalprijs=$boodschappen->totaalPrijsBerekening($user_id);                // Wordt gebruikt bij boodschappen
 
 
 switch($action) {
@@ -82,7 +82,6 @@ switch($action) {
 
         case "ophalen_boodschappen": {
             $data= $boodschappen->ophalenUitgebreideBoodschappen($user_id);
-            $totaalprijs=$boodschappen->totaalPrijsBerekening($user_id);
             $template = 'boodschappen.html.twig';
             $title = "boodschappen";
             break;
