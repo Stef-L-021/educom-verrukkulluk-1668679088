@@ -291,10 +291,41 @@ html, body {
     width: 12.5%;
 }
 
+.col-md-5-6 {
+    width: 49%;
+}
+
+.col-md-6-7 {
+    width: 70.4%;
+}
+
+/* Boodschappen */
+
+.boodschappen-style {
+    height:1000px;
+    overflow-y: scroll; 
+    overflow-x: hidden;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.boodschappen-style::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.boodschappen-style {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
 
 .m-4-5 {
     margin: 2rem !important;
   }
+
+.ml-4-5 {
+    margin-left: 2.27rem !important;
+}
 
 .mb-4-5-x2 {
     margin-bottom: 4rem !important;
