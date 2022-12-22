@@ -38,9 +38,9 @@ class boodschappen {
         return($data);                                          // aan het einde van de functie wordt de data returned
     }
 
-    public function ophalenUitgebreideBoodschappen($user_id) {
+    public function totaalPrijsBerekening($user_id) {
         $sql = "select * FROM boodschappen where user_id = $user_id";
-        $return = [];
+        $totaalprijs=0;
 
         $result = mysqli_query($this->connection, $sql);
 
@@ -50,10 +50,30 @@ class boodschappen {
 
             $prijsMeerArt = number_format(($boodschappen["aantal"]*$artikel["prijs"])/100,2);
 
+            $totaalprijs=$totaalprijs+$prijsMeerArt;
+        }
+    return($totaalprijs);
+    }
+
+    public function ophalenUitgebreideBoodschappen($user_id) {
+        $sql = "select * FROM boodschappen where user_id = $user_id";
+        $return = [];
+        $totaalprijs=0;
+
+        $result = mysqli_query($this->connection, $sql);
+
+        while ($boodschappen = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+            $art_id = $boodschappen["artikel_id"];
+            $artikel = $this->selectArtikel($art_id);
+
+            $prijsMeerArt = number_format(($boodschappen["aantal"]*$artikel["prijs"])/100,2);
+
+            $totaalprijs=$totaalprijs+$prijsMeerArt;
+
             $return[] = [
                 "boodschappen"=> $boodschappen,
                 "artikel" => $artikel,
-                "prijzen" => $prijsMeerArt
+                "prijzen" => $prijsMeerArt,
             ];
         }
     return($return);

@@ -82,6 +82,7 @@ switch($action) {
 
         case "ophalen_boodschappen": {
             $data= $boodschappen->ophalenUitgebreideBoodschappen($user_id);
+            $totaalprijs=$boodschappen->totaalPrijsBerekening($user_id);
             $template = 'boodschappen.html.twig';
             $title = "boodschappen";
             break;
@@ -98,4 +99,4 @@ $template = $twig->load($template);
 
 
 /// En tonen die handel!
-echo $template->render(["title" => $title, "data" => $data]);
+echo $template->render(["title" => $title, "data" => $data, "totaalprijs"=> $totaalprijs]);

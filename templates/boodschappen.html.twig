@@ -59,11 +59,15 @@ document.getElementById("defaultOpen").click();
                 <div class="col-md-1">
                     {{record.boodschappen.aantal}}
                 </div>
+                <div class="col-md-2">
+                    <i class="fa fa-euro-sign fa-lg light-red"></i>  <span class="h8"> {{record.prijzen}}  </span>
+                </div>
                 <div class="col-md-1">
-                    {{record.prijzen}}
+                    <i class="fa fa-euro-sign fa-lg light-red"> </i>  
                 </div>
             </div> {# Einde row class #}
         {% endfor %}
+        {{totaalprijs}}
     </div>
 
 
