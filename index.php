@@ -48,6 +48,10 @@ $rating= isset($_GET["rating"]) ? $_GET["rating"] : [];
 $user_id=6;
 $totaalprijs=$boodschappen->totaalPrijsBerekening($user_id);                // Wordt gebruikt bij boodschappen
 
+$search = $_GET['search'] ? $_GET["search"] : "";
+$zoekfunctie=$zoekfunctie->zoekfunctie($search);
+var_dump($zoekfunctie);
+
 
 switch($action) {
 
@@ -92,12 +96,22 @@ switch($action) {
             // Dit moet de boodschappen toevoegen en daarna openen
             $data= $boodschappen->boodschappenToevoegen($gerecht_id, $user_id);
             $data= $boodschappen->ophalenUitgebreideBoodschappen($user_id);
+            $totaalprijs=$boodschappen->totaalPrijsBerekening($user_id);                // Wordt gebruikt bij boodschappen
             $template = 'boodschappen.html.twig';
             $title = "boodschappen";
             break;
             // http://localhost/educom-verrukkulluk-1668679088/index.php?action=ophalen_boodschappen
         }
+}
 
+switch($search) {
+
+    case "detail": {
+        $data = $gerecht->selecteerGerecht(1);
+        $template = 'detail.html.twig';
+        $title = "detail pagina";
+        break;
+    }
 }
 
 
