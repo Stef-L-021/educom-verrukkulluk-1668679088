@@ -88,6 +88,16 @@ switch($action) {
             // http://localhost/educom-verrukkulluk-1668679088/index.php?action=ophalen_boodschappen
         }
 
+        case "add_boodschappen": {
+            // Dit moet de boodschappen toevoegen en daarna openen
+            $data= $boodschappen->boodschappenToevoegen($gerecht_id, $user_id);
+            $data= $boodschappen->ophalenUitgebreideBoodschappen($user_id);
+            $template = 'boodschappen.html.twig';
+            $title = "boodschappen";
+            break;
+            // http://localhost/educom-verrukkulluk-1668679088/index.php?action=ophalen_boodschappen
+        }
+
 }
 
 
