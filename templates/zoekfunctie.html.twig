@@ -1,0 +1,180 @@
+{% extends "main.html.twig" %}
+
+{% block header %}
+
+    <script>
+        // Vegas functie:
+
+        $(document).ready( function() {
+
+            const mySlides = [
+                {src: "assets/img/gerechten/{{ data.0.gerecht.afbeelding}}"}
+            ] // Einde slide sources
+                    
+            $("#background-image").vegas({                               // let op de #!!! dit is een ID voor later en hier moet dus een #
+                overlay: 'assets/vegas/overlays/01.png',                        // Mogelijk deze weghalen als we die pixel overlay niet willen hebben
+                slides: mySlides,
+            }) // Einde background-image functie
+            
+
+        }) //// eindigd document ready
+
+    </script>
+
+{% endblock %}
+
+
+{% block content %}
+{{search.0.}}
+
+
+<script>
+$(document).ready( function() {
+document.getElementById("defaultOpen").click();
+}) //// eindigd document ready
+</script>
+
+
+<div class="detail-width m-4-5">
+<div class="row custom-shadow background-white"> {# Begin bevenste gedeelte. Hier kan je min-height achter zetten, maar de omschrijving hieronder doet dat ook al#}  
+
+
+<div class="col-md-5"
+    style="background-image: url('assets/img/gerechten/{{data.0.gerecht.afbeelding}}'); background-position: center; background-size: cover">   {#kolom met plaatje #}
+</div>
+
+<div class="col-md-7 background-white pb-4 pt-4 pl-5 pr-5">                                                                                     {# Padding van het geheel wit detail blok #}
+    {# cijfers van personen, prijs en calorieen #}
+    <div class="row pb-3">                                                                                                                      {# Padding van de icons #}
+        <div class="col-md-2"> 
+            <i class="fa fa-user fa-lg light-red"></i> 4
+        </div>
+        <div class="col-md-2"> 
+            <i class="fa fa-euro-sign fa-lg light-red"></i> {{ data.0.prijs |round(2)}}
+        </div>
+        <div class="col-md-2"> 
+            <i class="fa fa-fire fa-lg light-red"></i> {{ data.0.calorieen |round(0)}}
+        </div>
+    </div>
+
+    {# Naam en sterren #}
+
+
+    {#% set record = data %#}
+    <div class="row">
+        <div class="col-md-8 green"> 
+            <h2> {{ data.0.gerecht.titel }} </h2>
+        </div>
+        <div class="col-md-4"> 
+            <h3> 
+                <span class="star" data-value="1">*</span> 
+                <span class="star" data-value="2">*</span>
+                <span class="star" data-value="3">*</span>
+                <span class="star" data-value="4">*</span>
+                <span class="star" data-value="5">*</span>
+            </h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3 green">
+            <h4> Keuken </h4> 
+        </div>
+        <div class="col-md-3 pt-2">
+            {{data.0.keuken.omschrijving}} 
+        </div>
+
+        <div class="col-md-3 green">
+            <h4> Type </h4> 
+        </div>
+        <div class="col-md-3 pt-2">
+            {{data.0.type.omschrijving}}
+        </div>
+    </div>
+
+    {# omschrijving #}
+    <div class="row pl-2 pb-4" style="min-height: 410px";>
+        {{data.0.gerecht.lange_omschrijving}}
+    </div>
+
+    {# op lijst en favorieten knop #}
+    <div class="row">
+        <div class="col-md-11">
+            <a href="http://localhost/educom-verrukkulluk-1668679088/index.php?gerecht_id={{data.0.gerecht.id}}&action=add_boodschappen"  style="text-decoration: none"> <div id="smullen" class="smullen_button" style> Op lijst </div> </a>
+        </div>
+        <div class="col-md-1">
+            <i class="fa fa-heart fa-2x"></i>
+        </div>
+    </div>
+
+</div> {# Einde rechter kant #}
+</div> {# Einde geheel bovenste gedeelte #}
+
+</div>  {# Sluit de m4-5 van hieroven voor de gerecht details#}
+<!-- tabladen: -->
+
+<div class="detail-width m-5">     {# opent een nieuwe m4-5 voor de tabs#}
+<!-- Tab buttons -->
+<div class="row background-white">
+
+    <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'Ingredienten')"> <span class="tab-green" id="defaultOpen"> Ingrediënten </span> </button>
+        <button class="tablinks" onclick="openTab(event, 'Bereidingswijze')"> <span class="tab-green"> Bereidingswijze </span> </button>
+        <button class="tablinks" onclick="openTab(event, 'Opmerkingen')"> <span class="tab-green"> Opmerkingen </span> </button>
+    </div>
+
+    <!-- content -->
+    <div class="row custom-shadow">
+    <div id="Ingredienten" class="tabcontent">
+        {% for record in data.0.ingredienten %}
+            <div class="row ml-5 mt-4" style="min-height: 100px";>
+                <div class="col-md-1" 
+                    style="background-image: url('assets/img/artikelen/{{record.afbeelding}}'); background-position: center; background-size: cover; height: 125px; width: 125px"> 
+                </div>
+                <div class="col-md-11" style="max-width: 500px">
+                    <h2 style="color: #6e8722"> {{record.naam}} </h2>
+                    <div> {{record.omschrijving}} </div>
+                    <span class="hgreen"> Hoeveelheid: </span>            {# zoek hiervoor een goeie a h of whatever #}
+                    <span>  {{record.aantal}} {{record.eenheid}} </span>
+                </div> {# Einde div md-11 #}
+            </div> {# Einde row class #}
+        {% endfor %}
+    </div>
+
+    <div id="Bereidingswijze" class="tabcontent">
+        {% for record in data.0.bereidingswijze %}
+        <div class="row ml-5 mt-4" style="min-height: 80px";>
+            <div class="col-md-1" style="background-color: #fca01f; width: 80px; border-radius: 50%"> <div class="h2-helv bold white center-vert-hor pt-2"> {{record.nummeriekveld}}. </div> </div>
+            <div class="col-md-11 center-vertical"> {{record.tekstveld}} </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div id="Opmerkingen" class="tabcontent">
+        {% for record in data.0.opmerkingen %}
+        <div class="row pt-3 pl-5">
+            <div class="col-md-4"
+                style="background-image: url('assets/img/users/{{record.afbeelding}}'); background-position: center; background-size: cover; height: 150px; max-width: 150px; border-radius: 50%; border: 3px solid #fca01f;"> 
+            </div>
+            <div class="col-sm-8 pl-4"> 
+                <div class="row h2-5"> {{record.user_name}} </div>
+                <div class="row"> {{record.tekstveld}} </div> <br>
+            </div>
+        </div>
+        {% endfor %}
+    </div> {# Einde opmerkingen div #}
+
+    <div class="green background-white detail-width"> <h2 style=" position:relative; left: 300px"> ˅ </h2> </div>
+
+</div> {# Einde content div row shadow #}
+
+</div> {# Einde button div #}
+</div> 
+
+{#
+       <pre>
+        {{ dump(data.0.ingredienten.0.naam)}}
+        {{ dump(data.0) }}
+#}
+
+{% endblock %}

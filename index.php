@@ -48,9 +48,17 @@ $rating= isset($_GET["rating"]) ? $_GET["rating"] : [];
 $user_id=6;
 $totaalprijs=$boodschappen->totaalPrijsBerekening($user_id);                // Wordt gebruikt bij boodschappen
 
-$search = $_GET['search'] ? $_GET["search"] : "";
-$zoekfunctie=$zoekfunctie->zoekfunctie($search);
+
+
+$search = isset($_GET['search']) ? $_GET["search"] : NULL;                           // Haalt de input van t text veld van main op
+
+if ($search != NULL) {
+$zoekfunctie=$zoekfunctie->zoekfunctie($search);                            // haalt de zoekfunctie.php op en vult hier de GET in
+$template="zoekfunctie.html.twig";
+$title = "detail pagina";
 var_dump($zoekfunctie);
+}
+
 
 
 switch($action) {
@@ -102,16 +110,14 @@ switch($action) {
             break;
             // http://localhost/educom-verrukkulluk-1668679088/index.php?action=ophalen_boodschappen
         }
-}
 
-switch($search) {
+        case "searchfunction": {
+            $zoekfunctie=$zoekfunctie->zoekfunctie($search);                            // haalt de zoekfunctie.php op en vult hier de GET in
+            $template="zoekfunctie.html.twig";
+            $title = "detail pagina";
+            var_dump($zoekfunctie);
 
-    case "detail": {
-        $data = $gerecht->selecteerGerecht(1);
-        $template = 'detail.html.twig';
-        $title = "detail pagina";
-        break;
-    }
+        }
 }
 
 
@@ -122,4 +128,4 @@ $template = $twig->load($template);
 
 
 /// En tonen die handel!
-echo $template->render(["title" => $title, "data" => $data, "totaalprijs"=> $totaalprijs]);
+echo $template->render(["title" => $title, "data" => $data, "totaalprijs"=> $totaalprijs, "search" => $search]);
