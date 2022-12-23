@@ -298,19 +298,23 @@ html, body {
 }
 
 .menu-trigger:hover .dropdown {
-    top: 0px;
+    top: -20px;
 }
 
 .dropdown {
-    position: fixed;
+    position: absolute;
     top:-400px;
-    left: 0;
+    left: -1600px;
     right: 0;
     height: 200px;
-    background-color: #FDF;
+    background-color: #FFF;
     transition: all 0.4s ease;
     padding: 40px;
+    width: 1700px;
 }
+
+
+
 
 .col-container {
     display: table;
@@ -336,7 +340,7 @@ html, body {
 /* Boodschappen */
 
 .boodschappen-style {
-    height:1000px;
+    height:1023px;
     overflow-y: scroll; 
     overflow-x: hidden;
 }
