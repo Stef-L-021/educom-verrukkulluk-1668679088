@@ -52,12 +52,6 @@ $totaalprijs=$boodschappen->totaalPrijsBerekening($user_id);                // W
 
 $search = isset($_GET['search']) ? $_GET["search"] : NULL;                           // Haalt de input van t text veld van main op
 
-if ($search != NULL) {
-$zoekfunctie=$zoekfunctie->zoekfunctie($search);                            // haalt de zoekfunctie.php op en vult hier de GET in
-$template="zoekfunctie.html.twig";
-$title = "detail pagina";
-var_dump($zoekfunctie);
-}
 
 
 
@@ -120,6 +114,12 @@ switch($action) {
         }
 }
 
+if ($search != NULL) {
+    $zoekfunctie=$zoekfunctie->zoekfunctie($search);                            // haalt de zoekfunctie.php op en vult hier de GET in
+    $template="zoekfunctie.html.twig";
+    $title = "zoek pagina";
+    }
+
 
 
 /// Onderstaande code schrijf je idealiter in een layout klasse of iets dergelijks
@@ -128,4 +128,4 @@ $template = $twig->load($template);
 
 
 /// En tonen die handel!
-echo $template->render(["title" => $title, "data" => $data, "totaalprijs"=> $totaalprijs, "search" => $search]);
+echo $template->render(["title" => $title, "data" => $data, "totaalprijs"=> $totaalprijs, "zoekfunctie" => $zoekfunctie]);
