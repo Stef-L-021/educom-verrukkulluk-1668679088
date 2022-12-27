@@ -195,6 +195,20 @@ h3, h4, h5 {
     border-color: #FFF;
 }
 
+.alignment-navigation-menu {
+    position: absolute;
+    right: 150px;
+    top: 50px;
+    color: #b31714;
+}
+
+.alignment-navigation-menu-logo {
+    position: absolute;
+    left: 80x;
+    top: 25px;
+    color: #b31714;
+}
+
 /** HTML / BODY **/
 html, body {
     font-family: "Helvetica Neue", Arial, SansSerif;
