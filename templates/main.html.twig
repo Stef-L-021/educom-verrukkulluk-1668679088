@@ -31,8 +31,11 @@
     <div id="background-image"  class="pl-5 pt-4" style="height: 700px"> 
 
         <form action="index.php" method="GET">      {# ?action=searchfunction #}
-            <input type="text" name="search">
-            <input type="submit">
+
+        <div class="input-container alignment-search-bar">
+            <i class="fa fa-fire alignment-icon-search"></i>
+            <input type="text" class="search-bar" name="search">
+            </div>
         </form>
     
         <div class="menu">
@@ -43,7 +46,7 @@
             </div> {# menu-trigger #}
         </div> {# menu #}
 
-        <a href="http://localhost/educom-verrukkulluk-1668679088/index.php"> <img src="assets/img/logo-v2.png" style="height: 250px; width: auto"/> </a>         {# Dit gedeelte voegt het logo toe met eenlink naar de homepage#}
+        <a href="http://localhost/educom-verrukkulluk-1668679088/index.php"> <img src="assets/img/logo-v2.png" class="text-align-center" style="height: 250px; width: auto"/> </a>         {# Dit gedeelte voegt het logo toe met eenlink naar de homepage#}
         {% block header %}
         {% endblock %}   
     </div> <!-- background-image -->

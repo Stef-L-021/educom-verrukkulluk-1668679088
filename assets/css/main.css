@@ -103,10 +103,6 @@ h3, h4, h5 {
     color: #F00;
 }
 
-.four-star{
-
-}
-
 /* Colors ------------------------------------------------------------------------------------------- */
 
 .green {
@@ -157,6 +153,12 @@ h3, h4, h5 {
     margin-right: auto;
 }
 
+.right-horizontal {                /* Dit werkt sws voor afbeeldingen, mogelijk ook voor tekst */
+    display: block;
+    margin-left: 1000px;
+    margin-right: auto;
+}
+
 /* Centering */
 .center-vertical {
     display: grid; 
@@ -170,7 +172,22 @@ h3, h4, h5 {
 }
 
 .text-align-center {
-    text-align:center
+    text-align: center;
+}
+
+.search-bar {
+    background-color: #FF9;
+}
+
+.alignment-search-bar {
+    position: absolute;
+    right: 200px;
+    top: 50px;
+}
+
+.alignment-icon-search {
+    position: absolute;
+    left: 10px;
 }
 
 /** HTML / BODY **/
