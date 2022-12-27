@@ -175,19 +175,24 @@ h3, h4, h5 {
     text-align: center;
 }
 
-.search-bar {
-    background-color: #FF9;
-}
-
 .alignment-search-bar {
     position: absolute;
-    right: 200px;
-    top: 50px;
+    right: 150px;
+    top: 30px;
+    font-size: 20px;
 }
 
 .alignment-icon-search {
     position: absolute;
     left: 10px;
+    top:11px;
+    color: #b31714;
+}
+
+.search-bar {
+    background-color: #FFF;
+    border-radius: 14px;
+    border-color: #FFF;
 }
 
 /** HTML / BODY **/
