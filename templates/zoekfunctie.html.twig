@@ -26,25 +26,39 @@
 
 {% block content %}
 
-<div>
+
 {% for record in zoekfunctie %}
+<div class="col-md-12">
+<div class="m-4-5">           {# Hier kan je nu zowel m and p gebruiken #}
+<div class="custom-shadow"> {# Let op hier is een andere soort shadow!! #} 
 
 <div class="row">
 
-    <div class="col-md-2"
-    style="background-image: url('assets/img/gerechten/{{record.afbeelding}}'); background-position: center; background-size: cover; height: 125px; width: 125px"> 
+
+
+
+    <div class="col-md-3"
+    style="background-image: url('assets/img/gerechten/{{record.afbeelding}}'); background-position: center; background-size: cover; height: 175px; width: 150px"> 
     </div>
 
-    <div class="col-md-2">
-    <a href="http://localhost/educom-verrukkulluk-1668679088/index.php?gerecht_id={{record.id}}&action=detail">
-    {{record.titel}}
-    </a>
+    <div class="col-md-9">
+        <a href="http://localhost/educom-verrukkulluk-1668679088/index.php?gerecht_id={{record.id}}&action=detail" class="no-text-decoration green">
+            <h2> {{record.titel}} </h2>
+        </a>
+        <div>
+            {{record.korte_omschrijving}}
+        </div>
     </div>
 
 </div>
+
+</div>
+</div>
+</div>
+
 {% endfor %}
 
-</div>
+
 
 <pre>
 {{ dump(zoekfunctie) }}
