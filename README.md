@@ -5,6 +5,28 @@ Gegeven is een recepten website die door een grote supermarktketen als extra ser
 
 > lees de opdracht beschrijving op https://e-learning.educom.nu/cases/verrukkulluk/intro
 
+
+## Hier komt een screenshot
+
+## Technologieën:
+
+* PHP
+* TWIG
+* CSS
+* Apache
+* MySQL
+
+## Methoden & Technieken
+
+### Entity Relationship Diagram (ERD):
+
+<img src="documents/design/VER-ERD-Gegevensmodel-RK-v1.png"/>
+
+
+
+
+
+
 ## Opdracht
 Vervaardig een gegevensmodel op basis van bovenstaande informatie en scherm-mockups in twee fases: 
 1. Fase 1: De back-end
