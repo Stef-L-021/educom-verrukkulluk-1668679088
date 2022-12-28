@@ -7,6 +7,7 @@ Gegeven is een recepten website die door een grote supermarktketen als extra ser
 
 
 <img src="documents\voorbeelden\voorbeeld homepage.PNG"/>
+<img src="documents\voorbeelden\voorbeeld detailpagina.PNG"/>
 
 ## Technologieën:
 
