@@ -15,6 +15,7 @@ Gegeven is een recepten website die door een grote supermarktketen als extra ser
 * CSS
 * Apache
 * MySQL
+* yEd
 
 ## Methoden & Technieken
 
@@ -28,7 +29,7 @@ Gegeven is een recepten website die door een grote supermarktketen als extra ser
 
 ### Applicatie Structuur Diagram (ASD):
 
-<img src="documents/design/VER-ASD-Applicatie-structuur-diagram-SL-v1.pdf"/>
+<img src="documents/design/VER-ASD-Applicatie-structuur-diagram-SL-v1.png"/>
 
 
 
