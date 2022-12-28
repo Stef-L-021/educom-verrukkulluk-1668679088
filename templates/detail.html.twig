@@ -4,9 +4,7 @@
 
     <script>
         // Vegas functie:
-
         $(document).ready( function() {
-
             const mySlides = [
                 {src: "assets/img/gerechten/{{ data.0.gerecht.afbeelding}}"}
             ] // Einde slide sources
@@ -15,8 +13,6 @@
                 overlay: 'assets/vegas/overlays/01.png',                        // Mogelijk deze weghalen als we die pixel overlay niet willen hebben
                 slides: mySlides,
             }) // Einde background-image functie
-
-
             $('.star').each( (index, elem) => {
               const rating = {{data.0.rating}}
               const itemValue = $(elem).attr('data-value')
@@ -24,13 +20,10 @@
                 $(elem).addClass('green')
               }
             })
-
             $(".star").click(function() {
                 const value = $(this).attr('data-value')
-
                 /// verwijder alle rode sterren:
                 $(".star").removeClass('red')
-
                 /// eerdere sterren worden ook rood:
                 $(".star").each( (index, elem) => {
                     const itemValue = $(elem).attr('data-value')
@@ -38,7 +31,6 @@
                         $(elem).addClass('red')
                     }
                 }) // eindigd eerdere sterren worden rood functie
-
                 $.ajax({                                                // Let op hier met de $ dat deze erbij moet!
                 url: `index.php?gerecht_id={{data.0.gerecht.id}}&action=addrating&rating=${value}`,
                 method: "GET",
@@ -53,30 +45,9 @@
                 
                 
                 }) // eindigd ajax functie
-
             }) /// Eindigd click functie
-
-
-
-            // addBoodschappen JS functie 
             
-            $(".op_lijst").click(function() {
-                $.ajax({      
-                url: `index.php?gerecht_id={{data.0.gerecht.id}}&x=1`,                                        
-                //url: `index.php?user_id=4&action=ophalen_boodschappen`,
-                method: "GET",
-                 }) // eindigd ajax functie
-                 
-
-                //window.location.href = "index.php?user_id=4&action=ophalen_boodschappen";
-                window.location.href = "index.php?user_id=4&action=add_boodschappen";
-                //location.reload(); 
-            }) // Einde click function
-
-            
-
         }) //// eindigd document ready
-
     </script>
 
 {% endblock %}
@@ -156,7 +127,7 @@ document.getElementById("defaultOpen").click();
     {# op lijst en favorieten knop #}
     <div class="row">
         <div class="col-md-11">
-           <a href="http://localhost/educom-verrukkulluk-1668679088/index.php?gerecht_id={{data.0.gerecht.id}}&action=add_boodschappen"  style="text-decoration: none"> <div id="smullen" class="smullen_button op_lijst" style> Op lijst </div> </a>
+            <a href="http://localhost/educom-verrukkulluk-1668679088/index.php?gerecht_id={{data.0.gerecht.id}}&action=add_boodschappen"  style="text-decoration: none"> <div id="smullen" class="smullen_button" style> Op lijst </div> </a>
         </div>
         <div class="col-md-1">
             <i class="fa fa-heart fa-2x"></i>
