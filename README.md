@@ -6,7 +6,7 @@ Gegeven is een recepten website die door een grote supermarktketen als extra ser
 > lees de opdracht beschrijving op https://e-learning.educom.nu/cases/verrukkulluk/intro
 
 
-<img src="documents/voorbeelden/voorbeeld homepage.png"/>
+<img src="documents\voorbeelden\voorbeeld homepage.PNG"/>
 
 ## Technologieën:
 
