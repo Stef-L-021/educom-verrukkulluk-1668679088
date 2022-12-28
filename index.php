@@ -45,14 +45,14 @@ http://localhost/index.php?gerecht_id=4&action=detail
 $gerecht_id = isset($_GET["gerecht_id"]) ? $_GET["gerecht_id"] : "";
 $action = isset($_GET["action"]) ? $_GET["action"] : "homepage";
 $rating= isset($_GET["rating"]) ? $_GET["rating"] : []; 
-$user_id=6;
+$user_id = isset($_GET["user_id"]) ? $_GET["user_id"] : 4;
+//$user_id=6;
 $totaalprijs=$boodschappen->totaalPrijsBerekening($user_id);                // Wordt gebruikt bij boodschappen
-
 
 
 $search = isset($_GET['search']) ? $_GET["search"] : NULL;                           // Haalt de input van t text veld van main op
 
-
+$x = isset($_GET["x"]) ? $_GET["x"] : NULL;
 
 
 switch($action) {
@@ -95,10 +95,32 @@ switch($action) {
         }
 
         case "add_boodschappen": {
+            
             // Dit moet de boodschappen toevoegen en daarna openen
+            if ($x == 1 ) {
             $data= $boodschappen->boodschappenToevoegen($gerecht_id, $user_id);
+            }
+            
+
+            //usleep(900);            // voegt "kleine" delay toe zodat de DB volledig geupdate is
+
+
+            //header("Location: index.php?user_id=4&action=ophalen_boodschappen");
+
+
+            
             $data= $boodschappen->ophalenUitgebreideBoodschappen($user_id);
             $totaalprijs=$boodschappen->totaalPrijsBerekening($user_id);                // Wordt gebruikt bij boodschappen
+            $template = 'boodschappen.html.twig';
+            $title = "boodschappen";
+            
+            break;
+
+            // http://localhost/educom-verrukkulluk-1668679088/index.php?action=ophalen_boodschappen
+        }
+
+        case "ophalen_boodschappen": {
+            $data= $boodschappen->ophalenUitgebreideBoodschappen($user_id);
             $template = 'boodschappen.html.twig';
             $title = "boodschappen";
             break;
