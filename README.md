@@ -22,6 +22,13 @@ Gegeven is een recepten website die door een grote supermarktketen als extra ser
 
 <img src="documents/design/VER-ERD-Gegevensmodel-RK-v1.png"/>
 
+### Tansactiemodel (TM):
+
+<img src="documents/design/VER-TM-Transactiemodel-SL-v1.png"/>
+
+### Applicatie Structuur Diagram (ASD):
+
+<img src="documents/design/VER-ASD-Applicatie-structuur-diagram-SL-v1.pdf"/>
 
 
 
