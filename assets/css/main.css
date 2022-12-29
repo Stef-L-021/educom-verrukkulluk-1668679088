@@ -141,6 +141,10 @@ h3, h4, h5 {
     background-color: #e85d04;
 }
 
+.lighter-orange {
+    color: #fca01f;
+}
+
 .background-lighter-orange {
     background-color: #fca01f;
 }
@@ -413,10 +417,38 @@ html, body {
     border: 1px solid
 }
 
+
+
 /* Width & Heights */
+.menu-dropdown-logo-size {
+    height: 150px; 
+    width: auto;
+}
+
+.main-logo-size {
+    height: 250px; 
+    width: auto;
+}
+
+.login-input-forms {
+    width: 360px;
+}
 
 .detail-width {
     width: 1050px;
+}
+
+.detail.omschrijving-height {
+    min-height: 410px;
+}
+
+.detail-down-arrow {
+    position:relative; 
+    left: 300px;
+}
+
+.boodschappen-info-width {
+    max-width: 500px
 }
 
 .footer-height {

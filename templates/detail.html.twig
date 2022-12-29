@@ -127,7 +127,7 @@ document.getElementById("defaultOpen").click();
     {# op lijst en favorieten knop #}
     <div class="row">
         <div class="col-md-11">
-            <a href="http://localhost/educom-verrukkulluk-1668679088/index.php?gerecht_id={{data.0.gerecht.id}}&action=add_boodschappen"  style="text-decoration: none"> <div id="smullen" class="smullen_button" style> Op lijst </div> </a>
+            <a href="http://localhost/educom-verrukkulluk-1668679088/index.php?gerecht_id={{data.0.gerecht.id}}&action=add_boodschappen" class="no-text-decoration"> <div id="smullen" class="smullen_button"> Op lijst </div> </a>
         </div>
         <div class="col-md-1">
             <i class="fa fa-heart fa-2x"></i>
@@ -159,7 +159,7 @@ document.getElementById("defaultOpen").click();
                     style="background-image: url('assets/img/artikelen/{{record.afbeelding}}'); background-position: center; background-size: cover; height: 125px; width: 125px"> 
                 </div>
                 <div class="col-md-11" style="max-width: 500px">
-                    <h2 style="color: #6e8722"> {{record.naam}} </h2>
+                    <h2 class="green"> {{record.naam}} </h2>
                     <div> {{record.omschrijving}} </div>
                     <span class="hgreen"> Hoeveelheid: </span>            {# zoek hiervoor een goeie a h of whatever #}
                     <span>  {{record.aantal}} {{record.eenheid}} </span>
@@ -191,7 +191,7 @@ document.getElementById("defaultOpen").click();
         {% endfor %}
     </div> {# Einde opmerkingen div #}
 
-    <div class="green background-white detail-width"> <h2 style=" position:relative; left: 300px"> ˅ </h2> </div>
+    <div class="green background-white detail-width"> <h2 class="detail-down-arrow"> ˅ </h2> </div>
 
 </div> {# Einde content div row shadow #}
 
