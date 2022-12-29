@@ -143,7 +143,24 @@ class boodschappen {
         }
         } // Einde foreach functie
     } // Einde final public functie
+
+
+
+
+
+    // Delete ALLE boodschappen functie 
+    public function deleteAlleBoodschappen($user_id) {
+        $sql = "DELETE FROM boodschappen WHERE user_id = $user_id";
+        $result = mysqli_query($this->connection, $sql);
+    }
+
+    // Delete specifieke boodschappen functie 
+    public function deleteSpecifiekeBoodschappen($user_id, $artikel_id) {
+        $sql = "DELETE FROM boodschappen WHERE user_id = $user_id AND artikel_id = $artikel_id";
+        $result = mysqli_query($this->connection, $sql);
+    }
 }
+
 
 
 

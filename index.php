@@ -45,7 +45,7 @@ http://localhost/index.php?gerecht_id=4&action=detail
 $gerecht_id = isset($_GET["gerecht_id"]) ? $_GET["gerecht_id"] : "";
 $action = isset($_GET["action"]) ? $_GET["action"] : "homepage";
 $rating= isset($_GET["rating"]) ? $_GET["rating"] : []; 
-$user_id=6;
+$user_id=5;
 $totaalprijs=$boodschappen->totaalPrijsBerekening($user_id);                // Wordt gebruikt bij boodschappen
 
 
@@ -53,6 +53,20 @@ $totaalprijs=$boodschappen->totaalPrijsBerekening($user_id);                // W
 $search = isset($_GET['search']) ? $_GET["search"] : NULL;                           // Haalt de input van t text veld van main op
 
 
+
+$delete = isset($_GET['delete']) ? $_GET["delete"] : NULL;  
+$artikel_id= isset($_GET["artikel_id"]) ? $_GET["artikel_id"] : NULL; 
+switch ($delete) {
+    case "alle_boodschappen": {
+        $data = $boodschappen->deleteAlleBoodschappen($user_id);
+        break;
+    }
+
+    case "specifieke_boodschappen": {
+        $data = $boodschappen->deleteSpecifiekeBoodschappen($user_id, $artikel_id);
+        break;
+    }
+}
 
 
 switch($action) {
@@ -113,6 +127,7 @@ switch($action) {
 
         }
 }
+
 
 if ($search != NULL) {
     $zoekfunctie=$zoekfunctie->zoekfunctie($search);                            // haalt de zoekfunctie.php op en vult hier de GET in

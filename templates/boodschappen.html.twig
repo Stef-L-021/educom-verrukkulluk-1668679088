@@ -68,7 +68,9 @@ document.getElementById("defaultOpen").click();
                     <i class="fa fa-check fa-lg green"> </i>  
                 </div>
                 <div class="col-md-1">
+                <a href="index.php?delete=specifieke_boodschappen&artikel_id={{record.boodschappen.artikel_id}}&action=ophalen_boodschappen">
                     <i class="fa fa-trash fa-lg light-red"></i>
+                    </a>
                 </div>
             </div> {# Einde row class #}
         {% endfor %}
@@ -83,7 +85,9 @@ document.getElementById("defaultOpen").click();
             <i class="fa fa-euro-sign fa-lg light-red"></i>  <span class="h8"> {{totaalprijs}} </span>
         </div>
         <div class="col-md-1 ml-4-5">
+            <a href="index.php?delete=alle_boodschappen&action=ophalen_boodschappen">
             <i class="fa fa-trash fa-lg light-red"></i>
+            </a>
         </div>
 
     </div>
