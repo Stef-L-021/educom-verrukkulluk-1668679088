@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 23 dec 2022 om 17:18
+-- Gegenereerd op: 31 dec 2022 om 18:49
 -- Serverversie: 10.4.25-MariaDB
 -- PHP-versie: 8.1.10
 
@@ -81,12 +81,19 @@ CREATE TABLE `boodschappen` (
 --
 
 INSERT INTO `boodschappen` (`id`, `artikel_id`, `user_id`, `aantal`, `precies_aantal`) VALUES
-(180, 1, 6, 1, 0.666666687),
-(181, 2, 6, 2, 1.600000024),
-(182, 3, 6, 1, 0.239999995),
-(183, 8, 6, 4, 4.000000000),
-(184, 17, 6, 4, 4.000000000),
-(185, 18, 6, 1, 0.400000006);
+(455, 10, 6, 1, 0.600000024),
+(456, 11, 6, 2, 1.500000000),
+(457, 12, 6, 3, 3.000000000),
+(458, 8, 6, 3, 3.000000000),
+(516, 1, 5, 1, 0.666666687),
+(517, 2, 5, 2, 1.600000024),
+(518, 3, 5, 1, 0.239999995),
+(519, 8, 5, 7, 7.000000000),
+(520, 17, 5, 4, 4.000000000),
+(521, 18, 5, 1, 0.400000006),
+(522, 10, 5, 1, 0.600000024),
+(523, 11, 5, 2, 1.500000000),
+(524, 12, 5, 3, 3.000000000);
 
 -- --------------------------------------------------------
 
@@ -215,7 +222,22 @@ INSERT INTO `gerecht_info` (`id`, `record_type`, `gerecht_id`, `user_id`, `datum
 (92, 'W', 1, NULL, '2022-12-23', 3, NULL),
 (93, 'W', 1, NULL, '2022-12-23', 3, NULL),
 (95, 'W', 2, NULL, '2022-12-23', 3, NULL),
-(96, 'W', 2, NULL, '2022-12-23', 3, NULL);
+(96, 'W', 2, NULL, '2022-12-23', 3, NULL),
+(97, 'W', 2, NULL, '2022-12-27', 5, NULL),
+(98, 'W', 4, NULL, '2022-12-27', 1, NULL),
+(99, 'W', 4, NULL, '2022-12-27', 1, NULL),
+(100, 'W', 2, NULL, '2022-12-27', 5, NULL),
+(101, 'W', 2, NULL, '2022-12-27', 5, NULL),
+(102, 'W', 2, NULL, '2022-12-27', 5, NULL),
+(103, 'W', 2, NULL, '2022-12-27', 5, NULL),
+(104, 'W', 1, NULL, '2022-12-27', 4, NULL),
+(105, 'W', 1, NULL, '2022-12-27', 4, NULL),
+(106, 'W', 1, NULL, '2022-12-27', 5, NULL),
+(108, 'W', 2, NULL, '2022-12-28', 5, NULL),
+(109, 'W', 2, NULL, '2022-12-28', 4, NULL),
+(110, 'W', 3, NULL, '2022-12-28', 3, NULL),
+(111, 'W', 3, NULL, '2022-12-28', 2, NULL),
+(112, 'W', 2, NULL, '2022-12-29', 5, NULL);
 
 -- --------------------------------------------------------
 
@@ -384,7 +406,7 @@ ALTER TABLE `artikel`
 -- AUTO_INCREMENT voor een tabel `boodschappen`
 --
 ALTER TABLE `boodschappen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=186;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=525;
 
 --
 -- AUTO_INCREMENT voor een tabel `gerecht`
@@ -396,7 +418,7 @@ ALTER TABLE `gerecht`
 -- AUTO_INCREMENT voor een tabel `gerecht_info`
 --
 ALTER TABLE `gerecht_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
 
 --
 -- AUTO_INCREMENT voor een tabel `ingredient`
