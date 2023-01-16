@@ -27,6 +27,8 @@ SET time_zone = "+00:00";
 -- Tabelstructuur voor tabel `artikel`
 --
 
+DROP TABLE IF EXISTS artikel;
+FLUSH TABLES artikel;
 CREATE TABLE `artikel` (
   `id` int(11) NOT NULL,
   `naam` varchar(30) NOT NULL,
@@ -68,6 +70,8 @@ INSERT INTO `artikel` (`id`, `naam`, `omschrijving`, `prijs`, `eenheid`, `verpak
 -- Tabelstructuur voor tabel `boodschappen`
 --
 
+DROP TABLE IF EXISTS boodschappen;
+FLUSH TABLES boodschappen;
 CREATE TABLE `boodschappen` (
   `id` int(11) NOT NULL,
   `artikel_id` int(11) NOT NULL,
@@ -101,6 +105,8 @@ INSERT INTO `boodschappen` (`id`, `artikel_id`, `user_id`, `aantal`, `precies_aa
 -- Tabelstructuur voor tabel `gerecht`
 --
 
+DROP TABLE IF EXISTS gerecht;
+FLUSH TABLES gerecht;
 CREATE TABLE `gerecht` (
   `id` int(11) NOT NULL,
   `keuken_id` int(11) NOT NULL,
@@ -129,6 +135,8 @@ INSERT INTO `gerecht` (`id`, `keuken_id`, `type_id`, `user_id`, `datum_toegevoeg
 -- Tabelstructuur voor tabel `gerecht_info`
 --
 
+DROP TABLE IF EXISTS gerecht_info;
+FLUSH TABLES gerecht_info;
 CREATE TABLE `gerecht_info` (
   `id` int(11) NOT NULL,
   `record_type` varchar(1) NOT NULL,
@@ -245,6 +253,8 @@ INSERT INTO `gerecht_info` (`id`, `record_type`, `gerecht_id`, `user_id`, `datum
 -- Tabelstructuur voor tabel `ingredient`
 --
 
+DROP TABLE IF EXISTS ingredient;
+FLUSH TABLES ingredient;
 CREATE TABLE `ingredient` (
   `id` int(11) NOT NULL,
   `gerecht_id` int(11) NOT NULL,
@@ -285,6 +295,8 @@ INSERT INTO `ingredient` (`id`, `gerecht_id`, `artikel_id`, `aantal`) VALUES
 -- Tabelstructuur voor tabel `keuken_type`
 --
 
+DROP TABLE IF EXISTS keuken_type;
+FLUSH TABLES keuken_type;
 CREATE TABLE `keuken_type` (
   `id` int(11) NOT NULL,
   `record_type` varchar(1) NOT NULL,
@@ -312,6 +324,8 @@ INSERT INTO `keuken_type` (`id`, `record_type`, `omschrijving`) VALUES
 -- Tabelstructuur voor tabel `user`
 --
 
+DROP TABLE IF EXISTS user;
+FLUSH TABLES user;
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `user_name` varchar(30) NOT NULL,
